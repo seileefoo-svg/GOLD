@@ -326,6 +326,33 @@ body { overscroll-behavior-y: contain; }
 
 .mtf-legend { margin-top: 9px; font-size: 10.5px; line-height: 1.6; color: #5f6b80; }
 
+/* two-sided plans */
+.sides-block { margin-bottom: 16px; }
+.sides-block:last-child { margin-bottom: 0; }
+.sides-title {
+  font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .04em;
+  margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+}
+.sides-title span { font-weight: 400; color: var(--muted); font-size: 11px; }
+.side {
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
+  background: #0d121b;
+}
+.side.buy { border-left: 3px solid rgba(34,201,139,.75); }
+.side.sell { border-left: 3px solid rgba(240,87,95,.75); }
+.side.aligned { background: #101724; }
+.side.empty { color: var(--muted); font-size: 12px; }
+.side-h { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.side-t { font-size: 13px; font-weight: 700; }
+.side.buy .side-t { color: var(--green); }
+.side.sell .side-t { color: var(--red); }
+.side-h .ord { margin-left: auto; font-size: 10.5px; color: var(--muted); font-family: var(--mono); }
+.side-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 8px; }
+.side-grid i { font-style: normal; display: block; font-size: 9.5px; color: var(--muted); }
+.side-grid b { font-family: var(--mono); font-size: 12.5px; font-weight: 600; }
+.side-foot { margin-top: 8px; font-size: 10.5px; color: #93a1b8; font-family: var(--mono); }
+.side-note { margin-top: 3px; font-size: 10.5px; color: #6f7d94; }
+
 </style>
 </head>
 <body>
@@ -391,6 +418,11 @@ body { overscroll-behavior-y: contain; }
       <div class="card-body" id="plan"></div>
     </section>
   </div>
+
+  <section class="card">
+    <div class="card-head"><h2>双向方案</h2><span class="mini" id="sides-summary"></span></div>
+    <div class="card-body" id="sides"></div>
+  </section>
 
   <section class="card">
     <div class="card-head"><h2>多周期矩阵</h2><span class="mini" id="mtf-summary"></span></div>
@@ -953,8 +985,8 @@ body { overscroll-behavior-y: contain; }
     return stop;
   }
 
-  function trendSetup(d, ctx, levels, cfg) {
-    const h1 = ctx['1h'];
+  function trendSetup(d, c, levels, cfg) {
+    const h1 = c;
     const bars = h1.bars, atr = h1.atr, price = h1.price;
     const legs = zigzag(h1.swings, atr, 1);
     let leg = null;
@@ -1073,11 +1105,111 @@ body { overscroll-behavior-y: contain; }
     return null;
   }
 
-  function buildPlan(bias, ctx, levels, cfg) {
-    const price = ctx['1h'].price, atr = ctx['1h'].atr;
+  /* ---------------------------------------------------------- both sides */
+  function mergeZoneLists(a, b, atr) {
+    const all = a.concat(b).sort((x, y) => x.mid - y.mid);
+    const out = [];
+    all.forEach((z) => {
+      const m = out[out.length - 1];
+      if (m && z.lo <= m.hi + 0.2 * atr) {
+        m.hi = Math.max(m.hi, z.hi); m.lo = Math.min(m.lo, z.lo);
+        m.mid = (m.lo + m.hi) / 2;
+        m.strength = Math.max(m.strength, z.strength);
+        m.touches = Math.max(m.touches, z.touches);
+      } else out.push(Object.assign({}, z));
+    });
+    return out;
+  }
+
+  function rangeSide(d, lv, price, atr) {
+    const z = d === 1 ? (lv.near.support[0] || null) : (lv.near.resistance[0] || null);
+    if (!z || z.strength < 4) return null;
+    const dist = d === 1 ? (price - z.hi) / atr : (z.lo - price) / atr;
+    if (dist > 0.8 || dist < -0.25) return null;
+    const stop = d === 1 ? z.lo - 0.5 * atr : z.hi + 0.5 * atr;
+    return {
+      type: d === 1 ? '区间低吸' : '区间高抛', dir: d, status: 'READY', order: 'market',
+      entry: r2(price), entry_zone: band(z.lo, z.hi),
+      trigger: '价格 ' + fmtPrice(price) + ' 贴着' + (d === 1 ? '支撑' : '阻力') + '区 ' + fmtPrice(z.lo) + '-' + fmtPrice(z.hi) + '（强度 ' + z.strength + '，距 ' + dist.toFixed(2) + '×ATR）',
+      confluence: [(d === 1 ? '支撑区 ' : '阻力区 ') + fmtPrice(z.lo) + '-' + fmtPrice(z.hi), '强度 ' + z.strength + ' · ' + z.touches + ' 次触碰'],
+      stop: r2(stop),
+      stop_reason: (d === 1 ? '支撑区下沿 ' : '阻力区上沿 ') + fmtPrice(d === 1 ? z.lo : z.hi) + ' 外 0.5×ATR(' + atr.toFixed(2) + ')',
+      risk_ref: d === 1 ? z.lo : z.hi,
+    };
+  }
+
+  function waitingSide(d, c, cfg) {
+    const anchor = d === 1 ? Math.min(c.ema20, c.ema50) - 0.2 * c.atr : Math.max(c.ema20, c.ema50) + 0.2 * c.atr;
+    const stop = anchor - d * 1.2 * c.atr;
+    return {
+      type: '等待回踩', dir: d, status: 'WAIT', order: 'limit',
+      entry: r2(anchor), entry_zone: band(anchor - 0.3 * c.atr, anchor + 0.3 * c.atr),
+      trigger: '当前价格 ' + fmtPrice(c.price) + ' 不在' + (d === 1 ? '多头' : '空头') + '回踩带内，等回到 EMA20/50 附近再考虑',
+      confluence: ['EMA20 ' + fmtPrice(c.ema20) + ' / EMA50 ' + fmtPrice(c.ema50)],
+      stop: r2(stop), stop_reason: '回踩位下方 1.2×ATR(' + c.atr.toFixed(2) + ') 作为结构止损',
+      risk_ref: anchor,
+    };
+  }
+
+  function makeSide(d, c, lv, tlv, cfg, ctx, biasDir) {
+    let plan = trendSetup(d, c, lv, cfg);
+    if (!plan) plan = rangeSide(d, lv, c.price, c.atr);
+    if (!plan) plan = waitingSide(d, c, cfg);
+
+    const targets = buildTargets(d, plan.entry, plan.stop, c.atr, tlv, ctx);
+    plan.targets = targets;
+    plan.rr = targets.length >= 2 ? r2(targets[1].r) : 0;
+    plan.size = positionSize(cfg, plan.entry, plan.stop);
+    plan.aligned = biasDir === d;
+    plan.dir = d;
+
+    const recent = c.bars.slice(-30, -1);
+    const ext = d === 1 ? Math.max.apply(null, recent.map((b) => b.h)) : Math.min.apply(null, recent.map((b) => b.l));
+    if (plan.order === 'limit') {
+      plan.alt = {
+        type: d === 1 ? 'BUY_STOP' : 'SELL_STOP',
+        price: r2(ext + d * 0.1 * c.atr),
+        stop: r2(ext - d * 0.9 * c.atr),
+        note: '不回踩、直接' + (d === 1 ? '站上 ' : '跌破 ') + fmtPrice(ext) + ' 才追（突破单）',
+      };
+    } else {
+      const pull = d === 1 ? Math.min(c.ema20, c.ema50) : Math.max(c.ema20, c.ema50);
+      plan.alt = {
+        type: d === 1 ? 'BUY_LIMIT' : 'SELL_LIMIT',
+        price: r2(pull),
+        stop: r2(pull - d * 1.0 * c.atr),
+        note: '等回踩 EMA20/50 ' + fmtPrice(pull) + ' 再接（限价单）',
+      };
+    }
+    plan.mt5type = (d === 1 ? 'BUY' : 'SELL') + (plan.order === 'limit' ? '_LIMIT' : '');
+    return plan;
+  }
+
+  function buildSides(ctx, cfg, bias) {
+    const specs = [
+      { key: 'short', label: '短线', tf: '15m', targetTf: '1h' },
+      { key: 'long', label: '长线', tf: '4h', targetTf: '1d' },
+    ];
+    const out = {};
+    specs.forEach((sp) => {
+      const c = ctx[sp.tf], tgt = ctx[sp.targetTf];
+      if (!c || !tgt) return;
+      const lv = buildLevels(c, ctx['1d'], c.price);
+      const zones = mergeZoneLists(lv.zones, buildZones(tgt.swings, tgt.atr, tgt.bars), c.atr);
+      const tlv = Object.assign({}, lv, { zones });
+      out[sp.key] = {
+        key: sp.key, label: sp.label, tf: sp.tf.toUpperCase(),
+        buy: makeSide(1, c, lv, tlv, cfg, ctx, bias.direction),
+        sell: makeSide(-1, c, lv, tlv, cfg, ctx, bias.direction),
+      };
+    });
+    return out;
+  }
+
+  function buildPlan(bias, ctx, levels, cfg) {    const price = ctx['1h'].price, atr = ctx['1h'].atr;
     const d = bias.direction;
     let plan = null;
-    if (d !== 0) plan = trendSetup(d, ctx, levels, cfg);
+    if (d !== 0) plan = trendSetup(d, ctx['1h'], levels, cfg);
     if (!plan) plan = rangeSetup(ctx, levels, price, atr);
     if (!plan) {
       const near = levels.near;
@@ -1302,6 +1434,7 @@ body { overscroll-behavior-y: contain; }
     TF_LIST.forEach(({ key }) => {
       if (ctx[key]) charts[key] = miniChart(ctx[key], plan, key === '1h', key === '1h' ? cfg.chartBars : 90);
     });
+    const sides = buildSides(ctx, cfg, bias);
 
     return {
       generated_at: new Date(now).toISOString(),
@@ -1326,6 +1459,7 @@ body { overscroll-behavior-y: contain; }
       },
       risk: { stop: plan.stop, entry: plan.entry, targets, rr: plan.rr, size },
       management, ticket, mt5, evidence,
+      sides,
       levels: {
         support: levels.near.support.map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches, last_ts: fmtTs(z.lastT) })),
         resistance: levels.near.resistance.map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches, last_ts: fmtTs(z.lastT) })),
@@ -1641,6 +1775,7 @@ function render(p) {
   renderHero(p);
   renderTfTabs(p);
   renderPlan(p);
+  renderSides(p);
   renderMtf(p);
   renderEvidence(p);
   renderLevels(p);
@@ -1749,6 +1884,56 @@ function renderMtf(p) {
     '<thead><tr><th>周期</th><th>方向</th><th>结构</th><th>RSI</th><th>ADX</th><th>ATR</th><th>长均线</th></tr></thead>' +
     '<tbody>' + body + '</tbody></table></div>' +
     '<div class="mtf-legend">HH+HL 上升结构 · LH+LL 下降结构 · 扩张 高低点同时外扩/内收 · 长均线 为该周期可用的最长 EMA（不足 200 根时退回 100/50）</div>';
+}
+
+function sideCell(k, v) {
+  return '<div><i>' + k + '</i><b>' + v + '</b></div>';
+}
+
+function sideCard(s) {
+  if (!s) return '<div class="side empty">该方向暂无方案</div>';
+  const st = s.status === 'READY' ? '可执行' : s.status === 'PENDING' ? '挂单等' : s.status === 'WAIT' ? '等待' : s.status;
+  const tp = (i) => (s.targets[i] ? fmt2(s.targets[i].price) : '--');
+  return '<div class="side ' + (s.dir === 1 ? 'buy' : 'sell') + (s.aligned ? ' aligned' : '') + '">' +
+    '<div class="side-h">' +
+      '<span class="side-t">' + (s.dir === 1 ? '做多 BUY' : '做空 SELL') + '</span>' +
+      '<span class="tag ' + (s.aligned ? 'hot' : '') + '">' + (s.aligned ? '顺势' : '逆势') + '</span>' +
+      '<span class="ord">' + (s.order === 'limit' ? '限价' : '市价') + ' · ' + st + '</span>' +
+    '</div>' +
+    '<div class="side-grid">' +
+      sideCell('入场', fmt2(s.entry)) + sideCell('止损', fmt2(s.stop)) +
+      sideCell('TP1', tp(0)) + sideCell('TP2', tp(1)) + sideCell('TP3', tp(2)) +
+      sideCell('盈亏比', Number(s.rr || 0).toFixed(2) + 'R') +
+    '</div>' +
+    '<div class="side-foot">' + (s.size ? s.size.lots : '--') + ' 手 · MT5 ' + s.mt5type +
+      ' · 备选 ' + String(s.alt.type).replace('_', ' ') + ' ' + fmt2(s.alt.price) + '</div>' +
+    '<div class="side-note">' + esc(s.alt.note) + '</div>' +
+    '</div>';
+}
+
+function renderSides(p) {
+  const box = $('sides');
+  if (!box || !p.sides) return;
+  const parts = [];
+  ['short', 'long'].forEach((k) => {
+    const m = p.sides[k];
+    if (!m) return;
+    parts.push('<div class="sides-block"><div class="sides-title">' + m.label + ' · ' + m.tf +
+      '<span>' + (m.buy && m.buy.aligned ? '偏多' : m.sell && m.sell.aligned ? '偏空' : '中性') + '</span></div>' +
+      sideCard(m.buy) + sideCard(m.sell) + '</div>');
+  });
+  box.innerHTML = parts.join('');
+  const sum = $('sides-summary');
+  if (sum) {
+    const bits = [];
+    ['short', 'long'].forEach((k) => {
+      const m = p.sides[k];
+      if (!m) return;
+      const side = m.buy && m.buy.aligned ? '做多' : m.sell && m.sell.aligned ? '做空' : '中性';
+      bits.push(m.label + ' ' + m.tf + ' ' + side);
+    });
+    sum.textContent = bits.join(' · ');
+  }
 }
 
 function planRow(k, cls, val, sub) {
