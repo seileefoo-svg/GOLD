@@ -1780,7 +1780,7 @@ const fmtAxis = (t) => {
   return parts.month + '-' + parts.day + ' ' + parts.hour + ':' + parts.minute;
 };
 const fmtDT = (t) => new Date(t).toLocaleString('zh-CN',
-  { timeZone: 'Asia/Kuala_Lumpur', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
+  { timeZone: 'Asia/Kuala_Lumpur', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
 
 const ACTION_CLASS = { BUY: 'buy', SELL: 'sell', LIMIT_BUY: 'limit', LIMIT_SELL: 'limit', WAIT: 'wait' };
 const STATUS_CN = { READY: '可执行', PENDING: '等价格到位', WAIT: '不成立' };
@@ -2238,8 +2238,18 @@ function drawChart() {
 
   // time axis: step from the real label width so nothing overlaps on a phone
   g.font = '9.5px ' + MONO;
-  const labelW = g.measureText('00-00 00:00').width + 22;
+  const spanMs = new Date(bars[bars.length - 1].t) - new Date(bars[0].t);
+  const sample = spanMs > 45 * 864e5 ? '0000-00' : '0000-00 00:00';
+  const labelW = g.measureText(sample).width + 26;
   const labelStep = Math.max(1, Math.ceil(labelW / cw));
+  const pad2 = (n) => String(n).padStart(2, '0');
+  const axisText = (t) => {
+    const d = new Date(t);
+    const Y = d.getFullYear(), M = pad2(d.getMonth() + 1), D = pad2(d.getDate());
+    if (spanMs > 45 * 864e5) return Y + '-' + M;              // long range: year-month
+    if (spanMs > 2 * 864e5) return M + '-' + D;               // weeks: month-day
+    return M + '-' + D + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  };
   g.textAlign = 'center';
   let lastLabelX = -1e9;
   for (let i = 0; i < bars.length; i += labelStep) {
@@ -2249,7 +2259,7 @@ function drawChart() {
     g.strokeStyle = '#f2f4f7';
     g.beginPath(); g.moveTo(xx, pad.t); g.lineTo(xx, pad.t + ph); g.stroke();
     g.fillStyle = '#667085';
-    g.fillText(fmtAxis(bars[i].t), xx, H - 10);
+    g.fillText(axisText(bars[i].t), xx, H - 10);
   }
 
   // zones
