@@ -388,6 +388,11 @@ canvas { touch-action: none; }
 .gl-row b { flex: 0 0 68px; color: #344054; font-weight: 600; }
 .gl-row span { color: #667085; }
 
+.lang-btn { padding: 6px 10px; font-size: 11px; font-family: var(--mono); }
+
+.settings label span { display: block; }
+.chart-bar .chip-btn { white-space: nowrap; }
+
 </style>
 </head>
 <body>
@@ -396,7 +401,7 @@ canvas { touch-action: none; }
     <span class="dot" id="live-dot"></span>
     <div>
       <h1>GOLD SPOT</h1>
-      <p>XAU/USD · 手机独立运行</p>
+      <p data-i18n="brand">XAU/USD · 手机独立运行</p>
     </div>
   </div>
   <div class="quote">
@@ -405,25 +410,25 @@ canvas { touch-action: none; }
   </div>
   <div class="toolbar">
     <div class="clock" id="clock">--</div>
-    <button id="btn-settings" title="设置">⚙</button>
-    <button class="primary" id="refresh">刷新</button>
+    <button id="btn-settings" title="设置" data-i18n-title="settings">⚙</button><button id="btn-lang" class="lang-btn">EN</button>
+    <button class="primary" id="refresh" data-i18n="refresh">刷新</button>
   </div>
 </header>
 
 <main>
   <div id="install-hint" class="hint hidden">
-    <span>想当 App 用？点底部 <b>分享</b> → <b>添加到主屏幕</b>，之后全屏打开、没有地址栏。</span>
+    <span data-i18n="installHint">想当 App 用？点底部 <b>分享</b> → <b>添加到主屏幕</b>，之后全屏打开、没有地址栏。</span>
     <button id="hint-close" aria-label="关闭">×</button>
   </div>
 
   <div id="settings" class="settings hidden">
-    <label>账户 (USD)<input id="set-account" type="number" inputmode="decimal"></label>
-    <label>单笔风险 %<input id="set-risk" type="number" step="0.1" inputmode="decimal"></label>
-    <label>MT5 品种<input id="set-symbol" type="text" placeholder="XAUUSD"></label>
-    <label>MT5 现价（标定）<input id="set-price" type="number" step="0.01" inputmode="decimal" placeholder="可选"></label>
+    <label><span data-i18n="account">账户 (USD)</span><input id="set-account" type="number" inputmode="decimal"></label>
+    <label><span data-i18n="risk">单笔风险 %</span><input id="set-risk" type="number" step="0.1" inputmode="decimal"></label>
+    <label><span data-i18n="symbol">MT5 品种</span><input id="set-symbol" type="text" placeholder="XAUUSD"></label>
+    <label><span data-i18n="price">MT5 现价（标定）</span><input id="set-price" type="number" step="0.01" inputmode="decimal" placeholder="可选"></label>
     <div class="settings-actions">
       <span class="mini">填你 MT5 上的 XAUUSD 现价，所有点位会平移到你的平台报价</span>
-      <button class="primary" id="set-save">保存并刷新</button>
+      <button class="primary" id="set-save" data-i18n="save">保存并刷新</button>
     </div>
   </div>
 
@@ -432,7 +437,7 @@ canvas { touch-action: none; }
   <div class="row">
     <section class="card">
       <div class="card-head">
-        <h2>结构图</h2>
+        <h2 data-i18n="chart">结构图</h2>
         <div class="legend">
           <span><i style="background:#f0c75e"></i>EMA20</span>
           <span><i style="background:#5b8def"></i>EMA50</span>
@@ -447,53 +452,53 @@ canvas { touch-action: none; }
         <div class="tip" id="tip"></div>
       </div>
       <div class="chart-bar">
-        <button id="chart-first" class="chip-btn">⏮ 最早</button>
-        <button id="chart-last" class="chip-btn">⏭ 最新</button>
+        <button id="chart-first" class="chip-btn" data-i18n="first">⏮ 最早</button>
+        <button id="chart-last" class="chip-btn" data-i18n="last">⏭ 最新</button>
         <span id="chart-range" class="mini"></span>
       </div>
-      <div class="chart-hint">左右拖动看历史 · 双指/滚轮缩放 · 双击回到最新</div>
+      <div class="chart-hint" data-i18n="hint">左右拖动看历史 · 双指/滚轮缩放 · 双击回到最新</div>
     </section>
 
     <section class="card">
-      <div class="card-head"><h2>交易计划</h2></div>
+      <div class="card-head"><h2 data-i18n="plan">交易计划</h2></div>
       <div class="card-body" id="plan"></div>
     </section>
   </div>
 
   <section class="card">
-    <div class="card-head"><h2>双向方案</h2><span class="mini" id="sides-summary"></span></div>
+    <div class="card-head"><h2 data-i18n="sides">双向方案</h2><span class="mini" id="sides-summary"></span></div>
     <div class="card-body" id="sides"></div>
   </section>
 
   <section class="card">
-    <div class="card-head"><h2>专业分析</h2><span class="mini" id="pro-summary"></span></div>
+    <div class="card-head"><h2 data-i18n="pro">专业分析</h2><span class="mini" id="pro-summary"></span></div>
     <div class="card-body" id="pro"></div>
   </section>
 
   <section class="card">
-    <div class="card-head"><h2>多周期矩阵</h2><span class="mini" id="mtf-summary"></span></div>
+    <div class="card-head"><h2 data-i18n="mtf">多周期矩阵</h2><span class="mini" id="mtf-summary"></span></div>
     <div class="card-body" id="mtf"></div>
   </section>
 
   <div class="row-secondary">
     <section class="card">
-      <div class="card-head"><h2>打分依据</h2><span class="mini" id="score-total"></span></div>
+      <div class="card-head"><h2 data-i18n="evidence">打分依据</h2><span class="mini" id="score-total"></span></div>
       <div class="card-body" id="evidence"></div>
     </section>
 
     <section class="card">
-      <div class="card-head"><h2>关键价位</h2></div>
+      <div class="card-head"><h2 data-i18n="levels">关键价位</h2></div>
       <div class="card-body" id="levels"></div>
     </section>
   </div>
 
   <div class="row-secondary">
     <section class="card">
-      <div class="card-head"><h2>持仓管理</h2></div>
+      <div class="card-head"><h2 data-i18n="manage">持仓管理</h2></div>
       <div class="card-body" id="manage"></div>
     </section>
     <section class="card">
-      <div class="card-head"><h2>情景推演</h2></div>
+      <div class="card-head"><h2 data-i18n="scenarios">情景推演</h2></div>
       <div class="card-body" id="scenarios"></div>
     </section>
   </div>
@@ -1262,19 +1267,24 @@ canvas { touch-action: none; }
     const lastH = highs[highs.length - 1];
     const lastL = lows[lows.length - 1];
     if (!lastH || !lastL) return null;
-    let event = '区间内', dir = 0, detail = '';
+    let event = '区间内', dir = 0, detail = '', eventEn = 'Inside range', detailEn = '';
     if (price > lastH.price) {
       dir = 1;
       event = st.trend >= 0 ? 'BOS 向上突破' : 'CHoCH 转多';
+      eventEn = st.trend >= 0 ? 'BOS up' : 'CHoCH up';
       detail = 'H1 收盘 ' + fmtPrice(price) + ' 站上最近摆动高点 ' + fmtPrice(lastH.price) + '（' + fmtTs(lastH.t) + '）';
+      detailEn = 'H1 close ' + fmtPrice(price) + ' above swing high ' + fmtPrice(lastH.price) + ' (' + fmtTs(lastH.t) + ')';
     } else if (price < lastL.price) {
       dir = -1;
       event = st.trend <= 0 ? 'BOS 向下突破' : 'CHoCH 转空';
+      eventEn = st.trend <= 0 ? 'BOS down' : 'CHoCH down';
       detail = 'H1 收盘 ' + fmtPrice(price) + ' 跌破最近摆动低点 ' + fmtPrice(lastL.price) + '（' + fmtTs(lastL.t) + '）';
+      detailEn = 'H1 close ' + fmtPrice(price) + ' below swing low ' + fmtPrice(lastL.price) + ' (' + fmtTs(lastL.t) + ')';
     } else {
       detail = '价格仍在 ' + fmtPrice(lastL.price) + ' - ' + fmtPrice(lastH.price) + ' 之间，未出现结构突破';
+      detailEn = 'Price is still between ' + fmtPrice(lastL.price) + ' and ' + fmtPrice(lastH.price) + '; no structure break yet';
     }
-    return { event, dir, detail, lastHigh: r2(lastH.price), lastLow: r2(lastL.price) };
+    return { event, eventEn, dir, detail, detailEn, lastHigh: r2(lastH.price), lastLow: r2(lastL.price) };
   }
 
   function orderBlock(bars, atr) {
@@ -1292,10 +1302,12 @@ canvas { touch-action: none; }
         const dist = inside ? 0 : (price > hi ? price - hi : lo - price);
         if (dist > 6 * atr) return null;
         return {
-          type: up ? '看涨订单块' : '看跌订单块', dir: up ? 1 : -1,
+          type: up ? '看涨订单块' : '看跌订单块', typeEn: up ? 'Bullish OB' : 'Bearish OB', dir: up ? 1 : -1,
           lo: r2(lo), hi: r2(hi), inside, dist: r2(dist),
           detail: (up ? '上涨' : '下跌') + '启动前的最后一根反向 K 线，区间 ' + fmtPrice(lo) + '-' + fmtPrice(hi) +
             (inside ? '，价格正在块内' : '，距现价 ' + dist.toFixed(2) + '（' + (dist / atr).toFixed(2) + '×ATR）'),
+          detailEn: 'Last opposite candle before the ' + (up ? 'up' : 'down') + ' move, zone ' + fmtPrice(lo) + '-' + fmtPrice(hi) +
+            (inside ? ', price is inside' : ', ' + dist.toFixed(2) + ' away (' + (dist / atr).toFixed(2) + 'xATR)'),
         };
       }
     }
@@ -1323,6 +1335,8 @@ canvas { touch-action: none; }
       dir: g.dir, lo: r2(g.lo), hi: r2(g.hi), dist: r2(Math.abs(mid - price)),
       detail: (g.dir === 1 ? '看涨' : '看跌') + '失衡缺口 ' + fmtPrice(g.lo) + '-' + fmtPrice(g.hi) +
         '，形成于 ' + fmtTs(g.t) + '，现价距缺口 ' + (Math.abs(mid - price) / atr).toFixed(2) + '×ATR',
+      detailEn: (g.dir === 1 ? 'Bullish' : 'Bearish') + ' FVG ' + fmtPrice(g.lo) + '-' + fmtPrice(g.hi) +
+        ' formed ' + fmtTs(g.t) + ', ' + (Math.abs(mid - price) / atr).toFixed(2) + 'xATR away',
     };
   }
 
@@ -1332,13 +1346,14 @@ canvas { touch-action: none; }
     const lo = Math.min.apply(null, win.map((b) => b.l));
     const price = bars[bars.length - 1].c;
     const pos = hi > lo ? (price - lo) / (hi - lo) : 0.5;
-    let zone, dir = 0;
-    if (pos >= 0.65) { zone = '溢价区'; dir = -1; }
-    else if (pos <= 0.35) { zone = '折价区'; dir = 1; }
-    else zone = '均衡区';
+    let zone, zoneEn, dir = 0;
+    if (pos >= 0.65) { zone = '溢价区'; zoneEn = 'Premium'; dir = -1; }
+    else if (pos <= 0.35) { zone = '折价区'; zoneEn = 'Discount'; dir = 1; }
+    else { zone = '均衡区'; zoneEn = 'Equilibrium'; }
     return {
-      dir, zone, pos: Math.round(pos * 100), hi: r2(hi), lo: r2(lo),
+      dir, zone, zoneEn, pos: Math.round(pos * 100), hi: r2(hi), lo: r2(lo),
       detail: '近 50 根区间 ' + fmtPrice(lo) + '-' + fmtPrice(hi) + '，现价在 ' + Math.round(pos * 100) + '% 位置（' + zone + '）',
+      detailEn: '50-bar range ' + fmtPrice(lo) + '-' + fmtPrice(hi) + ', price at ' + Math.round(pos * 100) + '% (' + zoneEn + ')',
     };
   }
 
@@ -1350,10 +1365,12 @@ canvas { touch-action: none; }
       const hi = Math.max.apply(null, prior.map((x) => x.h));
       const lo = Math.min.apply(null, prior.map((x) => x.l));
       if (b.h > hi && b.c < hi && b.h - hi > 0.15 * atr) {
-        return { dir: -1, detail: '上影扫过前高 ' + fmtPrice(hi) + ' 后收回，属于流动性扫单（假突破）', level: r2(hi), t: b.t };
+        return { dir: -1, detail: '上影扫过前高 ' + fmtPrice(hi) + ' 后收回，属于流动性扫单（假突破）',
+          detailEn: 'Wick swept above ' + fmtPrice(hi) + ' and closed back inside (liquidity sweep)', level: r2(hi), t: b.t };
       }
       if (b.l < lo && b.c > lo && lo - b.l > 0.15 * atr) {
-        return { dir: 1, detail: '下影扫过前低 ' + fmtPrice(lo) + ' 后收回，属于流动性扫单（假跌破）', level: r2(lo), t: b.t };
+        return { dir: 1, detail: '下影扫过前低 ' + fmtPrice(lo) + ' 后收回，属于流动性扫单（假跌破）',
+          detailEn: 'Wick swept below ' + fmtPrice(lo) + ' and closed back inside (liquidity sweep)', level: r2(lo), t: b.t };
       }
     }
     return null;
@@ -1369,11 +1386,11 @@ canvas { touch-action: none; }
     const pd = premiumDiscount(c.bars);
     const sweep = liquiditySweep(c.bars, c.atr);
     const items = [
-      st && { key: '结构', title: '市场结构', value: st.event, dir: st.dir, rel: st.dir !== 0, detail: st.detail },
-      ob && { key: 'OB', title: '订单块', value: ob.type + (ob.inside ? ' · 价格在块内' : ''), dir: ob.dir, rel: ob.dist <= 2 * c.atr, detail: ob.detail },
-      gap && { key: 'FVG', title: '失衡缺口', value: gap.dir === 1 ? '看涨 FVG' : '看跌 FVG', dir: gap.dir, rel: gap.dist <= 2 * c.atr, detail: gap.detail },
-      { key: 'PD', title: '溢价 / 折价', value: pd.zone + ' ' + pd.pos + '%', dir: pd.dir, rel: pd.dir !== 0, detail: pd.detail },
-      sweep && { key: 'SWEEP', title: '流动性扫单', value: sweep.dir === 1 ? '扫低回收' : '扫高回落', dir: sweep.dir, rel: true, detail: sweep.detail + '（' + fmtTs(sweep.t) + '）' },
+      st && { key: '结构', title: '市场结构', titleEn: 'Market structure', value: st.event, valueEn: st.eventEn, dir: st.dir, rel: st.dir !== 0, detail: st.detail, detailEn: st.detailEn },
+      ob && { key: 'OB', title: '订单块', titleEn: 'Order block', value: ob.type + (ob.inside ? ' · 价格在块内' : ''), valueEn: ob.typeEn + (ob.inside ? ' · price inside' : ''), dir: ob.dir, rel: ob.dist <= 2 * c.atr, detail: ob.detail, detailEn: ob.detailEn },
+      gap && { key: 'FVG', title: '失衡缺口', titleEn: 'Fair value gap', value: gap.dir === 1 ? '看涨 FVG' : '看跌 FVG', valueEn: (gap.dir === 1 ? 'Bullish' : 'Bearish') + ' FVG', dir: gap.dir, rel: gap.dist <= 2 * c.atr, detail: gap.detail, detailEn: gap.detailEn },
+      { key: 'PD', title: '溢价 / 折价', titleEn: 'Premium / discount', value: pd.zone + ' ' + pd.pos + '%', valueEn: pd.zoneEn + ' ' + pd.pos + '%', dir: pd.dir, rel: pd.dir !== 0, detail: pd.detail, detailEn: pd.detailEn },
+      sweep && { key: 'SWEEP', title: '流动性扫单', titleEn: 'Liquidity sweep', value: sweep.dir === 1 ? '扫低回收' : '扫高回落', valueEn: sweep.dir === 1 ? 'Swept lows' : 'Swept highs', dir: sweep.dir, rel: true, detail: sweep.detail + '（' + fmtTs(sweep.t) + '）', detailEn: sweep.detailEn + ' (' + fmtTs(sweep.t) + ')' },
     ].filter(Boolean);
     const bull = items.filter((x) => x.rel && x.dir === 1).length;
     const bear = items.filter((x) => x.rel && x.dir === -1).length;
@@ -1382,13 +1399,14 @@ canvas { touch-action: none; }
       items, bull, bear,
       h4Trend,
       summary: '支撑 ' + bull + ' 项 / 阻力 ' + bear + ' 项' + (st ? ' · ' + st.event : ''),
+      summaryEn: bull + ' support / ' + bear + ' resistance' + (st ? ' · ' + st.eventEn : ''),
       glossary: [
-        { t: 'BOS', d: 'Break of Structure，顺势突破前一个摆动高/低点，代表趋势延续。' },
-        { t: 'CHoCH', d: 'Change of Character，逆势突破前一个摆动点，代表趋势可能转向。' },
-        { t: '订单块 OB', d: '启动一波行情前最后一根反向 K 线，机构挂单密集区，常被回踩。' },
-        { t: 'FVG', d: 'Fair Value Gap，三根 K 线之间的价格真空（失衡），价格常回来填补。' },
-        { t: '溢价/折价', d: '把区间分成 0-100%，上半部（>65%）偏贵适合卖，下半部（<35%）偏便宜适合买。' },
-        { t: '流动性扫单', d: '影线刺穿前高/前低后迅速收回，扫掉止损再反向走，通常是假突破。' },
+        { t: 'BOS', d: 'Break of Structure，顺势突破前一个摆动高/低点，代表趋势延续。', dEn: 'Break of Structure: price breaks the prior swing in the trend direction (continuation).' },
+        { t: 'CHoCH', d: 'Change of Character，逆势突破前一个摆动点，代表趋势可能转向。', dEn: 'Change of Character: price breaks the prior swing against the trend (possible reversal).' },
+        { t: '订单块 OB', d: '启动一波行情前最后一根反向 K 线，机构挂单密集区，常被回踩。', dEn: 'Order block: the last opposite candle before an impulsive move; often revisited.' },
+        { t: 'FVG', d: 'Fair Value Gap，三根 K 线之间的价格真空（失衡），价格常回来填补。', dEn: 'Fair value gap: a three-candle imbalance that price often comes back to fill.' },
+        { t: '溢价/折价', d: '把区间分成 0-100%，上半部（>65%）偏贵适合卖，下半部（<35%）偏便宜适合买。', dEn: 'Premium/discount: position inside the range; above 65% is expensive, below 35% is cheap.' },
+        { t: '流动性扫单', d: '影线刺穿前高/前低后迅速收回，扫掉止损再反向走，通常是假突破。', dEn: 'Liquidity sweep: a wick through a prior high/low that closes back inside (stop hunt).' },
       ],
     };
   }
@@ -2018,7 +2036,243 @@ async function load(force) {
 
 function actionClass(a) { return ACTION_CLASS[a] || 'wait'; }
 
+/* ------------------------------------------------------------- i18n */
+const LANG_KEY = 'gold-lang';
+let LANG = 'zh';
+try { LANG = localStorage.getItem(LANG_KEY) || 'zh'; } catch (e) { /* ignore */ }
+
+const STATIC_EN = {
+  chart: 'Chart', plan: 'Trade plan', sides: 'Both directions', pro: 'Pro analysis',
+  mtf: 'Multi-timeframe', evidence: 'Scoring', levels: 'Key levels',
+  manage: 'Position management', scenarios: 'Scenarios',
+  installHint: 'Add to Home Screen: tap Share → Add to Home Screen for a full-screen app.',
+  hint: 'Drag to browse history · pinch or wheel to zoom · double-tap to reset',
+  refresh: 'Refresh', first: '\u23ee Earliest', last: '\u23ed Latest', save: 'Save & reload', account: 'Account (USD)', risk: 'Risk %', symbol: 'MT5 symbol', price: 'MT5 price (calibrate)',
+  settings: 'Settings', brand: 'XAU/USD · runs on your phone',
+};
+const EN = {
+  action: { BUY: 'BUY', SELL: 'SELL', LIMIT_BUY: 'BUY LIMIT', LIMIT_SELL: 'SELL LIMIT', WAIT: 'WAIT' },
+  bias: { '强多头': 'Strong bull', '偏多': 'Bullish', '中性': 'Neutral', '偏空': 'Bearish', '强空头': 'Strong bear' },
+  status: { READY: 'ready', PENDING: 'pending', WAIT: 'waiting' },
+  type: { '趋势回踩': 'Pullback', '突破跟进': 'Breakout', '区间低吸': 'Range buy', '区间高抛': 'Range sell', '等待回踩': 'Waiting', '无有效形态': 'No setup' },
+  session: { '亚洲盘': 'Asia', '伦敦盘': 'London', '伦敦/纽约重叠': 'London/NY', '纽约盘': 'New York', '纽约尾盘': 'NY late' },
+  struct: {
+    '上升结构 (HH + HL)': 'Uptrend HH/HL', '下降结构 (LH + LL)': 'Downtrend LH/LL',
+    '扩张结构 (高低点同时外扩/内收)': 'Expansion', '偏多但结构不完整': 'Weak bull',
+    '偏空但结构不完整': 'Weak bear', '区间 / 数据不足': 'Range',
+  },
+};
+
+function applyStaticLang() {
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const k = el.getAttribute('data-i18n');
+    if (LANG === 'en') {
+      if (!el.getAttribute('data-zh')) el.setAttribute('data-zh', el.textContent);
+      el.textContent = STATIC_EN[k] || el.textContent;
+    } else if (el.getAttribute('data-zh')) {
+      el.textContent = el.getAttribute('data-zh');
+    }
+  });
+  const b = document.getElementById('btn-lang');
+  if (b) b.textContent = LANG === 'en' ? '中文' : 'EN';
+}
+
+function mt5Cell(k, v) {
+  return '<div><div class="k">' + k + '</div><div class="v">' + v + '</div></div>';
+}
+
+function renderEn(p) {
+  applyStaticLang();
+  const m = p.market, v = p.verdict, s = p.setup, r = p.risk, b = p.bias;
+  const num = (x, d = 2) => (x === null || x === undefined ? '--' : Number(x).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }));
+
+  const priceEl = $('price');
+  priceEl.textContent = num(m.price);
+  priceEl.className = 'price ' + ((m.change || 0) >= 0 ? 'up' : 'down');
+  $('quote-sub').textContent = 'Bid ' + num(m.bid) + ' / Ask ' + num(m.ask) + ' · Spread ' +
+    (m.spread == null ? '--' : String(m.spread)) + ' · ' + (EN.session[m.session] || m.session) +
+    ' · Today ' + (m.change >= 0 ? '+' : '') + num(m.change) + ' (' + (m.change_pct >= 0 ? '+' : '') + num(m.change_pct) + '%)';
+  $('live-dot').className = 'dot' + (p.data.stale ? ' stale' : '');
+
+  const conf = Math.round(v.confidence);
+  const color = conf >= 78 ? '#0e9f6e' : conf >= 62 ? '#b07d12' : conf >= 45 ? '#d97706' : '#667085';
+  const R = 52, C = 2 * Math.PI * R;
+  const dirWord = s.dir === 1 ? 'long' : s.dir === -1 ? 'short' : 'neutral';
+  const summary = (EN.bias[b.label] || b.label) + ' across ' + b.rows.length + ' timeframes (score ' +
+    (b.score >= 0 ? '+' : '') + b.score.toFixed(2) + '), H1 at ' + num(m.price) + ', ATR ' + num(m.atr) + '. ' +
+    (s.entry
+      ? (v.action === 'WAIT' ? 'Setup on hold' : (v.action.indexOf('LIMIT') === 0 ? 'Pending limit' : 'Market')) +
+        ' ' + dirWord + ': entry ' + num(s.entry) + ' (zone ' + num(s.entry_zone[0]) + '-' + num(s.entry_zone[1]) + '), stop ' +
+        num(s.stop) + ' (' + (Math.abs(s.entry - s.stop) / m.atr).toFixed(2) + 'xATR), targets ' +
+        r.targets.map((t) => num(t.price)).join(' / ') + ', TP2 ' + Number(r.rr).toFixed(2) + 'R.'
+      : 'No valid setup right now.')
+    + (v.blockers.length ? ' Blocked by ' + v.blockers.length + ' condition(s).' : '');
+  $('hero').innerHTML =
+    '<div class="badge ' + actionClass(v.action) + '">' + (EN.action[v.action] || v.action) + '</div>' +
+    '<div class="hero-mid"><div class="summary">' + esc(summary) + '</div>' +
+      '<div class="tags">' +
+        '<span class="tag">' + (EN.type[s.type] || s.type) + '</span>' +
+        '<span class="tag">' + (EN.status[s.status] || s.status) + '</span>' +
+        '<span class="tag">TP2 ' + Number(r.rr || 0).toFixed(2) + 'R</span>' +
+        '<span class="tag">ATR ' + num(m.atr) + '</span>' +
+        '<span class="tag">' + b.counts.long + ' bull / ' + b.counts.short + ' bear</span>' +
+        '<span class="tag">' + Math.round((b.alignment || 0) * 100) + '% aligned</span>' +
+      '</div></div>' +
+    '<div class="gauge"><div class="ring"><svg width="112" height="112" viewBox="0 0 120 120">' +
+      '<circle class="ring-bg" cx="60" cy="60" r="' + R + '"></circle>' +
+      '<circle class="ring-fg" cx="60" cy="60" r="' + R + '" stroke="' + color + '" stroke-dasharray="' + C +
+      '" stroke-dashoffset="' + (C * (1 - conf / 100)) + '"></circle></svg><div class="num">' + conf + '</div></div>' +
+      '<div class="gauge-label">confidence ' + conf + '/100 · ' + v.grade + '</div></div>';
+
+  const box = $('plan');
+  if (!s.entry) {
+    box.innerHTML = '<div class="empty-note">No tradeable setup right now. Wait for price to reach a structure level.</div>';
+  } else {
+    const typeEn = EN.type[s.type] || s.type;
+    let html = '';
+    html += '<div class="plan-row"><div><div class="k">Entry · ' + (s.order === 'limit' ? 'limit' : 'market') + '</div>' +
+      '<div class="why">zone ' + num(s.entry_zone[0]) + ' – ' + num(s.entry_zone[1]) + '</div></div>' +
+      '<div class="v entry">' + num(s.entry) + '</div></div>';
+    html += '<div class="plan-row"><div><div class="k">Stop</div><div class="why">' +
+      (Math.abs(s.entry - s.stop) / m.atr).toFixed(2) + 'xATR · ' + num(Math.abs(s.entry - s.stop)) + ' away</div></div>' +
+      '<div class="v stop">' + num(s.stop) + '</div></div>';
+    r.targets.forEach((t, i) => {
+      html += '<div class="plan-row"><div><div class="k">TP' + (i + 1) + ' · close ' + t.close_pct + '%</div>' +
+        '<div class="why">' + typeEn + ' target</div></div>' +
+        '<div class="v tp">' + num(t.price) + '<span class="v r">' + Number(t.r).toFixed(2) + 'R</span></div></div>';
+    });
+    const z = r.size || {};
+    html += '<div class="size-box">' +
+      '<div><div class="k">Lots</div><div class="v">' + z.lots + '</div></div>' +
+      '<div><div class="k">Risk</div><div class="v">$' + num(z.actual_risk, 0) + '</div></div>' +
+      '<div><div class="k">Notional</div><div class="v">$' + num(z.notional, 0) + '</div></div>' +
+      '<div><div class="k">R:R</div><div class="v">' + Number(r.rr).toFixed(2) + 'R</div></div></div>';
+    if (p.mt5) {
+      const t5 = p.mt5;
+      html += '<div class="mt5"><div class="mt5-head"><span>MT5 order</span><em>' + esc(t5.symbol) + '</em>' +
+        '<button data-copy="mt5-line">Copy</button></div>' +
+        '<div class="mt5-grid">' + mt5Cell('Type', t5.type) + mt5Cell('Lots', t5.volume) +
+        mt5Cell('Price', num(t5.price)) + mt5Cell('Stop', num(t5.sl)) + mt5Cell('TP1', num(t5.tp)) +
+        mt5Cell('Deviation', t5.deviation + ' pts') + '</div>' +
+        '<div class="mt5-line" id="mt5-line">' + t5.type + ' ' + t5.symbol + ' ' + t5.volume + ' @ ' + num(t5.price) +
+        ' SL ' + num(t5.sl) + ' TP ' + num(t5.tp) + '</div>' +
+        '<ol class="mt5-steps">' +
+        '<li>MT5 → symbol ' + esc(t5.symbol) + ' → New order</li>' +
+        '<li>' + t5.type.replace('_', ' ') + ', ' + t5.volume + ' lots at ' + num(t5.price) + '</li>' +
+        '<li>Stop ' + num(t5.sl) + ', TP ' + num(t5.tp) + '</li>' +
+        '<li>' + (t5.pending ? 'GTC — cancel if unfilled' : 'Market execution') + '</li>' +
+        '<li>After fill: 40% at TP1, stop to entry, 35% at TP2, 25% at TP3 ' + num(t5.tp3) + '</li>' +
+        '</ol></div>';
+    }
+    box.innerHTML = html;
+  }
+
+  const sb = $('sides');
+  if (sb && p.sides) {
+    const card = (side) => {
+      if (!side) return '';
+      const tp = (i) => (side.targets[i] ? num(side.targets[i].price) : '--');
+      return '<div class="side ' + (side.dir === 1 ? 'buy' : 'sell') + (side.aligned ? ' aligned' : '') + '">' +
+        '<div class="side-h"><span class="side-t">' + (side.dir === 1 ? 'BUY' : 'SELL') + '</span>' +
+        '<span class="tag ' + (side.aligned ? 'hot' : '') + '">' + (side.aligned ? 'with trend' : 'counter') + '</span>' +
+        '<span class="ord">' + (side.order === 'limit' ? 'limit' : 'market') + ' · ' + (EN.status[side.status] || side.status) + '</span></div>' +
+        '<div class="side-grid">' + sideCell('Entry', num(side.entry)) + sideCell('Stop', num(side.stop)) +
+        sideCell('TP1', tp(0)) + sideCell('TP2', tp(1)) + sideCell('TP3', tp(2)) +
+        sideCell('R:R', Number(side.rr || 0).toFixed(2) + 'R') + '</div>' +
+        '<div class="side-foot">' + (side.size ? side.size.lots : '--') + ' lots · MT5 ' + side.mt5type +
+        ' · alt ' + String(side.alt.type).replace('_', ' ') + ' ' + num(side.alt.price) + '</div></div>';
+    };
+    let html = '';
+    ['short', 'long'].forEach((k) => {
+      const blk = p.sides[k];
+      if (!blk) return;
+      const biasWord = blk.buy && blk.buy.aligned ? 'bullish' : blk.sell && blk.sell.aligned ? 'bearish' : 'neutral';
+      html += '<div class="sides-block"><div class="sides-title">' + (k === 'short' ? 'Short term' : 'Long term') +
+        ' · ' + blk.tf + '<span>' + biasWord + '</span></div>' + card(blk.buy) + card(blk.sell) + '</div>';
+    });
+    sb.innerHTML = html;
+    const sum = $('sides-summary');
+    if (sum) sum.textContent = '';
+  }
+
+  const pb = $('pro');
+  if (pb && p.pro) {
+    pb.innerHTML = p.pro.items.map((it) => {
+      const cls = it.dir === 1 ? 'up' : it.dir === -1 ? 'down' : 'flat';
+      return '<div class="pro-row ' + cls + '"><div class="pro-k">' + (it.titleEn || it.title) + '<span>' + it.key + '</span></div>' +
+        '<div class="pro-v">' + esc(it.valueEn || it.value) + '</div>' +
+        '<div class="pro-d">' + esc(it.detailEn || it.detail) + '</div></div>';
+    }).join('');
+    const ps = $('pro-summary');
+    if (ps) ps.textContent = (p.pro.summaryEn || '') + ' · H4 ' + (EN.bias[p.pro.h4Trend] || p.pro.h4Trend);
+  }
+
+  const mb = $('mtf');
+  if (mb && b.rows) {
+    mb.innerHTML = '<div class="mtf-wrap"><table class="mtf-table"><thead><tr><th>TF</th><th>Bias</th><th>Structure</th><th>RSI</th><th>ADX</th><th>ATR</th><th>EMA</th></tr></thead><tbody>' +
+      b.rows.map((row) => {
+        const cls = row.score >= 0.5 ? 'up' : row.score <= -0.5 ? 'down' : 'flat';
+        return '<tr><td class="tf">' + row.tf + '</td>' +
+          '<td class="dir ' + cls + '">' + (row.score >= 0 ? '+' : '') + row.score.toFixed(1) + ' <span>' + (EN.bias[row.label] || row.label) + '</span></td>' +
+          '<td class="st">' + (EN.struct[row.structure] || row.structure) + '</td>' +
+          '<td class="num">' + row.rsi.toFixed(0) + '</td><td class="num">' + row.adx.toFixed(0) + '</td>' +
+          '<td class="num">' + row.atr.toFixed(1) + '</td><td class="num">' + (row.emaLen || '—') + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+    const ms = $('mtf-summary');
+    if (ms) ms.textContent = b.counts.long + ' bull / ' + b.counts.short + ' bear / ' + b.counts.neutral + ' neutral · ' + Math.round((b.alignment || 0) * 100) + '% aligned';
+  }
+
+  const eb = $('evidence');
+  if (eb && p.evidence) {
+    const groups = {};
+    p.evidence.forEach((e) => {
+      groups[e.group] = groups[e.group] || { pts: 0, max: 0 };
+      groups[e.group].pts += e.points;
+      groups[e.group].max += e.max;
+    });
+    const gmap = { '趋势': 'Trend', '位置': 'Location', '触发': 'Trigger', '动量': 'Momentum', '空间': 'Room', '盈亏比': 'R:R', '数据': 'Data' };
+    eb.innerHTML = '<table><thead><tr><th>Group</th><th style="text-align:right">Score</th></tr></thead><tbody>' +
+      Object.keys(groups).map((k) => '<tr><td>' + (gmap[k] || k) + '</td><td class="score">' +
+        groups[k].pts.toFixed(1) + ' / ' + groups[k].max + '</td></tr>').join('') + '</tbody></table>';
+    const st = $('score-total');
+    if (st) st.textContent = v.confidence.toFixed(0) + ' / 100';
+  }
+
+  const lb = $('levels');
+  if (lb) {
+    const res = (p.levels.resistance || []).map((z) => '<div class="lv-row res"><span>' + num(z.lo) + ' – ' + num(z.hi) + '</span><span class="meta">' + z.touches + ' touches</span></div>').join('');
+    const sup = (p.levels.support || []).map((z) => '<div class="lv-row sup"><span>' + num(z.lo) + ' – ' + num(z.hi) + '</span><span class="meta">' + z.touches + ' touches</span></div>').join('');
+    lb.innerHTML = '<div class="lv-grid"><div class="lv-col"><h3>Resistance</h3>' + (res || '<div class="mini">none</div>') + '</div>' +
+      '<div class="lv-col"><h3>Support</h3>' + (sup || '<div class="mini">none</div>') + '</div></div>' +
+      '<div class="mini" style="margin-top:10px">PDH ' + num(p.levels.pdh) + ' · PDL ' + num(p.levels.pdl) + '</div>';
+  }
+
+  const mg = $('manage');
+  if (mg) {
+    const items = r.targets.map((t, i) => '<li>TP' + (i + 1) + ' ' + num(t.price) + ' (' + Number(t.r).toFixed(2) + 'R): close ' + t.close_pct + '%' + (i === 0 ? ', move stop to entry' : '') + '</li>').join('');
+    mg.innerHTML = items ? '<ul class="clean">' + items + '</ul>' : '<div class="mini">no position</div>';
+  }
+  const scb = $('scenarios');
+  if (scb) {
+    const res = p.levels.resistance[0], sup = p.levels.support[0];
+    scb.innerHTML = '<div class="scen">' +
+      '<div><b>Bull</b> break above ' + (res ? num(res.lo) : '--') + ' → continuation higher</div>' +
+      '<div><b>Bear</b> break below ' + (sup ? num(sup.hi) : '--') + ' → continuation lower</div>' +
+      '<div><b>Range</b> stay between ' + (sup ? num(sup.hi) : '--') + ' and ' + (res ? num(res.lo) : '--') + '</div></div>';
+  }
+
+  const fb = $('foot');
+  if (fb) {
+    fb.innerHTML = '<span class="src">Data ' + esc(p.data.source || '') + ' · MT5 offset ' +
+      (p.data.basis >= 0 ? '+' : '') + Number(p.data.basis || 0).toFixed(2) + ' · last bar ' + esc(p.data.last_ts) +
+      ' · generated ' + esc(p.generated_local) + ' MYT</span><br>Rule-based technical analysis, not investment advice.';
+  }
+}
+
 function render(p) {
+  if (LANG === 'en') { renderEn(p); drawChart(); return; }
+  applyStaticLang();
+
   renderHeader(p);
   renderHero(p);
   renderTfTabs(p);
@@ -2372,7 +2626,9 @@ function drawChart() {
   if (rangeEl) {
     const d0 = new Date(bars[0].t), d1 = new Date(bars[bars.length - 1].t);
     const f = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-    rangeEl.textContent = f(d0) + ' → ' + f(d1) + '（' + count + ' 根 / 共 ' + total + '）';
+    rangeEl.textContent = f(d0) + ' → ' + f(d1) + (LANG === 'en'
+      ? '  (' + count + ' / ' + total + ' bars)'
+      : '（' + count + ' 根 / 共 ' + total + '）');
   }
   const firstBtn = $('chart-first'), lastBtn = $('chart-last');
   if (firstBtn) firstBtn.disabled = offset >= total - count;
