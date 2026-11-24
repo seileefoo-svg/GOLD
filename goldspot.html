@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GOLD SPOT · 手机版</title>
+<meta name="theme-color" content="#0a0d13">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GOLD">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAmEklEQVR42u3deXyU133v8TPSaLTvK0KAhFglhJBA7EhsZkcCDLZbx3GcJmn6uk6vm7ZJfG+d2jdOfW+Sm7ROb5yl6b2N6954wTa22VdjhBCLBGIREohFbFrRvs/SP4SHh9GCNM+Z9fm8X/rDyNKM5plzft9zzvM8Z3RRCZMEAEB79BaLhaMAABrkwyEAAAIAAEAAAAAIAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAAgAAAABAAAgAAAABAAAgAAAABAAAAACAABAAAAACAAAAAEAACAAAAAEAACAAAAADdMLYeEoAAAzAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAAgAAAABAAAQ7rEVBDtBAAAzAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAAgAAID70XMjMAAwAwAAEAAAAAIAAEAAAACEF20HzX7QAMAMAABAAAAACAAAAAEAACAAAAAEAACAAAAAEAAAAAIAAEAAAAAIAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAMSoPxIS8DaXP1gi/TGnbf2CAwsvo4uIS+EogCpPNoAAAKj1pAK0EwCxBADcrNxvX+KVr2vak0QCCABAM0WfMAABAGi94pMHcM8ASOYowFlFP5eDMIIwOMpBAAEA6j5JABAAoO6TBAABAOo+SQAQAKDukwQAAQDqPkkAEACg7pMEAAEASj8xABAAoO6TBAABAEo/MQAQAKD0EwMgAADvKv1yqx4HBAQAqPsUNQ4aCABQ+ilbHE8QAKD0U6E4yCAAQGGiGHHY4TkBEE4AaFKFe9SgqZqvPrwRIACgrYpDueF9AQEADZUYigvvFAgAaKugUE1440AAQFtFhPLBmwgCANqqGpQM3lMQAKBMgPcXBAC8ujpQF3ivQQCAcgDedxAA8PYqQAmgAXC0vSYAJnAUPL/n5zml23/OoaY90B4IAGirt9PVaRg0DAIAmuvk9HBaCC2EAAAdG7QWWgsBAG/vz3Rmmg3NhgCA5roxfZj2Q/shAMAIDjQkGpIWAiCGAPCQTvuhwwZuW+ixtChaFAEAjfVVOipoWgQAGKaBNkYbIwDA6Aw0NhobAQDv65D0RtDqYOXDIaAfAg5tJI5bYgIzAKo/pR80QjADoOPR8eCuzYZ5ADMAUPpBs6RZMgMA3QxMBUAAgOoPMgCCJSCqP6UftFUwA6BH0aPgzVMB5gEEANWf6g8yAIIlIKo/pR80YDADoPPQeaCZqQDzAAKA6k/1BxkAAoDqT/UHGQDhjHMA4zkKTqz+SyX1uiMcTNC2wQyAHgK4w1TgiFt1ExAAVH+ADAABQPUHyAAQAFR/gAwAAaC5TgXQXEEAeNLwn+4EbWYAkwACgOpP9QcZAAKA6g+QASAAqP4AGQACgOoPkAEgAKj+ABmAEdNbOAZuZgrVH17asCtVV3DqFTMA96W+fVP9weDGoV0MBADVHyADQABQ/QEygAAA6/4ADZ4AgFPHI3QGkAFMAggAqj9ABpABzqPnuipVTfAj1U2Q4w+oyIApmxlCMQPw0BEQbRd0ARAAGhz+0/QB9R1BwiycAADVHyADCABQ/QEygAAAABAAYPgPMAnwMrqw6HEchdE0smXqmvhhjiFAF2MGoMEBDk0ToJsQAJocmwCgkxIAzEwBOKqzkAEEALNagC4DAsDVw3+aMuDkjsMkgAAAABAADP8BJgEgAKj+ABkAAgAACAAw/AeYBBAA4CI2gA5FADD8Z+wA0JEJADBaAehWBACjBgB0ZwIAjFMAOhcBwHiBBgq4cQYwCSAAaCgAXRsEAPNTgI5GAHAIGCMAdHBt0nMIGJVI8fX8pFe/NVn6w761vfqN/1tFA4NNd6OUMwPg3K8beXJ5giMetiAvXqfj6IKzwQQA3NWkcUEZk0Id8ciJMf7z0iM4wgABwOKPm9rqmOF/v03L4jnCoOsRAIKzQ25IpxObljkwANYvivPT01BBZxeOOAls4SioGIMc4iAsyIhMjPF33OOHh+iXz4nae6KeQ42BHbDyo+V2/Sp1jxnAwxHBcg6CcLPTv0qbWQUCXZ4AYPjvbgIMPmsXxTn6WVbkxIQGc8ky6IYEAGMBd7J6QWxIoK+jn8Xf4LNuYSxHG3R8IfkcAEth9o07NjHuEMIp6z/9Ni9NeHffPQ44Bu2MlR8v50QAM4DRjwI+ZhRgv5gIw5KsKOc81/yZEQnR/hxz0P0JAIb/bmHT0nhfHyfdp+uj0+XncSoYdEmZ9KwAMXG025Mrxjg5b37zYTWHHfRlZgASXGH9R82Ya0Jw+sQQZz7jjNTQSeOCOfKgCBAALjOZyaYQwsHbPwxlCzcEgI5JAJD8Lm43Ot3mZS4IgM1LE9gcFJQCAoBRhistyox0yTU5SfEBc6aHc/xB9yQA4DJbXLH+Y50EcPwBAsDZkz7GF/0C/X3Xuu6+3A25cXo9y0CQ2Uk1uwrEDACjtnZhbLCK7R/+6ueX1Dx7ZKjf0uxo3gWAAIDwrO0funpMJy40CzYHBQgAwfqPp4mLMiyaFWn3r9+p76lp7DFbVN1/s2q+M3agg2AViAAAbM7Bqtn+4Up1h9FouVPXLdTtQb2GzUEBAoDLy4RHbf9ZebNDCHGlupNrgUCHJQAEN314kOkpIdNTVG3/cLayVQhRcbNd5V+yaFZkTISBdwQUBwIAwiO2f7BYxOnyFmsMqOHroytgc1CAAGA66bTtHwqWqqq55Tfam9v6hBAll1uFhLMRBADotgQAUzynWJwVGR+lavuHgycb+v+jprGn6rba0wCZU8Imjg3ifQElggCAcP9Pfzx0qtH630fONEqYBHBDAEAAMJF0tOBA3zULVF15Wd/Uq1z52V/coP6v2pTHtUCg8woVHwrP5A5iRNs/BAWouvdqT1G98v6v4gvNTW19kaF+ah4zOTEwa2pYaUWr047DkllR//HjWeof57kfnpMyB7IqfWex+sui3j9477s/LxeaXwXSTnLo+XxDwWfGCWds/7n7eJ3yYBpNlgPFDdtWjlG/ClRa0eKB7cHirk2LBq+hg8AS0PBTyIMcBCFEQrT/osxINY/Q2mEsOt80WCSotXFJvN6XzUFBFyYAhpvWreDNVjHKTvBR90Fc+4sbjEbbUdXR0vud3SaVf1tMhGHxrCjeI1AuCAAI97z+Z89gg/2eXvPh01KuBeJUMEAAwAFmpIZOnaBq+4euHtNQJzz3FNWr/wvXLFB7ghogACBYPRQOOP175Exjd6950P918FRDn9Gs8vGDAnxXzWdzUNCRCQDBCQCZfH106q+133N8yGF+W4fxeFmT4IOCQdEgAOBucrOjYiNVXV1uNFoOnBzunq/dhfVS/s7ocDYHBQgApo1C4ulftdfpF5bdb+0wDvMDe0/Uq/yAMCGE3le3YUkc7xfozgQA5AgJ9F01P0Y4bP2nX0Nz75nyFq4FAggAuJG1i+IC/VVdXWO2WEZync/u4xJWgWZPCx+fEMi7BhAAgjPA6m1doXb950x5S0Nzr/pZApMAUDoIAMGKodMkxgbMz4gQavf/GVFlv1Xbdel6u+BaINCpCQC4g81L1W7/MKqh/R4Z+wKlJgVlTArlvQMIAAjXbv9w8VrbrdouuXMFVoEAqQFgEV78ZecqnkXrXxmpoZPHB6td/ymsH/kzXr7efvNel/oGXZAb7yN0Djw4Qupu0O72h3l3wxZ2nQbw6mPCDACDDf9Vn/6149SulFPBcVH+i2ZF8g4CLAHZY3KB1k8W6X11BXlqP2v3+t3Oipvto//EGMGpYNC1CQC4TN7saPUfLmjHBg8ll1vq7vcICbcvxAYYaNgAAQDhgtO/wq6reiwWsfeEhE+KDwnSPzGPzUEBAgB2VE/VWyvXNPacrWx1TmwIrgUCCICBruzgHuBR27AkTv36yZ7j9fZt73a8rGn4neNGaNmc6IhQP95NUEaYAQhOEwm3X/8R1r2jiyWsAun1bA4KOjgBgNEYGxswb4baayibWvtOnG+2PzyK6rkWCCAA4GxbViSo3v1BHChuMJntvzHpyOkhPz9yVHLSI5LiAnhPgeEDgDv/BDcB93+p//gX8eByfvv/hq4e4+dDfIL8qOh0omBpvHDfu4G1c48yZcF9v5gB4IHMKWGpSUEqH6Sjy3S0tNFVpxC4FghgCQjCJbv/CyEOn27oUb2As7+4wWiSMKSdOiEkbSKbgwJDB4C3zm2u7FjJTG/kX756XX5egpT1H/V/THN7X1FZk5T2vWlpgkUzu66xAOSgo3Rlx0pvPRrMAB6aVHBAs6992eyYqDC1F873Gc2HTjVK+Xv2FNXJCgD1n2oAujlLQGD95zG+KL3f1mkUcgLAzlvJbIyJ8Z+n+nPNAAIAXissWP/EvBhJ1//IUdvYU1rRIuWhtnAqGCAAIIbc/iHe4Ke2JZjMln0ytnKTfi3Q+sUSXh1AAECw/jOUUxebG1t6Jf5Vsj4kMixYv2JuDO8yMJCeQ6Bx4xMCc9IkrJLPz4i8vWule77GLUsTdhfW8V4DzABgu0Tu9ZfJrJgbExbMWAcgAGATADK2f3BzBj+f9YvZHBTQRgBc3bGSt3YksqeFTxwbpIVXunnZGN5uUFKYAQhuDxEPd//XSlmcnxGREO1POwf3ghEAEEIIvV6XnxuvlYau023iEwIAAgD9VubERIb5aep0N286QABACC2t//RLmxg6ZUIw7ztAAGhdeIifBm+P2sKpYIAAQH6uFjdI2LTUa2960Puw6SkIAIzMkyu0OBZOiguQctuzen56yV0vLIQ73UAAQIxo+4c508O1+dpVfk6kRdIHr/gbZHa90CC9LzMAEAAQztr9zUNtXBKv1+tUfOiNnASICNVLPaPD8B8EAATX/zy28votn2P/2e/ePrOUPyMuUuZdaZPGcXUTCACMwJzp4RPGBGr5CKhZBeozygmAZKlvQfa0cBo2CABw+vfxnpgXGxLoa9/vdvfKCYBpySESX9FsAgAEAMQILj7ZuCRe4wchwOCzdpGdm4Pel/ShN1OTQ+wOITHgDHBOOp97DGHXB8LIuqzB02njOKycGx0R6se7vXlpwvv779rxi02tvSazRf0lN74+uiVZUVI+pmbbyjFBAb6yugEFQVMlgosHBOs/9jlQXF9Z3eHMP35acsjyHDl3Ly+aFRUbaahv6rWjCDS19sVEGNT/DQV5cj6n7PkNSTRsEAAQj70AZkWOtO0fXnmr4lZtlzP//uTEIFkB4OujK8hL+JePq+343bv13VICYM2CuIRo/5rGHjUP8pV1SalJXAIEwTkAPH7IKesG1PNXW51c/YUQN+52ll9vF67+KLRrdzplbcf918+lCnU39L3yjSk0bBAAEM5c/3HVZ6zvOlYr66FmTg6zb+x87ba0ha9nVo3NzY4W9t5L/ObfzggO9KVhgwDAY6SMDZJ4tbirAmCn1Oe174aAK7ekBYBOJ371g4wp40edQ4H+vv/ySuacNC7+AQEA5979e+VWh8QiOCqVN9ur5A3A7VsFKr3cIqSemNn+05xFmVEj/5XUpOAPfzZn2ZwYWjUIAIxopLllucev/4gHq0B1EjfFs2NWdLuuW+WZWxuRYX5/fGP2T19KGxf/mNuDYyMN/+3rk/f9n/kZk8Jo1RBcBYSRmJseOT4h0EsCoLDuO8+kCGmrQGNKRj+iP3mxKT83QW5C/8nqsU+vSiw+3/x5SeOFqtbbtd1tnUaz2RIcqE+KC0ibGLokK2pJVrTel10/QQBAuOb0763arvNXW134Ws5fba2u6ZKVZ/l58a/9tsJoGt09PodONsgNAOsn1y+YGblgZiQtFoIlIEhh8PPZIG/7B9cO/6X/DdHhBjuuw9l3ot5o5I5ZEAAQHrD3WViw3psCYFdhrXDpBwW3dhgLz92naYEAgLvbulLa+k/d/Z4z5S0uf0Ull1sknoZdtSDWjr103t55m6YFAsBLXP3kCa98XVFhfstmS7tecE9RvdkNtsSyWGRORIICfFcviLNjFcj590IPpfhCU0eXiV6s8c5OADwwKX8/b22/gqUJaj4BUdiu/9S6yeuSvAq0fNRndM0Wy28/vOkOh6K+qfdbr5d1dhMAlBQCAMLm438TZT1Uc1tfUVmTm7yukxeaG5p7ZT3akqxoO/Z3e3vXbVn7AqmZDL30swuNLb00dRAAEDa3jGZOkXbH0L4T9aO9XNJxTGbLvhP1sh5N76vbmDvqC6WMRsuPflfp2uPw6+03Pi9ppKmDAIBw6Kc/usP1P0o7j8ldBbLnWO0vrn/Prg+WEZJuin7jX6/SzkEAQDh0+4f2LqO7jTQLz91vae+T9WhZU8Mn2PVB7a+8ddklC0HFF5pe/Ml5Mx/gBQIAA82bEZkUFyDr0Q6daujtM7vVCzQaLfuLG1x7Q4AQoqPL9NUfltrx4WJqlFa0vPDqWXd7R0AAQLD+Izzw4wGEEJvtnTDduNv57N+VSJyOiMdcjFu37XunWzuMNHIQABCDflrIhsXStn/o6TUfOtXghi/z85JGide/TxwbNHOynefML11r2/jSyeuOXwv6/cfV3/pRWXcvY38QAILbQwa3en5cqLztH+TWWYl6es0HT9ULV58KFl9+VOSGl046bqp0r6H7K6+U/P1vKlj3p5tLCwCLEF75lWrXjRte8/Llrv/sKqxz21e685jMgpufl+Djo7P7j2lu7/vG6+e++fo5uR8YYDRZ3tlzZ9m3iw6fbhzqqWWxePuXHVLz93vr0WA7aC8UHW7Imx0tsfpIvOJeukOnGrp7zQEGOXPZuEjD4llRKq932lVYd+Bkw9OrEv9ia/IEddtWG42W9w7c/eW716trumjYkE4XHDHGW19b1ejneqnsIQGp+/vPy4goyE1YvSA2LspfjGafiVMXmz/7ovazY3V193s4kpQF4bAPhGE90WYGDMhhtliKyu4Xld3/wT+LCWOCctIi0lJCxiUEjosPjIkwBAX4Bvr7+vrq2juNrR3Gtg7jzZqui1VtF6+1llxukbjRBSgLfCIY4Eo373XevNfJcQBXAQEACADhbuuDqzgIAB2cAPB4qfn7eIMBUEaYAQAACAAAAAEAAAQABKeJALo2AQAAIAAEZ/ABCC4BEt55JzB7Hwj2gwCgxVLAEhAACJaA8EDVp5wsAujUBIDnS93IaQAAlA5mAAAAAgAACAAIVgwBujMBAAAgAAQncwAIzgATAEwbAdCRCQAAAAEAACAABCt6ACgXBIBg9RAAXVh4wG6gbH0p2BoUgBZ7vY+WpnV7adcAKBQsAY18CrmagwDQeQkAAAABwOQOACWCAGAiCYBuSwAAAAgApngAKA4EANNJAHRYAgAAQAB42kSPMQXgxcN/bS4OMwMAAGYAAAACQLAKxCoQIFj/IQAAAAQAmAQAdE8CQHDTBwBKAQHAKAMAHZMAIPkBUAQ8hJ4PPBR8XhxAX2YGgBG6xmQToEsSAJ5uIqtAAN1fq/QsZ9g94pi4gfAA3KAzfraaBSBmAPaOAqjjAB2fAICTxh0A6IYEAGMBAHR54bJzACyDqRt9TNywh+MAuKgDrhEs/zMDkDEioI4DdHYCAE4agwCg6xEAAAACwBMnhoxEAE8Z/rP+QwAwGwXobiAAGB0AdHACAIxKADoaAcAYAQBdmwCgoTA2ATj3SwCADADoXAQAkwAAdGcCAIxTALoVAcCoAQAdmQBgtMJoBaBDEQBaHTvQZAGXV3+G/wQAAIAAYBIAMPwHAUAGAFR/AgAAQACASQDA8J8AABexAXQZAgASxhQ0aMA5nYXhPwHALYUAnRQEALNagG6CweiCwmI5CqNsoGvVjVB2cwwBOhczAA+dY+52YRMHqP5UfwIAAEAAMAkAGP6DACADAKo/CAAyAKD6gwDw0qYP0AVAAHjqJAAAHVC48j6AUO4DUD2K2aluDrueRgw6Dh2HGYCHDkPUNUSV3QCg+oMA0G5nAGjwIAA8dRJAlwDVn+G/4BwALdudX2BIaNgPXv3fAYFB1u/U1937yWt/a7FYbH7yhW9/N33mbOs/r1y+8Js33xj4gNExcS//j18ov9PX1/vq9/+ip7t7qL/hL7/32vjkSdZ//sMrL91vrB/4Y9988ftT02Za//mz179fc/f2MC9tYe4TW575Wv9/Nzc1/sMrL5nNZlnPpdPpJk+bMSNzdtL4lOiY+P4D2NvT3XS/sfrG1YpLZRWXynp7e/p/eE3+tpVrNg18FpPJ1NXV0d3ZWVd7t/p6VUV52a2b1+gjUEPPIZA7D1DZvq/tXOvO7bu9rXX/7o82bnnW+p3YuDEZs3LKSk8qf2x88iRl9TeZTB+992+DPmD23MU23/HzM2Rk5pwu/sLJL21R3hPW/z5+9IDZbJb1yIlJE55+7ltjxyXbfD8wKDgwKDgxafz8xcv/8Lt/sjmGA/n6+oaEhIWEhMXEJaRlZK/J33br5rW9n35w+dI5qj/s42MRgi+JX1I6iTu/wC8O722oq1H+wcvXFNj8zLpNTyt/4Oih3bU1dwd9tOy5CwcegaychSM/wip/rP8rdWp6/Jix/T9pNPadKDws67mSU6e8+Dd/P7D6D/MrIzduwsRvvPi9/K3PCZ3O/buGlEVOKozcL84BSJYiY4Ry3Y3PB5hMpk+2v6P8TtK45KnTM6z/nDo9Y9KUNOs/W5qb9u/6aNCHGp+cGhs35kHHViwiTZ6WHhIa5swXtThvlfW/S0+f6Ghvk/Kwvnr9V77+osHg/0gJs1ja21ub7jeajMYRlTyLxWw2DzMjyV2+Zl3+U27eL6Q06RSG/ywBeUQGqG/u13euddvmfvF8SUX5eWXRX746v6L8vBBCp9OtK3hk+P/J9n/v6Rl8QX/23EXKx5zx5aqRj4/vrNnzjx3Z55yXExEZnT4z2/rPws+lPW96RnZEZLSylB/Y/fGxI/va21v74yE5ZfLC3JWZ2fOGeZB33/7tqRNHhRAGgyEiKmbylPTFy1bHxY95ZBK2Or+i/PzVyktUf3AVEPMAh9vxwdtms8n6z0lT0vpPls7Mmps0PsX6/auVl86eOTF4y/PxmTV7wcMXe/VyXc3dh6tAcxY47bUszF3p4/OgI1TfuCrxzKryUAghzp89teezD/qrvxDCZDRWXSl/+/e/fOsff9zW2vLYR+vt7a2ruVt4dP9Pf/T9Lw7vtfm/q9ZvofqDACADnKH23p3jRw8+MghdtVEIsXrDk9bvmM2mD9/9f0M9wpTpGcp1nvIL5y5dOGv954SUyVHRzrg+Ta/3m7doqfWfX0iddgQqLpfqz7xBf6zqSvn1qoqRP6zZbPr4/T+Uni5SfjN18nTnHDGqPwEAMkDs3bm9s6P94XLHzOyZWXPjE8aKh+d+99beuzPUr89WXP9Tc+92bc2dstJiobhu0jmTgMzZ80JCHuRQW2vLuZJiiQ/e0tyk/OeMzDkr1hTodDopD/7J9neMxr5HM2Aa1R8EABngDJ0d7Xt3blcOb7c8/TXrP1tbmvft2j7U7xoM/jMyH14nWlZyUghRfaOqpfm+9ZvZOYuEc0//nig8PMITsyNUfqHU5jvr8p/6q5d/PDNr7lCzgZFrbWmqqixXfmfsuBSqPwgAL+SeGXD86EHlGD80LNz6359++M4wN3NlZOUor43pH3dbLJay0lPWbyYkJo1JHOfQv3/chInjk1PFl+sqRV8ckPv4d27fHHgKZGzShOe/+V9ffu3nucvXGAwGNY9f/ejpiuDgEJorCAAvnAS4Z6cym007Pnh74PevXa0oOXV8mF9Urv/U1dytuffgvlnlKpAQIitnoWOH/0tXKc7QnrZZsZHi3bd/azNO7xcVHVuw9bmXX/vFrNnz7X7wji/PJ/cLco8AkNVQGf4TAGSAu2eAr14/6I4Rg37fOlGYPDXdZvj/4AVWVba1NjvnWqDgkNBZ2Q+Lr4OuOu3t7fn1m2/s+fT93t7egf83LDziuT/7zobNfyLsPYNt81xUfxAAZICT+PsHbHn6hYHfj4sfs3TFuqF+K2vOAuUK+DnFFggWi+X82dPKYXLyxCkDph32bNJgNplsvjNv0TK934MCeu9O9bWrlweb4kh4LrPZtH/3x6//3V/u/Wx7a0vzwJ9f9sSGeQuX2vFE4RGR4tGNOqj+4EYwb75BzK3uEVuzcVtk1MMbnRrqamLiEvr/e+XazSWnCpvuN4ph13+EEH/z398Y5imycxbeuFap/I7NqQV//4BBf9Hg/8j9t11dnTZXZC5csuKxw38pzyUeLNe07dv14cG9O2bPXbxq/ZPK4yaEWLNx68mizwfuqTc8m3Ssr7tH9cdoZwDsh+G8r5T1u2R1tus717r2tSSNT1auod+5ffO44iSqwWAo2PrcwN+Ki0+wuT1qeJnZ83x8HmmlnZ0dyh+IiYsf9M+LjolTTiw6O9uV/zctIysyKuZBve7sKDlVOOiDSHku5ZfJZDxZdOR/vfbXNmc7wsIj4xMSR7WPUWLS+HETJip/rrL8vEtawpetUUr130WVcOYXS0DOnwfsEtLGXOtcNnDw8dn27DeUKzmH931aXHi4Q3FnQMasnGlpmbbD/3lLxCg3oJ4ybYbyO/fuViv/qdx21GrM2PFh4ZHK+wxsru9URlfx8SNDrZ5Lea6B+vp6//+//drmSUe1/ZGPj8/mp55Xfqeu9p71XLpzB/7r3LBrgHMAZIADLVm2Jklx1fnd2zfPninq7u46vO8T5Y9tfvprNicqlVf3m83mqivlA7/u3r4phr4W6EZVpc2C0sRJ02zOS2/a9lXxyFVJj6zvxyUkTp46wzpgP350/1AvU+VzZc1ZaDNIH+bsQtejs43h1m39/J594UWbv2Tfzu1UfwjOAXhKBsjqPNd3rnNy54mMilmzcZvyO7s+ea9//frYkX25y9eFhUc8WDOJjV+2aoN1N9CU1CnK7QpuXr/yq1/8aNBR/6v/8y3rHbMZmTkf+P2+r6/XWmEb62ujY+OtY+E//87LhUf3V16+0NvTHRs/ZlHeqrFJE5QPWHzs0FA3f12+eLaxoW6oV6ryuRISk5594b9culB68viRqivl1hIfnzB2w+Y/Vd4JYezra2ioFY+74Co6OnZqWmbeinXW9SvxcM+lIqo/CACNZoAze9GTz7ygLF7Xqyqtt7z29fUe2POx8pbgFasLzhQf6/8gLZuPf7k04EZZ8eXVLLerr42b8OAWLf+AgLSMLOvVohaLZf/uj5756reVI+K8Fevyhrju6FxJ8R3FlMLfP2DOvFzxcPOfvWLYrZjVPJcQQqfTpWdkp2dkWyyWzo727u6u4JDQgIBAm18sPVM01H1zT33lm1v/9M8GXvRp1dhQ94ff/eNoTyC7z7yT6s8SEGtBHrMclJk9b/qMrEeG/zv+qPznicJDys9N9PMzbHrq+f4PtMrMnv/oTglnh3qWS4/+L5ttIU6dONq/Q7IYwaZ177/zO+V35szP9Q8IsF62VFl+fvhHUPNcNkkQHBIaHRM3sPo3NtR9sv3fh17u99Xr/Yaq/terKn75s1eVp16o/iAAyACHCAgM2rTtkXOPly+etVlhNxmNNuvR6RnZ02dkTU+fpdyroKX5/r071WJku+hMS8+02Vnz3bd/s2/ndpvd0GwG72fPnHjzpz+0uShT+dGPxz7fN5KBs93PNZI7sy6WnXnzJz/sHH0Fb2tt+fTD//jVL15X3jpH9QdLQNpdC3L0ctD6Tc9Y1/f7C9+uT94b+GNnTh5bvio/LiHR+p3NTz1vc2p3mOG/EOJ29fW21ubQsAjrLa8zs+YWHz+ifOq9O7cXHTuYsyBv0pT0+ITEoOAQnU7X1dnR2FB/7erlkpPH7t29ZfOwk6fOsO5X2tPTPcKhvX3PJYQ4uGfHtSvlaTOyx6dMio6JCw4J9fMzGI19nR3t9XU1N65VlpWevHPrxggPvslo7Ohob2trqb5+9WrlxYtlJdbzIh5X+qn+bkIXGBrDURBusYMKHczhXvjz787InCO+/OT37X/8V44JjVOwBAQvWwty7V0C7ikyKiYtI1ux/rOXY0L1FywBwa0ywFOWgzzOgiUrrHeuXa28NMyH1YDSL1gCAh0PNEIaIQEAj+9+9EDQ9iA4ByA0eUqAswKg+oMZgNZ7Ix0SNDYQAJrulvRM0MZAADA6A02LpkUAgGEaaFG0KG0FQAgB4Dk9dpcDz+KmrKPT0pBoSAQAtNp76bq0H9oPAQBGcKDZ0GwIAGiyM9OfaS20FgIAdGw6Ni2EFkIAQKs9nE5Ow6BhEADQdFent9MeaA9eGQDRHAVv6fbrnfNEKet2crRpACAAoNESQBXgfQcBAMoB5YD3GgQAtFoXqA68vyAAQJmgTPCeggCAtksGVYM3EQQANF0+KCK8cSAAQDWhoPBOgQCA5osLJYb3BQQAKDdUHN4IuDoAAggADbvhHtWnX7JmahCHHQQAKEZaKUwcZBAAoEJppVRxPEEAgBjw/irGQQMBAJLAm8scBwQEAIgBUPpBAIAYAKUfBACIAVD6QQCAJAB1HwQAiAFQ+kEAgCQAdR8EAEgCUPdBAIAkAHUfBABIAlD3QQCAJAB1HwQASALqPuDgAIjiKMAVYbCBg6Ao+p9xEEAAgDyg4gMEAAgDij5AAIBIoNwDDgiAYAIAnpkKu90lFZLXUutBAADemw1UeRAAAAAv4cMhAAACAABAAAAACAAAAAEAACAAAAAEAACAAAAAEAAAAAIAAEAAAAAIAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAoIJeCAtHAQCYAQAACAAAAAEAACAAAABeQs8pYABgBgAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAAgAAAABAAAQ7rgdNLcCAwAzAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAAgAAAABAAAQ7rIVBHtBAAAzAAAAAQAAIAAAAAQAAIAAAAAQAAAAAgAAQAAAAAgAAAABAAAgAAAABAAAgAAAABAAAAACAABAAAAACAAAAAEAACAAAAAEAACAAAAAEAAAAAIAAAgAAAABAADQgv8E9oggUmRhx84AAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+:root {
+  --bg: #0a0d13;
+  --panel: #111621;
+  --panel-2: #161d2b;
+  --line: #222c3d;
+  --text: #e8edf7;
+  --muted: #8b97ad;
+  --gold: #e8c25e;
+  --gold-soft: rgba(232, 194, 94, .12);
+  --green: #22c98b;
+  --red: #f0575f;
+  --amber: #f0a53a;
+  --blue: #4da3ff;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(1200px 600px at 80% -10%, #1a2133 0%, var(--bg) 55%) fixed;
+  color: var(--text);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-size: 14px;
+}
+
+body { min-height: 100vh; padding-bottom: 40px; }
+
+.top {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 13, 19, .82);
+  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 20;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand h1 { margin: 0; font-size: 18px; letter-spacing: .14em; font-weight: 700; }
+.brand p { margin: 2px 0 0; font-size: 11px; color: var(--muted); letter-spacing: .08em; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+.dot.stale { background: var(--amber); box-shadow: 0 0 12px var(--amber); }
+.dot.down { background: var(--red); box-shadow: 0 0 12px var(--red); }
+
+.quote { display: flex; flex-direction: column; }
+.price { font-family: var(--mono); font-size: 30px; font-weight: 700; line-height: 1.05; letter-spacing: -.02em; }
+.price.up { color: var(--green); }
+.price.down { color: var(--red); }
+.quote .sub { font-size: 11.5px; color: var(--muted); margin-top: 3px; font-family: var(--mono); }
+
+.toolbar { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.clock { font-family: var(--mono); font-size: 11.5px; color: var(--muted); text-align: right; line-height: 1.5; }
+button {
+  background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 14px; font-size: 12.5px; cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+button:hover { border-color: var(--gold); background: #1b2333; }
+button.primary { border-color: rgba(232,194,94,.5); color: var(--gold); }
+
+main { max-width: 1500px; margin: 0 auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; }
+
+.card {
+  background: linear-gradient(180deg, var(--panel) 0%, #0f1420 100%);
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.card-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-bottom: 1px solid var(--line);
+}
+.card-head h2 { margin: 0; font-size: 13px; letter-spacing: .06em; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+.card-body { padding: 14px 16px; }
+
+/* verdict */
+.hero { display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; padding: 18px 22px; }
+.badge {
+  font-size: 22px; font-weight: 800; letter-spacing: .04em; padding: 12px 22px; border-radius: 12px;
+  border: 1px solid; white-space: nowrap;
+}
+.badge.buy { color: var(--green); border-color: rgba(34,201,139,.45); background: rgba(34,201,139,.08); }
+.badge.sell { color: var(--red); border-color: rgba(240,87,95,.45); background: rgba(240,87,95,.08); }
+.badge.limit { color: var(--amber); border-color: rgba(240,165,58,.5); background: rgba(240,165,58,.08); }
+.badge.wait { color: var(--muted); border-color: var(--line); background: rgba(139,151,173,.06); }
+
+.hero-mid .summary { font-size: 13.5px; line-height: 1.65; color: #cfd8e8; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.tag {
+  font-size: 11px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line);
+  color: var(--muted); font-family: var(--mono);
+}
+.tag.hot { color: var(--gold); border-color: rgba(232,194,94,.45); }
+.blockers { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+.blocker { font-size: 12px; color: var(--amber); }
+.gauge { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.gauge .ring { position: relative; width: 112px; height: 112px; }
+.gauge svg { display: block; transform: rotate(-90deg); }
+.gauge .num {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 32px; font-weight: 700; letter-spacing: -.03em;
+}
+.gauge .ring-bg { fill: none; stroke: #1c2534; stroke-width: 9; }
+.gauge .ring-fg { fill: none; stroke-width: 9; stroke-linecap: round; transition: stroke-dashoffset .6s; }
+.gauge-label { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+/* layout */
+.row { display: grid; gap: 16px; grid-template-columns: minmax(0, 1.9fr) minmax(320px, 1fr); }
+.row-secondary { display: grid; gap: 16px; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 1fr); }
+@media (max-width: 1080px) {
+  .row, .row-secondary { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; }
+  .gauge { flex-direction: row; gap: 12px; }
+}
+
+/* chart */
+.canvas-wrap { position: relative; flex: 1 1 auto; min-height: 380px; padding: 6px 4px 0; }
+canvas { width: 100%; height: 100%; display: block; cursor: crosshair; }
+.tip {
+  position: absolute; pointer-events: none; display: none; z-index: 5;
+  background: rgba(13,18,28,.96); border: 1px solid var(--line); border-radius: 8px;
+  padding: 7px 10px; font-family: var(--mono); font-size: 11px; line-height: 1.55;
+  color: #cfd8e8; box-shadow: 0 10px 24px rgba(0,0,0,.45); white-space: pre;
+}
+.legend { margin-left: auto; display: flex; gap: 14px; font-size: 11px; color: var(--muted); font-family: var(--mono); }
+.legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; border-radius: 2px; }
+
+/* plan */
+.plan-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #1b2433; }
+.plan-row:last-child { border-bottom: none; }
+.plan-row .k { color: var(--muted); font-size: 12px; }
+.plan-row .v { font-family: var(--mono); font-size: 16px; font-weight: 600; }
+.plan-row .why { font-size: 11px; color: #6f7d94; margin-top: 2px; text-align: right; max-width: 62%; }
+.v.entry { color: var(--blue); }
+.v.stop { color: var(--red); }
+.v.tp { color: var(--green); }
+.v.r { font-size: 11.5px; color: var(--muted); margin-left: 6px; }
+.empty-note { color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+
+.ticket {
+  margin-top: 12px; background: #0b1017; border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; font-family: var(--mono); font-size: 11.5px; color: #b9c6db;
+  display: flex; gap: 10px; align-items: center;
+}
+.ticket code { flex: 1; overflow-wrap: anywhere; word-break: normal; line-height: 1.5; }
+.ticket button { padding: 5px 9px; font-size: 11px; }
+
+.size-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px; }
+.size-box div { background: #0d121b; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+.size-box .k { font-size: 10.5px; color: var(--muted); letter-spacing: .04em; }
+.size-box .v { font-family: var(--mono); font-size: 13px; margin-top: 2px; }
+.warn { margin-top: 10px; font-size: 11.5px; color: var(--amber); line-height: 1.5; }
+
+/* evidence */
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 10.5px; letter-spacing: .06em; color: var(--muted); font-weight: 600; padding: 0 8px 8px; text-transform: uppercase; }
+td { padding: 8px; border-top: 1px solid #171f2d; font-size: 12.5px; vertical-align: top; }
+td.grp { color: var(--muted); font-size: 11.5px; white-space: nowrap; }
+td.item { white-space: nowrap; font-weight: 600; }
+td.detail { color: #93a1b8; font-size: 11.5px; line-height: 1.5; }
+td.score { text-align: right; font-family: var(--mono); white-space: nowrap; }
+.mark { display: inline-block; width: 15px; text-align: center; margin-right: 4px; font-weight: 700; }
+.mark.ok { color: var(--green); }
+.mark.no { color: #4a566b; }
+.bar { height: 3px; background: #1a2231; border-radius: 2px; margin-top: 5px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: linear-gradient(90deg, #8a6d2f, var(--gold)); }
+
+/* levels */
+.lv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lv-col h3 { margin: 6px 0 8px; font-size: 11px; color: var(--muted); letter-spacing: .08em; }
+.lv-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; border-radius: 8px; background: #0d121b; border: 1px solid var(--line); margin-bottom: 6px; font-family: var(--mono); font-size: 12px; }
+.lv-row.res { border-left: 3px solid rgba(240,87,95,.65); }
+.lv-row.sup { border-left: 3px solid rgba(34,201,139,.65); }
+.lv-row .meta { color: var(--muted); font-size: 10.5px; font-family: "Segoe UI", sans-serif; }
+.mini { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chip {
+  font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 6px;
+  background: #0d121b; border: 1px solid var(--line); color: #a9b7cd;
+}
+.chip.res { border-color: rgba(240,87,95,.28); color: #e79aa0; }
+.chip.sup { border-color: rgba(34,201,139,.28); color: #7fd6b3; }
+ul.clean { margin: 0; padding-left: 16px; color: #b9c6db; font-size: 12.5px; line-height: 1.75; }
+ul.clean li { margin-bottom: 5px; }
+.scen { display: flex; flex-direction: column; gap: 7px; font-size: 12px; line-height: 1.55; color: #b3c0d6; }
+.scen b { color: var(--text); font-weight: 600; }
+
+footer { max-width: 1500px; margin: 6px auto 0; padding: 0 24px; color: #5f6b80; font-size: 11px; line-height: 1.7; }
+footer .src { font-family: var(--mono); }
+.err { background: rgba(240,87,95,.08); border: 1px solid rgba(240,87,95,.4); color: #ffb3b7; padding: 12px 16px; border-radius: 10px; font-size: 12.5px; }
+.hidden { display: none !important; }
+
+/* ---------------------------------------------------------------- mobile */
+html { -webkit-text-size-adjust: 100%; }
+.clock { white-space: pre-line; }
+body { overscroll-behavior-y: contain; }
+
+@media (max-width: 760px) {
+  body { padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
+  .top { padding: calc(10px + env(safe-area-inset-top)) 14px 10px; gap: 6px 14px; }
+  .brand { gap: 9px; }
+  .brand h1 { font-size: 15px; letter-spacing: .1em; }
+  .brand p { font-size: 9.5px; }
+  .price { font-size: 25px; }
+  .quote .sub { font-size: 10px; }
+  .toolbar { gap: 8px; }
+  .clock { font-size: 9.5px; }
+  button { padding: 7px 11px; font-size: 12px; }
+  main { padding: 12px; gap: 12px; }
+  .hero { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
+  .badge { font-size: 19px; padding: 9px 15px; justify-self: start; }
+  .hero-mid .summary { font-size: 12.5px; line-height: 1.62; }
+  .gauge { flex-direction: row; align-items: center; gap: 12px; }
+  .gauge .ring, .gauge svg { width: 82px; height: 82px; }
+  .gauge .num { font-size: 23px; }
+  .canvas-wrap { min-height: 300px; }
+  .legend { display: none; }
+  .card-head { padding: 10px 13px; }
+  .card-head h2 { font-size: 11.5px; }
+  .card-body { padding: 12px 13px; }
+  .plan-row .v { font-size: 15px; }
+  .plan-row .why { max-width: 55%; font-size: 10.5px; line-height: 1.45; }
+  .size-box { gap: 6px; }
+  .size-box .v { font-size: 12px; }
+  .size-box .k { font-size: 9.5px; }
+  .ticket { font-size: 10.5px; padding: 8px 10px; }
+  .lv-grid { grid-template-columns: 1fr; gap: 10px; }
+  .lv-row { padding: 6px 8px; font-size: 11px; }
+  .lv-row .meta { font-size: 9.5px; }
+  .scen { font-size: 11.5px; }
+  ul.clean { font-size: 12px; }
+  #evidence table, #evidence thead, #evidence tbody, #evidence tr, #evidence td { display: block; }
+  #evidence thead { display: none; }
+  #evidence tr { position: relative; padding: 8px 62px 8px 0; border-top: 1px solid #171f2d; }
+  #evidence tr:first-child { border-top: none; }
+  #evidence td { border: none; padding: 1px 0; }
+  #evidence td.grp { display: inline; font-size: 10.5px; }
+  #evidence td.item { display: inline; font-size: 12px; margin-left: 6px; }
+  #evidence td.detail { font-size: 11px; margin-top: 3px; color: #93a1b8; }
+  #evidence td.score { position: absolute; top: 7px; right: 0; font-size: 11px; }
+  footer { padding: 0 14px; font-size: 10px; }
+}
+
+/* MT5 order ticket */
+.mt5 { margin-top: 14px; border: 1px solid rgba(232,194,94,.28); background: rgba(232,194,94,.045); border-radius: 10px; padding: 12px; }
+.mt5-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.mt5-head span { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .04em; }
+.mt5-head em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.mt5-head button { margin-left: auto; padding: 4px 9px; font-size: 11px; }
+.mt5-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+.mt5-grid .k { font-size: 10px; color: var(--muted); }
+.mt5-grid .v { font-family: var(--mono); font-size: 12.5px; color: #e6ebf5; }
+.mt5-line { margin-top: 10px; padding: 7px 9px; border-radius: 7px; background: #0b1017; border: 1px solid var(--line);
+  font-family: var(--mono); font-size: 10.5px; color: #b9c6db; overflow-wrap: anywhere; }
+.mt5-steps { margin: 10px 0 0; padding-left: 16px; color: #93a1b8; font-size: 11px; line-height: 1.6; }
+.mt5-steps li { margin-bottom: 3px; }
+
+/* add-to-home-screen hint (iOS Safari) */
+.hint {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(232,194,94,.08); border: 1px solid rgba(232,194,94,.35);
+  color: #e8d9a8; border-radius: 10px; padding: 9px 12px; font-size: 12px; line-height: 1.5;
+}
+.hint b { color: var(--gold); font-weight: 600; }
+.hint button {
+  margin-left: auto; background: transparent; border: none; color: #c9b985;
+  font-size: 18px; line-height: 1; padding: 2px 6px; cursor: pointer;
+}
+
+/* settings panel */
+.settings {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+}
+.settings label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--muted); }
+.settings input {
+  background: #0b1017; border: 1px solid var(--line); border-radius: 8px; color: var(--text);
+  padding: 8px 10px; font-family: var(--mono); font-size: 13px; width: 100%;
+}
+.settings-actions { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; }
+.settings-actions .mini { flex: 1; }
+.settings-actions button { white-space: nowrap; }
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="dot" id="live-dot"></span>
+    <div>
+      <h1>GOLD SPOT</h1>
+      <p>XAU/USD · 手机独立运行</p>
+    </div>
+  </div>
+  <div class="quote">
+    <div class="price" id="price">--</div>
+    <div class="sub" id="quote-sub">连接中…</div>
+  </div>
+  <div class="toolbar">
+    <div class="clock" id="clock">--</div>
+    <button id="btn-settings" title="设置">⚙</button>
+    <button class="primary" id="refresh">刷新</button>
+  </div>
+</header>
+
+<main>
+  <div id="install-hint" class="hint hidden">
+    <span>想当 App 用？点底部 <b>分享</b> → <b>添加到主屏幕</b>，之后全屏打开、没有地址栏。</span>
+    <button id="hint-close" aria-label="关闭">×</button>
+  </div>
+
+  <div id="settings" class="settings hidden">
+    <label>账户 (USD)<input id="set-account" type="number" inputmode="decimal"></label>
+    <label>单笔风险 %<input id="set-risk" type="number" step="0.1" inputmode="decimal"></label>
+    <label>MT5 品种<input id="set-symbol" type="text" placeholder="XAUUSD"></label>
+    <label>MT5 现价（标定）<input id="set-price" type="number" step="0.01" inputmode="decimal" placeholder="可选"></label>
+    <div class="settings-actions">
+      <span class="mini">填你 MT5 上的 XAUUSD 现价，所有点位会平移到你的平台报价</span>
+      <button class="primary" id="set-save">保存并刷新</button>
+    </div>
+  </div>
+
+  <section class="card hero" id="hero"></section>
+
+  <div class="row">
+    <section class="card">
+      <div class="card-head">
+        <h2>H1 结构图</h2>
+        <div class="legend">
+          <span><i style="background:#f0c75e"></i>EMA20</span>
+          <span><i style="background:#5b8def"></i>EMA50</span>
+          <span><i style="background:#4da3ff"></i>入场</span>
+          <span><i style="background:#f0575f"></i>止损</span>
+          <span><i style="background:#22c98b"></i>目标</span>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="chart"></canvas>
+        <div class="tip" id="tip"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><h2>交易计划</h2></div>
+      <div class="card-body" id="plan"></div>
+    </section>
+  </div>
+
+  <div class="row-secondary">
+    <section class="card">
+      <div class="card-head"><h2>打分依据</h2><span class="mini" id="score-total"></span></div>
+      <div class="card-body" id="evidence"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><h2>关键价位</h2></div>
+      <div class="card-body" id="levels"></div>
+    </section>
+  </div>
+
+  <div class="row-secondary">
+    <section class="card">
+      <div class="card-head"><h2>持仓管理</h2></div>
+      <div class="card-body" id="manage"></div>
+    </section>
+    <section class="card">
+      <div class="card-head"><h2>情景推演</h2></div>
+      <div class="card-body" id="scenarios"></div>
+    </section>
+  </div>
+
+  <div id="error" class="err hidden"></div>
+</main>
+
+<footer id="foot"></footer>
+<script>
+/* Gold Spot engine — browser port of goldbot/engine.py.
+ * Pure functions, no DOM, no network: same inputs -> same plan as the Python version.
+ * Exposed as global GoldEngine (and module.exports in Node for tests).
+ */
+(function (global) {
+  'use strict';
+
+  const FIB_RATIOS = [0.236, 0.382, 0.5, 0.618, 0.786];
+  const WEIGHTS = { trend: 22, location: 18, trigger: 18, momentum: 12, room: 10, rr: 12, data: 8 };
+  const MYT = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Kuala_Lumpur', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hour12: false,
+  });
+
+  const r2 = (x) => Math.round(x * 100) / 100;
+  const r1 = (x) => Math.round(x * 10) / 10;
+
+  function fmtPrice(x) {
+    if (x === null || x === undefined || Number.isNaN(x)) return '-';
+    return Number(x).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function fmtTs(ms) {
+    if (!ms) return '-';
+    const p = Object.fromEntries(MYT.formatToParts(new Date(ms)).map((x) => [x.type, x.value]));
+    return p.month + '-' + p.day + ' ' + p.hour + ':' + p.minute + ' MYT';
+  }
+  function sessionOf(ms) {
+    const h = new Date(ms).getUTCHours();
+    if (h < 7) return '亚洲盘';
+    if (h < 12) return '伦敦盘';
+    if (h < 16) return '伦敦/纽约重叠';
+    if (h < 21) return '纽约盘';
+    return '纽约尾盘';
+  }
+
+  /* ------------------------------------------------------------------ indicators */
+  function ema(v, n) {
+    const out = new Array(v.length);
+    if (!v.length) return out;
+    const a = 2 / (n + 1);
+    out[0] = v[0];
+    for (let i = 1; i < v.length; i++) out[i] = a * v[i] + (1 - a) * out[i - 1];
+    return out;
+  }
+  function rma(v, n) {
+    const out = new Array(v.length);
+    if (!v.length) return out;
+    out[0] = v[0];
+    for (let i = 1; i < v.length; i++) out[i] = (v[i] + (n - 1) * out[i - 1]) / n;
+    return out;
+  }
+  function trueRange(bars) {
+    return bars.map((b, i) => {
+      if (i === 0) return b.h - b.l;
+      const pc = bars[i - 1].c;
+      return Math.max(b.h - b.l, Math.abs(b.h - pc), Math.abs(b.l - pc));
+    });
+  }
+  function atrArr(bars, n) {
+    return rma(trueRange(bars), n || 14);
+  }
+  function rsiArr(c, n) {
+    n = n || 14;
+    const d = c.map((x, i) => (i === 0 ? 0 : x - c[i - 1]));
+    const g = d.map((x) => Math.max(x, 0));
+    const l = d.map((x) => Math.max(-x, 0));
+    const ag = rma(g, n), al = rma(l, n);
+    return c.map((_, i) => (al[i] === 0 ? 100 : 100 - 100 / (1 + ag[i] / al[i])));
+  }
+  function macdArr(c) {
+    const fast = ema(c, 12), slow = ema(c, 26);
+    const line = c.map((_, i) => fast[i] - slow[i]);
+    const sig = ema(line, 9);
+    return { line, sig, hist: line.map((v, i) => v - sig[i]) };
+  }
+  function adxArr(bars, n) {
+    n = n || 14;
+    const h = bars.map((b) => b.h), l = bars.map((b) => b.l);
+    const up = h.map((x, i) => (i === 0 ? 0 : x - h[i - 1]));
+    const down = l.map((x, i) => (i === 0 ? 0 : l[i - 1] - x));
+    const pdm = up.map((x, i) => (x > down[i] && x > 0 ? x : 0));
+    const mdm = down.map((x, i) => (x > up[i] && x > 0 ? x : 0));
+    const tr = rma(trueRange(bars), n);
+    const pdi = rma(pdm, n).map((x, i) => (tr[i] === 0 ? 0 : (100 * x) / tr[i]));
+    const mdi = rma(mdm, n).map((x, i) => (tr[i] === 0 ? 0 : (100 * x) / tr[i]));
+    const dx = pdi.map((x, i) => {
+      const s = x + mdi[i];
+      return s === 0 ? 0 : (100 * Math.abs(x - mdi[i])) / s;
+    });
+    return { adx: rma(dx, n), plus: pdi, minus: mdi };
+  }
+  function bollinger(c, n, k) {
+    n = n || 20; k = k || 2;
+    const up = [], mid = [], dn = [];
+    for (let i = 0; i < c.length; i++) {
+      if (i < n - 1) { up.push(NaN); mid.push(NaN); dn.push(NaN); continue; }
+      const win = c.slice(i - n + 1, i + 1);
+      const m = win.reduce((a, b) => a + b, 0) / n;
+      const sd = Math.sqrt(win.reduce((a, b) => a + (b - m) * (b - m), 0) / n);
+      mid.push(m); up.push(m + k * sd); dn.push(m - k * sd);
+    }
+    return { up, mid, dn };
+  }
+
+  function addIndicators(bars) {
+    const c = bars.map((b) => b.c), v = bars.map((b) => b.v || 0);
+    const e20 = ema(c, 20), e50 = ema(c, 50), e200 = ema(c, 200);
+    const atr = atrArr(bars, 14);
+    const rsi = rsiArr(c, 14);
+    const macd = macdArr(c);
+    const adx = adxArr(bars, 14);
+    const bb = bollinger(c, 20, 2);
+    const relVol = v.map((x, i) => {
+      if (i < 19) return 1;
+      const avg = v.slice(i - 19, i + 1).reduce((a, b) => a + b, 0) / 20;
+      return avg > 0 ? x / avg : 1;
+    });
+    return bars.map((b, i) => ({
+      t: b.t, o: b.o, h: b.h, l: b.l, c: b.c, v: b.v,
+      ema20: e20[i], ema50: e50[i], ema200: e200[i], atr: atr[i], rsi: rsi[i],
+      adx: adx.adx[i], diPlus: adx.plus[i], diMinus: adx.minus[i],
+      macdHist: macd.hist[i], bbUp: bb.up[i], bbMid: bb.mid[i], bbDn: bb.dn[i],
+      relVol: relVol[i],
+    }));
+  }
+
+  /* ------------------------------------------------------------------ structure */
+  function findSwings(bars, k) {
+    k = k || 2;
+    const out = [];
+    for (let i = k; i < bars.length - k; i++) {
+      let hi = -Infinity, lo = Infinity;
+      for (let j = i - k; j <= i + k; j++) {
+        if (bars[j].h > hi) hi = bars[j].h;
+        if (bars[j].l < lo) lo = bars[j].l;
+      }
+      if (bars[i].h === hi && bars[i].h > bars[i - 1].h && bars[i].h >= bars[i + 1].h) {
+        out.push({ i, price: bars[i].h, kind: 'H', t: bars[i].t });
+      } else if (bars[i].l === lo && bars[i].l < bars[i - 1].l && bars[i].l <= bars[i + 1].l) {
+        out.push({ i, price: bars[i].l, kind: 'L', t: bars[i].t });
+      }
+    }
+    return out;
+  }
+  function cleanSwings(swings) {
+    const out = [];
+    swings.forEach((s) => {
+      if (out.length && out[out.length - 1].kind === s.kind) {
+        const keep = s.kind === 'H' ? s.price > out[out.length - 1].price : s.price < out[out.length - 1].price;
+        if (keep) out[out.length - 1] = s;
+      } else out.push(s);
+    });
+    return out;
+  }
+  function structureState(swings) {
+    const s = swings.slice(-6);
+    const highs = s.filter((x) => x.kind === 'H');
+    const lows = s.filter((x) => x.kind === 'L');
+    const detail = [];
+    let hh = 0, hl = 0, lh = 0, ll = 0;
+    if (highs.length >= 2) {
+      if (highs[highs.length - 1].price > highs[highs.length - 2].price) {
+        hh = 1; detail.push('高点抬高 HH ' + fmtPrice(highs[highs.length - 2].price) + ' → ' + fmtPrice(highs[highs.length - 1].price));
+      } else {
+        lh = 1; detail.push('高点降低 LH ' + fmtPrice(highs[highs.length - 2].price) + ' → ' + fmtPrice(highs[highs.length - 1].price));
+      }
+    }
+    if (lows.length >= 2) {
+      if (lows[lows.length - 1].price > lows[lows.length - 2].price) {
+        hl = 1; detail.push('低点抬高 HL ' + fmtPrice(lows[lows.length - 2].price) + ' → ' + fmtPrice(lows[lows.length - 1].price));
+      } else {
+        ll = 1; detail.push('低点降低 LL ' + fmtPrice(lows[lows.length - 2].price) + ' → ' + fmtPrice(lows[lows.length - 1].price));
+      }
+    }
+    let trend, label;
+    if (hh && hl) { trend = 1; label = '上升结构 (HH + HL)'; }
+    else if (lh && ll) { trend = -1; label = '下降结构 (LH + LL)'; }
+    else if ((hh && ll) || (lh && hl)) { trend = 0; label = '扩张结构 (高低点同时外扩/内收)'; }
+    else if (hh || hl) { trend = 0.5; label = '偏多但结构不完整'; }
+    else if (lh || ll) { trend = -0.5; label = '偏空但结构不完整'; }
+    else { trend = 0; label = '区间 / 数据不足'; }
+    return {
+      trend, label,
+      detail: detail.length ? label + '：' + detail.join('；') : label,
+      lastHigh: highs.length ? highs[highs.length - 1] : null,
+      lastLow: lows.length ? lows[lows.length - 1] : null,
+    };
+  }
+  function zigzag(swings, atr, minAtr) {
+    minAtr = minAtr || 1;
+    if (swings.length < 2 || !(atr > 0)) return [];
+    const pivots = [swings[0]];
+    for (let i = 1; i < swings.length; i++) {
+      const s = swings[i], last = pivots[pivots.length - 1];
+      if (s.kind === last.kind) {
+        const more = s.kind === 'H' ? s.price > last.price : s.price < last.price;
+        if (more) pivots[pivots.length - 1] = s;
+        continue;
+      }
+      if (Math.abs(s.price - last.price) >= minAtr * atr) pivots.push(s);
+    }
+    const legs = [];
+    for (let i = 0; i + 1 < pivots.length; i++) {
+      const a = pivots[i], b = pivots[i + 1];
+      legs.push({
+        fromI: a.i, toI: b.i, from: a.price, to: b.price,
+        dir: b.price > a.price ? 1 : -1,
+        size: Math.abs(b.price - a.price),
+        sizeAtr: Math.abs(b.price - a.price) / atr,
+      });
+    }
+    return legs;
+  }
+  function fibLevels(leg) {
+    const rng = leg.to - leg.from;
+    return FIB_RATIOS.map((r) => ({ ratio: r, price: leg.to - rng * r, dir: leg.dir }));
+  }
+  function buildZones(swings, atr, bars, lookback, tolAtr, maxZones) {
+    lookback = lookback || 240; tolAtr = tolAtr || 0.35; maxZones = maxZones || 8;
+    const lastI = bars.length - 1;
+    const recent = swings.filter((s) => s.i >= lastI - lookback);
+    if (!recent.length || !(atr > 0)) return [];
+    const tol = tolAtr * atr;
+    const ordered = recent.slice().sort((a, b) => a.price - b.price);
+    const clusters = [];
+    ordered.forEach((s) => {
+      const last = clusters[clusters.length - 1];
+      if (last && s.price - last[last.length - 1].price <= tol) last.push(s);
+      else clusters.push([s]);
+    });
+    let zones = clusters.map((cl) => {
+      const prices = cl.map((x) => x.price);
+      const lo = Math.min.apply(null, prices), hi = Math.max.apply(null, prices);
+      let last = cl[0];
+      cl.forEach((x) => { if (x.i > last.i) last = x; });
+      return { lo, hi, mid: (lo + hi) / 2, touches: cl.length, lastI: last.i, lastT: bars[last.i].t, kinds: cl.map((x) => x.kind) };
+    });
+    const merged = [];
+    zones.sort((a, b) => a.mid - b.mid).forEach((z) => {
+      const m = merged[merged.length - 1];
+      if (m && z.lo <= m.hi + tol * 0.5) {
+        m.hi = Math.max(m.hi, z.hi); m.lo = Math.min(m.lo, z.lo);
+        m.mid = (m.lo + m.hi) / 2; m.touches += z.touches;
+        m.lastI = Math.max(m.lastI, z.lastI);
+      } else merged.push(Object.assign({}, z));
+    });
+    merged.forEach((z) => {
+      const recency = 1 - Math.min(1, (lastI - z.lastI) / Math.max(lookback, 1));
+      z.strength = r1(Math.min(10, z.touches * 1.6 + recency * 3));
+      z.width = z.hi - z.lo;
+    });
+    merged.sort((a, b) => b.strength - a.strength);
+    return merged.slice(0, maxZones);
+  }
+  function nearestZones(price, zones, atr, count) {
+    count = count || 4;
+    const below = zones.filter((z) => z.hi < price).sort((a, b) => (price - a.hi) - (price - b.hi));
+    const above = zones.filter((z) => z.lo > price).sort((a, b) => (a.lo - price) - (b.lo - price));
+    const inside = zones.filter((z) => z.lo <= price && price <= z.hi);
+    return {
+      support: below.slice(0, count), resistance: above.slice(0, count), inside,
+      distSupportAtr: below.length && atr ? (price - below[0].hi) / atr : null,
+      distResistanceAtr: above.length && atr ? (above[0].lo - price) / atr : null,
+    };
+  }
+  function candlePatterns(bars, atr, lookback) {
+    lookback = lookback || 3;
+    const out = [];
+    const n = bars.length;
+    for (let i = Math.max(1, n - lookback); i < n; i++) {
+      const b = bars[i], p = bars[i - 1];
+      const body = Math.abs(b.c - b.o), rng = b.h - b.l;
+      if (rng <= 0) continue;
+      const upper = b.h - Math.max(b.o, b.c), lower = Math.min(b.o, b.c) - b.l;
+      const prevBody = Math.abs(p.c - p.o);
+      const bull = b.c > b.o;
+      if (bull && p.c < p.o && b.c >= p.o && b.o <= p.c && body > prevBody) {
+        out.push({ i, name: '看涨吞没', dir: 1, detail: '实体 ' + r2(body) + ' 覆盖前一根 ' + r2(prevBody) });
+      }
+      if (!bull && p.c > p.o && b.c <= p.o && b.o >= p.c && body > prevBody) {
+        out.push({ i, name: '看跌吞没', dir: -1, detail: '实体 ' + r2(body) + ' 覆盖前一根 ' + r2(prevBody) });
+      }
+      if (lower >= 2 * body && lower / rng >= 0.55 && b.c >= b.l + 0.6 * rng) {
+        out.push({ i, name: '下影拒绝 (Pin)', dir: 1, detail: '下影 ' + r2(lower) + ' = 实体 ' + r2(body) + ' 的 ' + (lower / Math.max(body, 1e-9)).toFixed(1) + ' 倍' });
+      }
+      if (upper >= 2 * body && upper / rng >= 0.55 && b.c <= b.h - 0.6 * rng) {
+        out.push({ i, name: '上影拒绝 (Pin)', dir: -1, detail: '上影 ' + r2(upper) + ' = 实体 ' + r2(body) + ' 的 ' + (upper / Math.max(body, 1e-9)).toFixed(1) + ' 倍' });
+      }
+      if (b.h <= p.h && b.l >= p.l) out.push({ i, name: '内包线 (Inside)', dir: 0, detail: '区间 ' + r2(b.l) + '-' + r2(b.h) + ' 位于前一根 ' + r2(p.l) + '-' + r2(p.h) + ' 内' });
+      if (body / rng < 0.12 && rng > 0.6 * atr) out.push({ i, name: '十字星 (Doji)', dir: 0, detail: '实体仅占区间 ' + Math.round((body / rng) * 100) + '%' });
+    }
+    return out;
+  }
+  function roundLevels(price, atr, spanAtr, step) {
+    spanAtr = spanAtr || 4; step = step || 10;
+    if (!(atr > 0)) return [];
+    const lo = price - spanAtr * atr, hi = price + spanAtr * atr;
+    const out = [];
+    let v = Math.ceil(lo / step) * step;
+    while (v <= hi) { if (Math.abs(v - price) > 1e-9) out.push(v); v += step; }
+    return out;
+  }
+  function liquidityPools(swings, atr, tolAtr) {
+    tolAtr = tolAtr || 0.15;
+    const out = [];
+    ['H', 'L'].forEach((kind) => {
+      const pts = swings.filter((s) => s.kind === kind).slice(-6);
+      for (let i = 0; i + 1 < pts.length; i++) {
+        const a = pts[i], b = pts[i + 1];
+        if (Math.abs(a.price - b.price) <= tolAtr * atr && b.i - a.i > 3) {
+          out.push({ kind, price: (a.price + b.price) / 2, detail: (kind === 'H' ? '等高' : '等低') + ' ' + fmtPrice(a.price) + ' / ' + fmtPrice(b.price) });
+        }
+      }
+    });
+    return out;
+  }
+
+  /* ------------------------------------------------------------------ context */
+  function tfContext(rawBars, label) {
+    const bars = addIndicators(rawBars);
+    if (bars.length < 60) throw new Error(label + ' 数据不足 (' + bars.length + ' 根)');
+    const last = bars[bars.length - 1];
+    let atr = last.atr;
+    if (!isFinite(atr) || atr <= 0) {
+      const tail = bars.slice(-20);
+      atr = tail.reduce((a, b) => a + (b.h - b.l), 0) / tail.length;
+    }
+    const swings = cleanSwings(findSwings(bars, 2));
+    const state = structureState(swings);
+    const price = last.c;
+    const sEma = last.ema20 > last.ema50 + 0.05 * atr ? 1 : last.ema20 < last.ema50 - 0.05 * atr ? -1 : 0;
+    const sPx = price > last.ema200 + 0.1 * atr ? 1 : price < last.ema200 - 0.1 * atr ? -1 : 0;
+    const score = r2(sEma + sPx + state.trend);
+    let labelTxt;
+    if (score >= 1.5) labelTxt = '强多头';
+    else if (score >= 0.5) labelTxt = '偏多';
+    else if (score <= -1.5) labelTxt = '强空头';
+    else if (score <= -0.5) labelTxt = '偏空';
+    else labelTxt = '中性';
+    return {
+      tf: label, bars, price, atr,
+      ema20: last.ema20, ema50: last.ema50, ema200: last.ema200,
+      rsi: last.rsi, adx: last.adx, diPlus: last.diPlus, diMinus: last.diMinus,
+      macdHist: last.macdHist, relVol: isFinite(last.relVol) ? last.relVol : 1,
+      swings, state, score, label: labelTxt, detail: state.detail,
+      t: last.t, barsCount: bars.length,
+    };
+  }
+
+  function combineBias(ctx) {
+    const weights = { '1d': 0.5, '4h': 0.3, '1h': 0.2 };
+    const rows = [];
+    let total = 0, used = 0;
+    Object.keys(weights).forEach((tf) => {
+      const c = ctx[tf];
+      if (!c) return;
+      total += c.score * weights[tf]; used += weights[tf];
+      rows.push({
+        tf: tf.toUpperCase(), score: c.score, label: c.label, detail: c.detail,
+        ema: 'EMA20 ' + fmtPrice(c.ema20) + ' / EMA50 ' + fmtPrice(c.ema50) + ' / EMA200 ' + fmtPrice(c.ema200),
+        adx: r1(c.adx), rsi: r1(c.rsi),
+      });
+    });
+    const score = used ? r2(total / used) : 0;
+    let direction = 0, label = '中性';
+    if (score >= 0.6) { direction = 1; label = '偏多'; }
+    else if (score <= -0.6) { direction = -1; label = '偏空'; }
+    return { direction, score, label, rows };
+  }
+
+  function buildLevels(h1, d1, price) {
+    const atr = h1.atr;
+    const zones = buildZones(h1.swings, atr, h1.bars);
+    const near = nearestZones(price, zones, atr);
+    const d = d1.bars;
+    const today = new Date(); today.setUTCHours(0, 0, 0, 0);
+    const lastDay = new Date(d[d.length - 1].t); lastDay.setUTCHours(0, 0, 0, 0);
+    const prevIdx = lastDay.getTime() === today.getTime() ? d.length - 2 : d.length - 1;
+    const pdh = d[Math.max(0, prevIdx)].h, pdl = d[Math.max(0, prevIdx)].l;
+    const todayBars = h1.bars.filter((b) => {
+      const x = new Date(b.t); x.setUTCHours(0, 0, 0, 0);
+      return x.getTime() === today.getTime();
+    });
+    const dayOpen = todayBars.length ? todayBars[0].o : d[d.length - 1].c;
+    return {
+      zones, near, pdh, pdl, dayOpen,
+      round: roundLevels(price, atr),
+      liquidity: liquidityPools(h1.swings, atr),
+      atr,
+    };
+  }
+
+  function m15Trigger(m15, d) {
+    if (!m15) return [false, '15m 数据缺失'];
+    const bars = m15.bars;
+    const pats = candlePatterns(bars, m15.atr, 3).filter((p) => p.dir === d);
+    const last = bars[bars.length - 1], prev = bars[bars.length - 2];
+    if (d === 1 && last.c > prev.h && (last.c - last.o) > 0.2 * m15.atr) return [true, '15m 收盘 ' + fmtPrice(last.c) + ' 上破前高 ' + fmtPrice(prev.h)];
+    if (d === -1 && last.c < prev.l && (last.o - last.c) > 0.2 * m15.atr) return [true, '15m 收盘 ' + fmtPrice(last.c) + ' 下破前低 ' + fmtPrice(prev.l)];
+    if (pats.length) return [true, '15m ' + pats[pats.length - 1].name + '：' + pats[pats.length - 1].detail];
+    return [false, '15m 尚无同向确认（无吞没 / 无突破前根高低点）'];
+  }
+
+  function cleanCandidates(cands, atr) {
+    const sorted = cands.slice().sort((a, b) => a[0] - b[0]);
+    const out = [];
+    sorted.forEach((c) => {
+      if (out.length && Math.abs(c[0] - out[out.length - 1][0]) < 0.2 * atr) return;
+      out.push(c);
+    });
+    return out;
+  }
+
+  function buildTargets(d, entry, stop, atr, levels, ctx) {
+    const risk = Math.abs(entry - stop);
+    if (!(risk > 0)) return [];
+    let cands = [];
+    levels.zones.forEach((z) => {
+      if (d === 1 && z.lo > entry + 0.4 * risk) cands.push([z.lo, '阻力区 ' + fmtPrice(z.lo) + '-' + fmtPrice(z.hi) + '（' + z.touches + ' 次触碰，强度 ' + z.strength + '）']);
+      if (d === -1 && z.hi < entry - 0.4 * risk) cands.push([z.hi, '支撑区 ' + fmtPrice(z.lo) + '-' + fmtPrice(z.hi) + '（' + z.touches + ' 次触碰，强度 ' + z.strength + '）']);
+    });
+    if (d === 1 && levels.pdh > entry + 0.4 * risk) cands.push([levels.pdh, '昨日高点 PDH ' + fmtPrice(levels.pdh)]);
+    if (d === -1 && levels.pdl < entry - 0.4 * risk) cands.push([levels.pdl, '昨日低点 PDL ' + fmtPrice(levels.pdl)]);
+    levels.round.forEach((r) => {
+      if (r % 25 !== 0) return;
+      if (d === 1 && r > entry + 0.4 * risk) cands.push([r, '整数关口 ' + r.toLocaleString('en-US')]);
+      if (d === -1 && r < entry - 0.4 * risk) cands.push([r, '整数关口 ' + r.toLocaleString('en-US')]);
+    });
+    const far = d === 1 ? (ctx['1d'] && ctx['1d'].state.lastHigh) : (ctx['1d'] && ctx['1d'].state.lastLow);
+    if (far && ((d === 1 && far.price > entry + 1.5 * risk) || (d === -1 && far.price < entry - 1.5 * risk))) {
+      cands.push([far.price, 'D1 摆动' + (d === 1 ? '高' : '低') + '点 ' + fmtPrice(far.price) + '（' + fmtTs(far.t) + '）']);
+    }
+    cands = cleanCandidates(cands, atr);
+    const scored = cands.map((c) => [(c[0] - entry) / risk * d, c[0], c[1]]).sort((a, b) => a[0] - b[0]);
+    const pick = (minR, afterR) => {
+      for (let i = 0; i < scored.length; i++) {
+        const s = scored[i];
+        if (s[0] < minR) continue;
+        if (afterR !== undefined && s[0] <= afterR + 0.25) continue;
+        return s;
+      }
+      return null;
+    };
+    const fallback = (minR) => [minR, entry + d * minR * risk, minR + 'R 目标（前方无结构位）'];
+    const tp1 = pick(0.9) || fallback(1.5);
+    const tp2 = pick(1.8, tp1[0]) || fallback(Math.max(2.0, tp1[0] + 0.8));
+    const tp3 = pick(2.6, tp2[0]) || fallback(Math.max(3.0, tp2[0] + 0.8));
+    const portions = [0.4, 0.35, 0.25];
+    return [tp1, tp2, tp3].map((tp, i) => ({ price: r2(tp[1]), r: r2(tp[0]), reason: tp[2], close_pct: Math.round(portions[i] * 100) }));
+  }
+
+  function positionSize(cfg, entry, stop) {
+    const riskPerUnit = Math.abs(entry - stop);
+    const riskAmount = (cfg.account * cfg.riskPct) / 100;
+    let units = riskPerUnit > 0 ? riskAmount / riskPerUnit : 0;
+    let lots = Math.round((units / 100) * 100) / 100;
+    let warning = null;
+    if (lots < 0.01) {
+      lots = 0.01;
+      warning = '按 ' + cfg.riskPct + '% 风险只够 ' + units.toFixed(2) + ' oz，低于最小 0.01 手（1 oz），实际风险会高于目标，需加大账户或等更近的入场';
+    }
+    units = lots * 100;
+    const actualRisk = units * riskPerUnit;
+    if (!warning && actualRisk > riskAmount * 1.25) warning = '最小手数取整后实际风险 $' + actualRisk.toFixed(2) + '，高于目标 $' + riskAmount.toFixed(2);
+    return {
+      risk_amount: r2(riskAmount), risk_per_unit: r2(riskPerUnit), lots,
+      ounces: r2(units), notional: r2(units * entry), actual_risk: r2(actualRisk),
+      risk_pct: cfg.riskPct, account: cfg.account, warning,
+    };
+  }
+
+  function band(a, b) { return [r2(Math.min(a, b)), r2(Math.max(a, b))]; }
+
+  function stopFromStructure(d, entry, structure, atr) {
+    const buf = 0.25 * atr;
+    let stop = structure - d * buf;
+    let dist = Math.abs(entry - stop);
+    if (dist > 2.4 * atr) stop = entry - d * 2.0 * atr;
+    if (dist < 0.45 * atr) stop = entry - d * 0.6 * atr;
+    return stop;
+  }
+
+  function trendSetup(d, ctx, levels, cfg) {
+    const h1 = ctx['1h'];
+    const bars = h1.bars, atr = h1.atr, price = h1.price;
+    const legs = zigzag(h1.swings, atr, 1);
+    let leg = null;
+    for (let i = legs.length - 1; i >= 0; i--) {
+      if (legs[i].dir === d && legs[i].sizeAtr >= 1) { leg = legs[i]; break; }
+    }
+    const recent = bars.slice(-30, -1);
+    const recentExt = d === 1 ? Math.max.apply(null, recent.map((b) => b.h)) : Math.min.apply(null, recent.map((b) => b.l));
+
+    const broke = d === 1 ? price > recentExt + 0.05 * atr : price < recentExt - 0.05 * atr;
+    if (broke && h1.relVol >= 1.0) {
+      const level = recentExt;
+      const entry = price;
+      const stop = stopFromStructure(d, entry, level - d * 0.7 * atr, atr);
+      return {
+        type: '突破跟进', dir: d, status: 'READY', triggered: true,
+        entry: r2(entry), entry_zone: band(entry - 0.25 * atr, entry + 0.25 * atr), order: 'market',
+        trigger: 'H1 收盘 ' + fmtPrice(price) + (d === 1 ? ' 上破' : ' 下破') + '近 30 根' + (d === 1 ? '高点' : '低点') + ' ' + fmtPrice(level) + '，量比 ' + h1.relVol.toFixed(2),
+        confluence: ['突破位 ' + fmtPrice(level), '量比 ' + h1.relVol.toFixed(2) + '（>1 表示放量）'],
+        stop: r2(stop),
+        stop_reason: (d === 1 ? '突破位' : '跌破位') + ' ' + fmtPrice(level) + ' 反向 0.7×ATR(' + atr.toFixed(2) + ') 作为失败突破止损',
+        risk_ref: level,
+      };
+    }
+
+    let bandLo, bandHi, origin, legNote, fibTxt;
+    if (!leg) {
+      const anchor = d === 1 ? Math.min(h1.ema20, h1.ema50) : Math.max(h1.ema20, h1.ema50);
+      [bandLo, bandHi] = band(anchor - d * 0.4 * atr, anchor + d * 0.2 * atr);
+      legNote = '无有效推动浪，使用 EMA20/50 区域作为回踩位';
+      const tail = bars.slice(-20);
+      origin = d === 1 ? Math.min.apply(null, tail.map((b) => b.l)) : Math.max.apply(null, tail.map((b) => b.h));
+      fibTxt = '';
+    } else {
+      const fibs = {};
+      fibLevels(leg).forEach((f) => { fibs[f.ratio] = f.price; });
+      [bandLo, bandHi] = band(fibs[0.618], fibs[0.382]);
+      origin = leg.from;
+      legNote = '最近' + (d === 1 ? '上涨' : '下跌') + '推动浪 ' + fmtPrice(leg.from) + ' → ' + fmtPrice(leg.to) + '（' + leg.sizeAtr.toFixed(1) + '×ATR）';
+      fibTxt = '斐波那契 0.382-0.618 回踩带 ' + fmtPrice(bandLo) + '-' + fmtPrice(bandHi);
+    }
+
+    const ema = h1.ema20;
+    let emaNote;
+    if (bandLo - 0.5 * atr <= ema && ema <= bandHi + 0.5 * atr) {
+      const nb = band(Math.min(bandLo, ema), Math.max(bandHi, ema));
+      bandLo = nb[0]; bandHi = nb[1];
+      emaNote = 'EMA20 ' + fmtPrice(ema) + ' 落在带内';
+    } else {
+      const gap = ema < bandLo ? bandLo - ema : ema - bandHi;
+      emaNote = 'EMA20 ' + fmtPrice(ema) + ' 距带 ' + (gap / atr).toFixed(2) + '×ATR';
+    }
+
+    const zoneHits = levels.zones.filter((z) => !(z.hi < bandLo || z.lo > bandHi)).sort((a, b) => b.strength - a.strength);
+    let zoneNote;
+    if (zoneHits.length) {
+      const z = zoneHits[0];
+      const nb = band(Math.min(bandLo, z.lo), Math.max(bandHi, z.hi));
+      bandLo = nb[0]; bandHi = nb[1];
+      zoneNote = '与' + (d === 1 ? '支撑' : '阻力') + '区 ' + fmtPrice(z.lo) + '-' + fmtPrice(z.hi) + ' 重叠（' + z.touches + ' 次触碰）';
+    } else zoneNote = '附近无多次触碰的结构区';
+
+    let inside;
+    if (d === 1) {
+      if (price < bandLo - 0.6 * atr) return null;
+      inside = price >= bandLo && price <= bandHi;
+    } else {
+      if (price > bandHi + 0.6 * atr) return null;
+      inside = price >= bandLo && price <= bandHi;
+    }
+
+    const entry = inside ? price : (d === 1 ? bandHi : bandLo);
+    let stop = stopFromStructure(d, entry, origin, atr);
+    if (Math.abs(entry - stop) > cfg.maxStopAtr * atr) stop = entry - d * 2.0 * atr;
+    const status = inside ? 'READY' : 'PENDING';
+    const retr = leg ? ((leg.to - price) / leg.size) * leg.dir : 0;
+    const bits = [legNote, fibTxt, emaNote, zoneNote].filter(Boolean);
+    return {
+      type: '趋势回踩', dir: d, status, triggered: false,
+      entry: r2(entry), entry_zone: [bandLo, bandHi], order: inside ? 'market' : 'limit',
+      trigger: bits.join('；'), confluence: bits,
+      stop: r2(stop),
+      stop_reason: '结构' + (d === 1 ? '低' : '高') + '点 ' + fmtPrice(origin) + ' 外侧 0.25×ATR(' + atr.toFixed(2) + ')；止损距离 ' + Math.abs(entry - stop).toFixed(2) + ' = ' + (Math.abs(entry - stop) / atr).toFixed(2) + '×ATR',
+      risk_ref: origin, retracement: leg ? Math.round(retr * 1000) / 1000 : null, inside,
+    };
+  }
+
+  function rangeSetup(ctx, levels, price, atr) {
+    const near = levels.near;
+    const sup = near.support[0] || null, res = near.resistance[0] || null;
+    if (!sup && !res) return null;
+    const dSup = sup ? (price - sup.hi) / atr : 99;
+    const dRes = res ? (res.lo - price) / atr : 99;
+    if (sup && dSup <= 0.7 && sup.strength >= 4) {
+      return {
+        type: '区间低吸', dir: 1, status: 'READY', triggered: false,
+        entry: r2(price), entry_zone: band(sup.lo, sup.hi), order: 'market',
+        trigger: '价格 ' + fmtPrice(price) + ' 贴着支撑区 ' + fmtPrice(sup.lo) + '-' + fmtPrice(sup.hi) + '（强度 ' + sup.strength + '，距 ' + dSup.toFixed(2) + '×ATR）',
+        confluence: ['支撑区 ' + fmtPrice(sup.lo) + '-' + fmtPrice(sup.hi), '强度 ' + sup.strength + '，' + sup.touches + ' 次触碰'],
+        stop: r2(sup.lo - 0.5 * atr),
+        stop_reason: '支撑区下沿 ' + fmtPrice(sup.lo) + ' 下方 0.5×ATR(' + atr.toFixed(2) + ')',
+        risk_ref: sup.lo,
+      };
+    }
+    if (res && dRes <= 0.7 && res.strength >= 4) {
+      return {
+        type: '区间高抛', dir: -1, status: 'READY', triggered: false,
+        entry: r2(price), entry_zone: band(res.lo, res.hi), order: 'market',
+        trigger: '价格 ' + fmtPrice(price) + ' 贴着阻力区 ' + fmtPrice(res.lo) + '-' + fmtPrice(res.hi) + '（强度 ' + res.strength + '，距 ' + dRes.toFixed(2) + '×ATR）',
+        confluence: ['阻力区 ' + fmtPrice(res.lo) + '-' + fmtPrice(res.hi), '强度 ' + res.strength + '，' + res.touches + ' 次触碰'],
+        stop: r2(res.hi + 0.5 * atr),
+        stop_reason: '阻力区上沿 ' + fmtPrice(res.hi) + ' 上方 0.5×ATR(' + atr.toFixed(2) + ')',
+        risk_ref: res.hi,
+      };
+    }
+    return null;
+  }
+
+  function buildPlan(bias, ctx, levels, cfg) {
+    const price = ctx['1h'].price, atr = ctx['1h'].atr;
+    const d = bias.direction;
+    let plan = null;
+    if (d !== 0) plan = trendSetup(d, ctx, levels, cfg);
+    if (!plan) plan = rangeSetup(ctx, levels, price, atr);
+    if (!plan) {
+      const near = levels.near;
+      const resTxt = near.resistance.length ? '上方阻力 ' + fmtPrice(near.resistance[0].lo) + '（' + near.distResistanceAtr.toFixed(1) + '×ATR）' : '上方无明显阻力';
+      const supTxt = near.support.length ? '下方支撑 ' + fmtPrice(near.support[0].hi) + '（' + near.distSupportAtr.toFixed(1) + '×ATR）' : '下方无明显支撑';
+      return {
+        type: '无有效形态', dir: d, status: 'WAIT', triggered: false,
+        entry: null, entry_zone: null, order: null,
+        trigger: '价格 ' + fmtPrice(price) + ' 位于结构中部：' + supTxt + '，' + resTxt,
+        confluence: [], stop: null, stop_reason: '无入场即无止损', risk_ref: null,
+      };
+    }
+    return plan;
+  }
+
+  function pctRank(values, window) {
+    const v = values.filter((x) => isFinite(x));
+    if (v.length < 10) return 50;
+    const win = v.slice(-(window || 100));
+    const last = win[win.length - 1];
+    return (win.filter((x) => x <= last).length / win.length) * 100;
+  }
+
+  function scorePlan(plan, bias, ctx, levels, m15, cfg, dataOk) {
+    const ev = [];
+    const d = plan.dir || 0;
+    const h1 = ctx['1h'], h4 = ctx['4h'], d1 = ctx['1d'];
+    const add = (group, item, detail, points, max, pass) =>
+      ev.push({ group, item, detail, points: r1(points), max, pass: !!pass });
+
+    if (d !== 0) {
+      let m = WEIGHTS.trend * 0.45;
+      let align = !!(d1 && d1.score * d > 0.4), half = !!(d1 && d1.score * d > 0);
+      add('趋势', 'D1 方向', d1 ? d1.label + '（评分 ' + d1.score.toFixed(2) + '）：' + d1.detail : '无 D1 数据', align ? m : half ? m * 0.5 : 0, r1(m), align);
+      m = WEIGHTS.trend * 0.32;
+      align = !!(h4 && h4.score * d > 0.3); half = !!(h4 && h4.score * d > 0);
+      add('趋势', 'H4 方向', h4 ? h4.label + '（评分 ' + h4.score.toFixed(2) + '）：' + h4.detail : '无 H4 数据', align ? m : half ? m * 0.5 : 0, r1(m), align);
+      m = WEIGHTS.trend * 0.23;
+      const stack = (h1.ema20 - h1.ema50) * d > 0 && (h1.price - h1.ema200) * d > 0;
+      add('趋势', 'H1 均线排列', 'EMA20 ' + fmtPrice(h1.ema20) + ' / EMA50 ' + fmtPrice(h1.ema50) + ' / EMA200 ' + fmtPrice(h1.ema200), stack ? m : 0, r1(m), stack);
+    } else {
+      add('趋势', '方向一致性', 'D1/H4/H1 未形成多数同向，只做区间边缘', 0, 22, false);
+    }
+
+    if (plan.type === '趋势回踩' && plan.entry_zone) {
+      const retr = plan.retracement || 0;
+      const ideal = retr >= 0.25 && retr <= 0.65;
+      add('位置', '回踩深度', '回撤 ' + Math.round(retr * 100) + '%（理想 25-65%），回踩带 ' + fmtPrice(plan.entry_zone[0]) + '-' + fmtPrice(plan.entry_zone[1]), ideal ? 8 : 4, 8, ideal);
+      const zs = levels.zones.filter((z) => !(z.hi < plan.entry_zone[0] || z.lo > plan.entry_zone[1]));
+      const strength = zs.length ? Math.max.apply(null, zs.map((z) => z.strength)) : 0;
+      add('位置', '结构区支撑', '回踩带内结构区最高强度 ' + strength, Math.min(10, strength), 10, strength >= 5);
+    } else if (plan.type === '区间低吸' || plan.type === '区间高抛') {
+      const z = plan.dir === 1 ? levels.near.support[0] : levels.near.resistance[0];
+      add('位置', '区间边缘', '贴着 ' + fmtPrice(z.lo) + '-' + fmtPrice(z.hi) + '，强度 ' + z.strength + '，' + z.touches + ' 次触碰', Math.min(18, z.strength * 2), 18, z.strength >= 5);
+    } else {
+      add('位置', '入场位置', plan.trigger || '', 10, 18, true);
+    }
+
+    if (plan.status === 'READY') {
+      let ok, detail;
+      if (plan.type === '突破跟进') { ok = true; detail = plan.trigger; }
+      else { const r = m15Trigger(m15, d); ok = r[0]; detail = r[1]; }
+      add('触发', '15m 确认', ok ? detail : detail + '（按市价/挂单执行）', ok ? 12 : 6, 12, ok);
+      const chasing = Math.abs(h1.price - h1.ema20) > 2.2 * h1.atr;
+      add('触发', '非追单', '价格距 EMA20 ' + (Math.abs(h1.price - h1.ema20) / h1.atr).toFixed(2) + '×ATR（>2.2 视为追单）', chasing ? 0 : 6, 6, !chasing);
+    } else {
+      add('触发', '等待触发', plan.status === 'PENDING' ? '价格 ' + fmtPrice(h1.price) + ' 未进入入场带，等待回踩' : '形态不成立，不挂单', 0, 12, false);
+      add('触发', '入场方式', plan.status === 'PENDING' ? '价格未到入场带，挂限价单等待' : '形态不成立', plan.status === 'PENDING' ? 6 : 0, 6, plan.status === 'PENDING');
+    }
+
+    const rsi = h1.rsi;
+    const okRsi = d === 1 ? (rsi >= 45 && rsi <= 72) : d === -1 ? (rsi >= 28 && rsi <= 55) : (rsi >= 40 && rsi <= 60);
+    add('动量', 'RSI(14)', rsi.toFixed(1) + '（' + (d === 1 ? '偏多' : '偏空') + '健康区）', okRsi ? 6 : 3, 6, okRsi);
+    const macdOk = d ? h1.macdHist * d > 0 : Math.abs(h1.macdHist) < 0.2 * h1.atr;
+    add('动量', 'MACD 柱', (h1.macdHist >= 0 ? '+' : '') + h1.macdHist.toFixed(2), macdOk ? 3 : 1, 3, macdOk);
+    add('动量', 'ADX(14)', h1.adx.toFixed(1) + '（>20 有趋势，>25 强趋势）', h1.adx >= 20 ? 3 : 0, 3, h1.adx >= 20);
+
+    const targets = plan.targets || [];
+    let room, roomSrc;
+    if (targets.length && plan.entry) { room = Math.abs(targets[0].price - plan.entry) / h1.atr; roomSrc = '首目标 ' + fmtPrice(targets[0].price); }
+    else {
+      const n = levels.near;
+      room = d === 1 ? n.distResistanceAtr : n.distSupportAtr;
+      if (room == null) room = 3;
+      roomSrc = '最近结构';
+    }
+    add('空间', '到首目标空间', room.toFixed(2) + '×ATR（' + roomSrc + '，≥1.5 视为空间充足）', room >= 1.5 ? 10 : room >= 1 ? 6 : 2, 10, room >= 1);
+
+    const rr = plan.rr || 0;
+    add('盈亏比', 'TP2 盈亏比', rr.toFixed(2) + 'R（最低要求 ' + cfg.minRr + 'R）', rr >= 2.5 ? 12 : rr >= 2 ? 9 : rr >= 1.5 ? 6 : 0, 12, rr >= cfg.minRr);
+    add('数据', '数据完整性', dataOk ? '实时报价 + 对齐后的 K 线' : '数据滞后，信号仅供结构参考', dataOk ? 8 : 0, 8, dataOk);
+
+    const conf = ev.reduce((a, e) => a + e.points, 0);
+    return [ev, Math.round(Math.min(100, conf) * 10) / 10];
+  }
+
+  /* ------------------------------------------------------------------ main */
+  function analyze(rawBundle, cfg) {
+    const ctx = {};
+    ['1d', '4h', '1h', '15m'].forEach((tf) => {
+      if (!rawBundle[tf]) return;
+      try { ctx[tf] = tfContext(rawBundle[tf].bars, tf); } catch (e) { /* skip */ }
+    });
+    if (!ctx['1h']) throw new Error('H1 数据不可用，无法生成信号');
+    if (!ctx['1d']) throw new Error('D1 数据不可用，无法计算 PDH/PDL 与日线结构');
+
+    const h1 = ctx['1h'];
+    const spot = rawBundle.spot || {};
+    const price = spot.mid || h1.price;
+    const atr = h1.atr;
+    const levels = buildLevels(h1, ctx['1d'], price);
+    const bias = combineBias(ctx);
+    const plan = buildPlan(bias, ctx, levels, cfg);
+
+    const targets = plan.entry ? buildTargets(plan.dir, plan.entry, plan.stop, atr, levels, ctx) : [];
+    plan.targets = targets;
+    plan.rr = targets.length >= 2 ? r2(targets[1].r) : 0;
+    plan.triggered = false;
+    plan.trigger_note = '';
+    if (plan.dir && plan.status === 'READY') {
+      if (plan.type === '突破跟进') { plan.triggered = true; plan.trigger_note = plan.trigger; }
+      else { const t = m15Trigger(ctx['15m'], plan.dir); plan.triggered = t[0]; plan.trigger_note = t[1]; }
+    }
+
+    const dataOk = !rawBundle.stale;
+    const scored = scorePlan(plan, bias, ctx, levels, ctx['15m'], cfg, dataOk);
+    const evidence = scored[0], confidence = scored[1];
+
+    const blockers = [];
+    if (plan.entry && plan.stop) {
+      const risk = Math.abs(plan.entry - plan.stop);
+      if (risk > cfg.maxStopAtr * atr) blockers.push('止损距离 ' + risk.toFixed(2) + ' = ' + (risk / atr).toFixed(2) + '×ATR，超过上限 ' + cfg.maxStopAtr + '×ATR');
+      if (plan.rr && plan.rr < cfg.minRr) blockers.push('TP2 盈亏比 ' + plan.rr.toFixed(2) + 'R 低于最低 ' + cfg.minRr + 'R');
+      const over = Math.abs(price - h1.ema20) / atr;
+      if (over > 2.5) blockers.push('价格偏离 EMA20 ' + over.toFixed(2) + '×ATR，追单性价比低，等回踩');
+      if (plan.dir === 1 && levels.near.resistance.length) {
+        const z = levels.near.resistance[0];
+        if (z.lo - plan.entry < 0.5 * risk) blockers.push('入场价距上方阻力 ' + fmtPrice(z.lo) + ' 仅 ' + (z.lo - plan.entry).toFixed(2) + '，空间不足');
+      }
+      if (plan.dir === -1 && levels.near.support.length) {
+        const z = levels.near.support[0];
+        if (plan.entry - z.hi < 0.5 * risk) blockers.push('入场价距下方支撑 ' + fmtPrice(z.hi) + ' 仅 ' + (plan.entry - z.hi).toFixed(2) + '，空间不足');
+      }
+    }
+    if (!dataOk) blockers.push('实时报价缺失或滞后，等数据恢复再执行');
+    const atrRank = pctRank(h1.bars.map((b) => b.atr));
+    if (atrRank < 8) blockers.push('ATR 处于近 100 根的第 ' + atrRank.toFixed(0) + ' 百分位，波动率过低');
+
+    let action;
+    if (plan.status === 'WAIT' || !plan.entry) action = 'WAIT';
+    else if (blockers.length) action = 'WAIT';
+    else if (plan.status === 'PENDING') action = plan.dir === 1 ? 'LIMIT_BUY' : 'LIMIT_SELL';
+    else if (plan.triggered) action = plan.dir === 1 ? 'BUY' : 'SELL';
+    else action = 'WAIT';
+
+    const grade = confidence >= 78 ? 'A' : confidence >= 62 ? 'B' : confidence >= 45 ? 'C' : 'D';
+    const actionCn = { BUY: '现价做多', SELL: '现价做空', LIMIT_BUY: '挂单做多', LIMIT_SELL: '挂单做空', WAIT: '观望' }[action];
+    const narrative = buildNarrative(bias, plan, targets, h1, price, action, blockers);
+    const barHours = { '15m': 0.25, '1h': 1, '4h': 4, '1d': 24 }[cfg.tf] || 1;
+
+    const management = [];
+    if (targets.length) {
+      management.push(
+        'TP1 ' + fmtPrice(targets[0].price) + '（' + targets[0].r.toFixed(2) + 'R）平 40%，止损移到入场 ' + fmtPrice(plan.entry),
+        'TP2 ' + fmtPrice(targets[1].price) + '（' + targets[1].r.toFixed(2) + 'R）再平 35%，剩余仓位用 1.5×ATR 跟踪',
+        'TP3 ' + fmtPrice(targets[2].price) + '（' + targets[2].r.toFixed(2) + 'R）清仓或留给 D1 结构',
+        '时间止损：' + cfg.tf + ' 连续 12 根未走出 1R 则离场（约 ' + (12 * barHours) + ' 小时）'
+      );
+    }
+    const invalidation = plan.stop
+      ? 'H1 收盘价' + (plan.dir === 1 ? '跌破' : '站上') + ' ' + fmtPrice(plan.stop) + ' 则结构失效，立即离场；反手需等 D1 结构同步转向。'
+      : '';
+    const scenarios = buildScenarios(plan, levels, h1, plan.dir);
+    const size = plan.entry && plan.stop ? positionSize(cfg, plan.entry, plan.stop) : null;
+    const dayOpen = levels.dayOpen;
+    const change = dayOpen ? price - dayOpen : null;
+
+    const now = Date.now();
+    let ticket = null, mt5 = null;
+    if (plan.entry && plan.stop && targets.length && size) {
+      const side = (plan.dir === 1 ? 'BUY' : 'SELL') + (plan.status === 'PENDING' ? ' LIMIT' : ' MARKET');
+      const valid = new Date(now + 8 * barHours * 3600 * 1000);
+      ticket = {
+        side, entry: plan.entry, stop: plan.stop,
+        tp1: targets[0].price, tp2: targets[1].price, tp3: targets[2].price,
+        lots: size.lots, valid_until: fmtTs(valid.getTime()),
+        text: side + ' ' + plan.entry.toFixed(2) + ' | SL ' + plan.stop.toFixed(2) + ' | TP ' + targets[0].price.toFixed(2) + ' / ' + targets[1].price.toFixed(2) + ' / ' + targets[2].price.toFixed(2) + ' | ' + size.lots + ' 手 | 有效至 ' + fmtTs(valid.getTime()),
+      };
+      const pending = plan.status === 'PENDING';
+      const orderType = (plan.dir === 1 ? 'BUY' : 'SELL') + (pending ? '_LIMIT' : '');
+      mt5 = {
+        symbol: cfg.symbol, type: orderType, volume: size.lots,
+        price: r2(plan.entry), sl: r2(plan.stop), tp: targets[0].price,
+        tp2: targets[1].price, tp3: targets[2].price,
+        deviation: cfg.deviation, magic: cfg.magic, comment: 'GOLDSPOT', pending,
+        steps: [
+          'MT5 → 品种 ' + cfg.symbol + ' → 右键“新订单”',
+          '类型：' + (orderType === 'BUY_LIMIT' ? '买入限价 Buy Limit' : orderType === 'SELL_LIMIT' ? '卖出限价 Sell Limit' : plan.dir === 1 ? '市价买入' : '市价卖出') + '，手数 ' + size.lots + '，价格 ' + plan.entry.toFixed(2),
+          '止损 ' + plan.stop.toFixed(2) + '，止盈 ' + targets[0].price.toFixed(2) + '（先挂 TP1，成交后按下面的管理改）',
+          '有效期：' + (pending ? 'GTC，' + fmtTs(valid.getTime()) + ' 前未成交就删单' : '市价即时成交'),
+          '成交后：TP1 平 40% → 止损移到入场 ' + plan.entry.toFixed(2) + ' → TP2 平 35% → 余下 25% 看 TP3 ' + targets[2].price.toFixed(2),
+        ],
+      };
+    }
+
+    return {
+      generated_at: new Date(now).toISOString(),
+      generated_local: new Date(now).toLocaleString('sv-SE', { timeZone: 'Asia/Kuala_Lumpur' }),
+      verdict: { action, label: actionCn, confidence, grade, status: plan.status, summary: narrative, blockers },
+      market: {
+        price: r2(price), bid: spot.bid, ask: spot.ask, spread: spot.spread,
+        atr: r2(atr), atr_pct: Math.round((atr / price) * 10000) / 100,
+        atr_rank: Math.round(atrRank),
+        session: sessionOf(now),
+        change: change != null ? r2(change) : null,
+        change_pct: change != null ? Math.round((change / dayOpen) * 10000) / 100 : null,
+        day_open: dayOpen ? r2(dayOpen) : null,
+      },
+      bias,
+      setup: {
+        type: plan.type, dir: plan.dir, status: plan.status,
+        entry: plan.entry, entry_zone: plan.entry_zone, order: plan.order,
+        trigger: plan.trigger, trigger_note: plan.trigger_note,
+        stop: plan.stop, stop_reason: plan.stop_reason,
+        invalidation, retracement: plan.retracement,
+      },
+      risk: { stop: plan.stop, entry: plan.entry, targets, rr: plan.rr, size },
+      management, ticket, mt5, evidence,
+      levels: {
+        support: levels.near.support.map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches, last_ts: fmtTs(z.lastT) })),
+        resistance: levels.near.resistance.map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches, last_ts: fmtTs(z.lastT) })),
+        pdh: r2(levels.pdh), pdl: r2(levels.pdl),
+        round: levels.round.map(r2),
+        liquidity: levels.liquidity.slice(0, 4).map((x) => ({ kind: x.kind, price: r2(x.price), detail: x.detail })),
+      },
+      scenarios,
+      data: {
+        source: rawBundle.source || 'Binance PAXGUSDT',
+        spot_source: spot.source || null,
+        basis: rawBundle.offset || 0,
+        bars: { '1d': ctx['1d'].barsCount, '4h': ctx['4h'] ? ctx['4h'].barsCount : 0, '1h': ctx['1h'].barsCount, '15m': ctx['15m'] ? ctx['15m'].barsCount : 0 },
+        last_ts: fmtTs(h1.bars[h1.bars.length - 1].t),
+        stale: !dataOk,
+        spot_ts: spot.ts ? fmtTs(spot.ts) : null,
+        notes: rawBundle.notes || [],
+      },
+      chart: chartPayload(h1, cfg, plan, levels, targets, price),
+    };
+  }
+
+  function buildNarrative(bias, plan, targets, h1, price, action, blockers) {
+    const parts = ['大周期' + bias.label + '（加权 ' + (bias.score >= 0 ? '+' : '') + bias.score.toFixed(2) + '），H1 价格 ' + fmtPrice(price) + '，ATR ' + h1.atr.toFixed(2) + '。'];
+    if (plan.entry && plan.stop && targets.length) {
+      const d = plan.dir;
+      const band = plan.entry_zone || [plan.entry, plan.entry];
+      parts.push('计划' + (plan.status === 'PENDING' ? '挂限价' : '市价') + (d === 1 ? '多' : '空') +
+        '：入场 ' + fmtPrice(plan.entry) + '（区间 ' + fmtPrice(band[0]) + '-' + fmtPrice(band[1]) + '），止损 ' + fmtPrice(plan.stop) +
+        '（' + (Math.abs(plan.entry - plan.stop) / h1.atr).toFixed(2) + '×ATR），目标 ' + fmtPrice(targets[0].price) + ' / ' +
+        fmtPrice(targets[1].price) + ' / ' + fmtPrice(targets[2].price) + '，TP2 ' + plan.rr.toFixed(2) + 'R。');
+      if (plan.confluence && plan.confluence.length) parts.push('入场依据：' + plan.confluence.slice(0, 3).join('；') + '。');
+    } else if (plan.trigger) parts.push(plan.trigger + '。');
+    if (blockers.length) parts.push('不执行原因：' + blockers.join('；') + '。');
+    else if (action === 'WAIT') parts.push('等触发条件满足再动手。');
+    return parts.join('');
+  }
+
+  function buildScenarios(plan, levels, h1, d) {
+    const price = h1.price, atr = h1.atr;
+    const res = levels.near.resistance.length ? levels.near.resistance[0].lo : price + 2 * atr;
+    const sup = levels.near.support.length ? levels.near.support[0].hi : price - 2 * atr;
+    return {
+      bull: 'H1 收盘站上 ' + fmtPrice(res) + ' 且回踩不破 → 多头延续，下一目标 ' + fmtPrice(res + 1.5 * atr),
+      bear: 'H1 收盘跌破 ' + fmtPrice(sup) + ' → 结构转弱，下方看 ' + fmtPrice(sup - 1.5 * atr),
+      neutral: '价格留在 ' + fmtPrice(sup) + '-' + fmtPrice(res) + ' 之间则维持区间，只做边缘',
+    };
+  }
+
+  function chartPayload(h1, cfg, plan, levels, targets, price) {
+    const n = cfg.chartBars || 180;
+    const bars = h1.bars.slice(-n);
+    const startI = h1.bars.length - bars.length;
+    return {
+      tf: cfg.tf,
+      candles: bars.map((b) => ({ t: new Date(b.t).toISOString(), o: r2(b.o), h: r2(b.h), l: r2(b.l), c: r2(b.c) })),
+      ema20: bars.map((b) => r2(b.ema20)),
+      ema50: bars.map((b) => r2(b.ema50)),
+      swings: h1.swings.filter((s) => s.i >= startI).slice(-14).map((s) => ({ t: new Date(s.t).toISOString(), i: s.i - startI, price: r2(s.price), kind: s.kind })),
+      zones: levels.zones.slice(0, 6).map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches })),
+      levels: { pdh: r2(levels.pdh), pdl: r2(levels.pdl) },
+      plan: { dir: plan.dir, status: plan.status, entry: plan.entry, stop: plan.stop, targets: targets.map((t) => t.price) },
+      price: r2(price),
+      atr: r2(h1.atr),
+    };
+  }
+
+  const api = {
+    analyze, tfContext, combineBias, buildLevels, buildTargets, positionSize, trendSetup, rangeSetup, buildPlan, scorePlan,
+    indicators: { ema, rma, atrArr, rsiArr, macdArr, adxArr, bollinger, addIndicators },
+    structure: { findSwings, cleanSwings, structureState, zigzag, fibLevels, buildZones, nearestZones, candlePatterns, roundLevels, liquidityPools },
+    fmtPrice, fmtTs, sessionOf, r1, r2,
+  };
+  global.GoldEngine = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+/* Market data for the phone app: Binance public REST (CORS-enabled), no server. */
+(function (global) {
+  'use strict';
+
+  const HOSTS = [
+    'https://data-api.binance.vision',
+    'https://api.binance.com',
+    'https://api1.binance.com',
+  ];
+  const TF_MS = { '15m': 900e3, '1h': 3600e3, '4h': 14400e3, '1d': 86400e3 };
+  const LIMITS = { '15m': 1000, '1h': 1000, '4h': 1000, '1d': 500 };
+
+  async function getJson(path, timeoutMs) {
+    let lastErr;
+    for (const host of HOSTS) {
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), timeoutMs || 12000);
+        const res = await fetch(host + path, { signal: ctrl.signal, cache: 'no-store' });
+        clearTimeout(timer);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return await res.json();
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr || new Error('网络不可用');
+  }
+
+  async function fetchKlines(symbol, interval, limit) {
+    const data = await getJson('/api/v3/klines?symbol=' + symbol + '&interval=' + interval + '&limit=' + limit);
+    const tf = TF_MS[interval];
+    const now = Date.now();
+    const bars = [];
+    for (const k of data) {
+      const t = Number(k[0]);
+      if (t + tf > now) continue;               // drop the still-forming candle
+      bars.push({ t, o: +k[1], h: +k[2], l: +k[3], c: +k[4], v: +k[5] });
+    }
+    return bars;
+  }
+
+  async function fetchTick(symbol) {
+    try {
+      const d = await getJson('/api/v3/ticker/bookTicker?symbol=' + symbol, 8000);
+      const bid = +d.bidPrice, ask = +d.askPrice;
+      return { bid, ask, mid: (bid + ask) / 2, spread: +(ask - bid).toFixed(3), ts: Date.now() };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function shift(bars, offset) {
+    if (!offset) return bars;
+    return bars.map((b) => ({ t: b.t, o: b.o + offset, h: b.h + offset, l: b.l + offset, c: b.c + offset, v: b.v }));
+  }
+
+  function resample(bars, ms) {
+    const out = [];
+    let cur = null;
+    for (const b of bars) {
+      const bucket = Math.floor(b.t / ms) * ms;
+      if (!cur || cur.t !== bucket) {
+        if (cur) out.push(cur);
+        cur = { t: bucket, o: b.o, h: b.h, l: b.l, c: b.c, v: b.v };
+      } else {
+        cur.h = Math.max(cur.h, b.h);
+        cur.l = Math.min(cur.l, b.l);
+        cur.c = b.c;
+        cur.v += b.v;
+      }
+    }
+    if (cur && cur.t + ms <= Date.now()) out.push(cur);
+    return out;
+  }
+
+  async function loadMarket(cfg) {
+    const symbol = cfg.dataSymbol || 'PAXGUSDT';
+    const [m15, h1, h4raw, d1] = await Promise.all([
+      fetchKlines(symbol, '15m', LIMITS['15m']),
+      fetchKlines(symbol, '1h', LIMITS['1h']),
+      fetchKlines(symbol, '4h', LIMITS['4h']),
+      fetchKlines(symbol, '1d', LIMITS['1d']),
+    ]);
+    if (!h1.length) throw new Error('行情为空');
+    const tick = await fetchTick(symbol);
+    const offset = Number(cfg.offset) || 0;
+    const spotMid = tick ? tick.mid : h1[h1.length - 1].c;
+    return {
+      '15m': { bars: shift(m15, offset) },
+      '1h': { bars: shift(h1, offset) },
+      '4h': { bars: shift(h4raw, offset) },
+      '1d': { bars: shift(d1, offset) },
+      spot: tick
+        ? { mid: spotMid + offset, bid: +(tick.bid + offset).toFixed(3), ask: +(tick.ask + offset).toFixed(3), spread: tick.spread, ts: tick.ts, source: 'Binance ' + symbol }
+        : { mid: spotMid + offset, source: 'Binance ' + symbol },
+      source: 'Binance ' + symbol,
+      offset,
+      stale: false,
+      notes: [],
+      fetched_at: Date.now(),
+    };
+  }
+
+  global.GoldData = { loadMarket, fetchKlines, fetchTick, resample };
+  if (typeof module !== 'undefined' && module.exports) module.exports = global.GoldData;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+/* GOLD SPOT dashboard - vanilla JS, no build step. */
+'use strict';
+
+const $ = (id) => document.getElementById(id);
+const MONO = 'ui-monospace, Consolas, monospace';
+const REFRESH_SEC = 60;
+
+const S = { p: null, left: REFRESH_SEC, loading: false, geo: null, hover: -1, offline: false, lastLoad: 0 };
+const CACHE_KEY = 'gold-last-payload-v2';
+
+function readCache() {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) { return null; }
+}
+function writeCache(p) {
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify(p)); } catch (e) { /* quota */ }
+}
+
+const fmt2 = (x) => (x === null || x === undefined || Number.isNaN(Number(x)))
+  ? '--' : Number(x).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtN = (x, d = 0) => (x === null || x === undefined)
+  ? '--' : Number(x).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+const esc = (s) => String(s === null || s === undefined ? '' : s)
+  .replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+const fmtTime = (t) => new Date(t).toLocaleTimeString('zh-CN',
+  { timeZone: 'Asia/Kuala_Lumpur', hour: '2-digit', minute: '2-digit', hour12: false });
+const axisFmt = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Kuala_Lumpur', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false,
+});
+const fmtAxis = (t) => {
+  const parts = Object.fromEntries(axisFmt.formatToParts(new Date(t)).map((x) => [x.type, x.value]));
+  return parts.month + '-' + parts.day + ' ' + parts.hour + ':' + parts.minute;
+};
+const fmtDT = (t) => new Date(t).toLocaleString('zh-CN',
+  { timeZone: 'Asia/Kuala_Lumpur', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
+
+const ACTION_CLASS = { BUY: 'buy', SELL: 'sell', LIMIT_BUY: 'limit', LIMIT_SELL: 'limit', WAIT: 'wait' };
+const STATUS_CN = { READY: '可执行', PENDING: '等价格到位', WAIT: '不成立' };
+
+function showError(msg) {
+  const el = $('error');
+  el.textContent = '数据加载失败：' + msg;
+  el.classList.remove('hidden');
+  $('live-dot').className = 'dot down';
+}
+function hideError() { $('error').classList.add('hidden'); }
+
+function apiUrl(force) {
+  const src = new URLSearchParams(window.location.search);
+  const q = new URLSearchParams();
+  if (src.get('account')) q.set('account', src.get('account'));
+  if (src.get('risk')) q.set('risk', src.get('risk'));
+  if (force) q.set('force', '1');
+  const s = q.toString();
+  return '/api/plan' + (s ? '?' + s : '');
+}
+
+const SETTINGS_KEY = 'gold-settings-v1';
+
+function readSettings() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function writeSettings(obj) {
+  try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(obj)); } catch (e) { /* ignore */ }
+}
+function engineCfg() {
+  const s = readSettings();
+  const q = new URLSearchParams(window.location.search);
+  return {
+    account: Number(q.get('account') || s.account) || 10000,
+    riskPct: Number(q.get('risk') || s.risk) || 0.5,
+    minRr: 1.5, maxStopAtr: 2.4, tf: '1h',
+    symbol: s.symbol || 'XAUUSD',
+    magic: 20261124, deviation: 30, chartBars: 180,
+    offset: Number(s.offset) || 0,
+    dataSymbol: 'PAXGUSDT',
+  };
+}
+
+async function load(force) {
+  if (S.loading) return;
+  S.loading = true;
+  try {
+    const cfg = engineCfg();
+    const bundle = await GoldData.loadMarket(cfg);
+    const p = GoldEngine.analyze(bundle, cfg);
+    S.p = p;
+    S.offline = false;
+    S.lastLoad = Date.now();
+    render(p);
+    writeCache(p);
+    hideError();
+    S.left = REFRESH_SEC;
+  } catch (e) {
+    S.offline = true;
+    if (S.p) {
+      updateClock();
+      $('live-dot').className = 'dot stale';
+    } else {
+      showError(e.message || String(e));
+    }
+    S.left = 20;
+  } finally {
+    S.loading = false;
+    updateClock();
+  }
+}
+
+function actionClass(a) { return ACTION_CLASS[a] || 'wait'; }
+
+function render(p) {
+  renderHeader(p);
+  renderHero(p);
+  renderPlan(p);
+  renderEvidence(p);
+  renderLevels(p);
+  renderManage(p);
+  renderScenarios(p);
+  renderFoot(p);
+  drawChart();
+}
+
+function renderHeader(p) {
+  const m = p.market;
+  const priceEl = $('price');
+  priceEl.textContent = fmt2(m.price);
+  priceEl.className = 'price ' + ((m.change || 0) >= 0 ? 'up' : 'down');
+  const chg = (m.change >= 0 ? '+' : '') + fmt2(m.change) + ' (' + (m.change_pct >= 0 ? '+' : '') + Number(m.change_pct).toFixed(2) + '%)';
+  $('quote-sub').textContent = '买 ' + fmt2(m.bid) + ' / 卖 ' + fmt2(m.ask) + ' · 点差 ' +
+    (m.spread == null ? '--' : Number(m.spread).toFixed(2)) + ' · ' + m.session + ' · 今日 ' + chg;
+  $('live-dot').className = 'dot' + (p.data.stale ? ' stale' : '');
+}
+
+function updateClock() {
+  if (!S.p) return;
+  const head = S.offline ? '离线 · 缓存快照\n' : '';
+  $('clock').textContent = head + S.p.generated_local + ' MYT\n下次刷新 ' + Math.max(0, S.left) + 's';
+}
+
+function renderHero(p) {
+  const v = p.verdict, m = p.market, s = p.setup;
+  const conf = Math.round(v.confidence);
+  const color = conf >= 78 ? '#22c98b' : conf >= 62 ? '#e8c25e' : conf >= 45 ? '#f0a53a' : '#8b97ad';
+  const R = 52, C = 2 * Math.PI * R;
+  const tags = [
+    s.type ? '策略 ' + s.type : '',
+    '状态 ' + (STATUS_CN[s.status] || s.status),
+    'TP2 ' + Number(p.risk.rr || 0).toFixed(2) + 'R',
+    'ATR ' + fmt2(m.atr) + ' (' + Number(m.atr_pct).toFixed(2) + '%)',
+    p.bias ? '加权 ' + (p.bias.score >= 0 ? '+' : '') + Number(p.bias.score).toFixed(2) : '',
+  ].filter(Boolean);
+  const blockers = (v.blockers || []).map((b) => '<div class="blocker">⛔ ' + esc(b) + '</div>').join('');
+  $('hero').innerHTML =
+    '<div class="badge ' + actionClass(v.action) + '">' + esc(v.label) + '</div>' +
+    '<div class="hero-mid">' +
+      '<div class="summary">' + esc(v.summary) + '</div>' +
+      '<div class="tags">' + tags.map((t) => '<span class="tag">' + esc(t) + '</span>').join('') + '</div>' +
+      (blockers ? '<div class="blockers">' + blockers + '</div>' : '') +
+    '</div>' +
+    '<div class="gauge">' +
+      '<div class="ring">' +
+        '<svg width="112" height="112" viewBox="0 0 120 120">' +
+          '<circle class="ring-bg" cx="60" cy="60" r="' + R + '"></circle>' +
+          '<circle class="ring-fg" cx="60" cy="60" r="' + R + '" stroke="' + color + '" ' +
+            'stroke-dasharray="' + C + '" stroke-dashoffset="' + (C * (1 - conf / 100)) + '"></circle>' +
+        '</svg>' +
+        '<div class="num">' + conf + '</div>' +
+      '</div>' +
+      '<div class="gauge-label">信心 ' + conf + '/100 · ' + esc(v.grade) + '</div>' +
+    '</div>';
+}
+
+function planRow(k, cls, val, sub) {
+  return '<div class="plan-row"><div><div class="k">' + k + '</div>' +
+    (sub ? '<div class="why">' + esc(sub) + '</div>' : '') + '</div>' +
+    '<div class="v ' + cls + '">' + val + '</div></div>';
+}
+
+function renderPlan(p) {
+  const s = p.setup, r = p.risk, m = p.market;
+  const box = $('plan');
+  if (!s.entry || !s.stop) {
+    box.innerHTML = '<div class="empty-note">当前没有可执行的入场结构。<br><br>' + esc(s.trigger || '') + '</div>';
+    return;
+  }
+  const zone = s.entry_zone ? '区间 ' + fmt2(s.entry_zone[0]) + ' – ' + fmt2(s.entry_zone[1]) : '';
+  const order = s.order === 'limit' ? '限价' : '市价';
+  let html = '';
+  html += planRow('入场 · ' + order, 'entry', fmt2(s.entry), zone);
+  html += planRow('止损', 'stop', fmt2(s.stop), s.stop_reason);
+  (r.targets || []).forEach((t, i) => {
+    html += planRow('TP' + (i + 1) + ' · 平 ' + t.close_pct + '%', 'tp',
+      fmt2(t.price) + '<span class="v r">' + Number(t.r).toFixed(2) + 'R</span>', t.reason);
+  });
+
+  const z = r.size || {};
+  html += '<div class="size-box">' +
+    '<div><div class="k">手数</div><div class="v">' + (z.lots == null ? '--' : z.lots) + ' 手</div></div>' +
+    '<div><div class="k">风险 / 账户</div><div class="v">$' + fmtN(z.actual_risk, 0) + ' / ' + fmtN(z.account, 0) + '</div></div>' +
+    '<div><div class="k">名义价值</div><div class="v">$' + fmtN(z.notional, 0) + '</div></div>' +
+    '<div><div class="k">盈亏比</div><div class="v">' + Number(r.rr).toFixed(2) + 'R</div></div>' +
+    '</div>';
+  if (z.warning) html += '<div class="warn">⚠ ' + esc(z.warning) + '</div>';
+  if (p.mt5) {
+    const m = p.mt5;
+    const TYPE_CN = { BUY_LIMIT: 'Buy Limit 买入限价', SELL_LIMIT: 'Sell Limit 卖出限价', BUY: 'Buy 市价买入', SELL: 'Sell 市价卖出' };
+    const line = m.type + ' ' + m.symbol + ' ' + Number(m.volume).toFixed(2) + ' @ ' + fmt2(m.price) +
+      ' SL ' + fmt2(m.sl) + ' TP ' + fmt2(m.tp);
+    const row = (k, v) => '<div><div class="k">' + k + '</div><div class="v">' + v + '</div></div>';
+    html += '<div class="mt5">' +
+      '<div class="mt5-head"><span>MT5 下单</span><em>' + esc(m.symbol) + '</em>' +
+        '<button data-copy="mt5-line">复制参数</button></div>' +
+      '<div class="mt5-grid">' +
+        row('类型', esc(TYPE_CN[m.type] || m.type)) +
+        row('手数', Number(m.volume).toFixed(2)) +
+        row('价格', fmt2(m.price)) +
+        row('止损', fmt2(m.sl)) +
+        row('止盈 TP1', fmt2(m.tp)) +
+        row('滑点', m.deviation + ' 点') +
+      '</div>' +
+      '<div class="mt5-line" id="mt5-line">' + esc(line) + '</div>' +
+      '<ol class="mt5-steps">' + (m.steps || []).map((s) => '<li>' + esc(s) + '</li>').join('') + '</ol>' +
+      '</div>';
+  }
+  if (s.trigger_note) html += '<div class="warn">触发确认：' + esc(s.trigger_note) + '</div>';
+  box.innerHTML = html;
+}
+
+function renderEvidence(p) {
+  const rows = p.evidence || [];
+  let total = 0;
+  const body = rows.map((e) => {
+    total += e.points;
+    const w = Math.max(0, Math.min(100, (e.points / e.max) * 100));
+    return '<tr>' +
+      '<td class="grp">' + esc(e.group) + '</td>' +
+      '<td class="item"><span class="mark ' + (e.pass ? 'ok' : 'no') + '">' + (e.pass ? '✓' : '·') + '</span>' + esc(e.item) + '</td>' +
+      '<td class="detail">' + esc(e.detail) + '<div class="bar"><i style="width:' + w + '%"></i></div></td>' +
+      '<td class="score">' + Number(e.points).toFixed(1) + '<span style="color:#5f6b80">/' + e.max + '</span></td>' +
+      '</tr>';
+  }).join('');
+  $('evidence').innerHTML =
+    '<table><thead><tr><th>组</th><th>检查项</th><th>明细</th><th style="text-align:right">得分</th></tr></thead>' +
+    '<tbody>' + body + '</tbody></table>';
+  $('score-total').textContent = '合计 ' + total.toFixed(0) + ' / 100';
+}
+
+function renderLevels(p) {
+  const lv = p.levels || {};
+  const res = (lv.resistance || []).map((z) =>
+    '<div class="lv-row res"><span>' + fmt2(z.lo) + ' – ' + fmt2(z.hi) + '</span><span class="meta">强度 ' + z.strength + ' · ' + z.touches + ' 次</span></div>').join('');
+  const sup = (lv.support || []).map((z) =>
+    '<div class="lv-row sup"><span>' + fmt2(z.lo) + ' – ' + fmt2(z.hi) + '</span><span class="meta">强度 ' + z.strength + ' · ' + z.touches + ' 次</span></div>').join('');
+  const liq = (lv.liquidity || []).map((x) =>
+    '<div class="lv-row"><span>' + esc(x.detail) + '</span><span class="meta">' + fmt2(x.price) + '</span></div>').join('');
+  const price = (S.p && S.p.market ? S.p.market.price : null) || 0;
+  const rounds = (lv.round || []).slice()
+    .sort((a, b) => Math.abs(a - price) - Math.abs(b - price)).slice(0, 6)
+    .sort((a, b) => b - a)
+    .map((v) => '<span class="chip ' + (v > price ? 'res' : 'sup') + '">' + fmt2(v) + '</span>').join('');
+  $('levels').innerHTML =
+    '<div class="lv-grid">' +
+      '<div class="lv-col"><h3>阻力</h3>' + (res || '<div class="mini">无</div>') + '</div>' +
+      '<div class="lv-col"><h3>支撑</h3>' + (sup || '<div class="mini">无</div>') + '</div>' +
+    '</div>' +
+    '<div class="mini" style="margin-top:10px">PDH ' + fmt2(lv.pdh) + ' · PDL ' + fmt2(lv.pdl) +
+    (liq ? '<br>' + liq : '') + '</div>' +
+    (rounds ? '<div class="mini" style="margin-top:10px">整数关口</div><div class="chips">' + rounds + '</div>' : '');
+}
+
+function renderManage(p) {
+  const s = p.setup || {};
+  const items = (p.management || []).map((x) => '<li>' + esc(x) + '</li>').join('');
+  $('manage').innerHTML =
+    (items ? '<ul class="clean">' + items + '</ul>' : '<div class="mini">无持仓管理建议</div>') +
+    (s.invalidation ? '<div class="warn">失效条件：' + esc(s.invalidation) + '</div>' : '');
+}
+
+function renderScenarios(p) {
+  const sc = p.scenarios || {};
+  $('scenarios').innerHTML =
+    '<div class="scen">' +
+      '<div><b>多头情景</b>　' + esc(sc.bull || '') + '</div>' +
+      '<div><b>空头情景</b>　' + esc(sc.bear || '') + '</div>' +
+      '<div><b>区间情景</b>　' + esc(sc.neutral || '') + '</div>' +
+    '</div>';
+}
+
+function renderFoot(p) {
+  const d = p.data || {};
+  const notes = (d.notes || []).map((n) => '<br>注：' + esc(n)).join('');
+  const calib = Number(d.basis || 0) === 0
+    ? '（未标定：点右上 ⚙ 填一次 MT5 的 XAUUSD 现价，点位会自动对齐你的平台）'
+    : '（已按 MT5 报价标定）';
+  $('foot').innerHTML =
+    '<span class="src">数据 ' + esc(d.source || '') + ' → MT5 标定 ' +
+    (d.basis >= 0 ? '+' : '') + Number(d.basis || 0).toFixed(2) + calib + ' · K线 ' + esc(d.last_ts || '') +
+    ' · 报价 ' + esc(d.spot_ts || '') + ' · 生成 ' + esc(p.generated_local) + ' MYT</span>' +
+    (d.stale ? '<br>⚠ 实时报价滞后，信号仅作结构参考' : '') + notes +
+    '<br>规则化技术分析工具，不是投资建议；点位为计算值，执行前请自行核对盘面与点差。';
+}
+
+/* ---------------------------------------------------------------- chart */
+function drawChart() {
+  const c = $('chart');
+  const p = S.p;
+  if (!c || !p || !p.chart) return;
+  const rect = c.getBoundingClientRect();
+  const W = Math.max(320, Math.round(rect.width));
+  const H = Math.max(280, Math.round(rect.height));
+  const dpr = window.devicePixelRatio || 1;
+  c.width = W * dpr;
+  c.height = H * dpr;
+  const g = c.getContext('2d');
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, W, H);
+
+  const ch = p.chart;
+  const bars = ch.candles || [];
+  if (!bars.length) return;
+
+  const pad = { l: 8, r: 82, t: 14, b: 26 };
+  const compact = W < 560;
+  if (compact) pad.r = 62;
+  const pw = W - pad.l - pad.r;
+  const ph = H - pad.t - pad.b;
+  const atr = ch.atr || 0;
+
+  let lo = Infinity, hi = -Infinity;
+  bars.forEach((b) => { lo = Math.min(lo, b.l); hi = Math.max(hi, b.h); });
+  const near = (v) => v != null && v > lo - 4 * atr && v < hi + 4 * atr;
+  const extra = [];
+  if (near(ch.price)) extra.push(ch.price);
+  if (near(ch.plan.entry)) extra.push(ch.plan.entry);
+  if (near(ch.plan.stop)) extra.push(ch.plan.stop);
+  (ch.plan.targets || []).forEach((t) => { if (near(t)) extra.push(t); });
+  (ch.zones || []).forEach((z) => { if (near(z.lo) || near(z.hi)) extra.push(z.lo, z.hi); });
+  extra.forEach((v) => { lo = Math.min(lo, v); hi = Math.max(hi, v); });
+  const padY = Math.max(atr * 0.5, (hi - lo) * 0.04);
+  lo -= padY; hi += padY;
+  const span = hi - lo || 1;
+  const y = (v) => pad.t + ((hi - v) / span) * ph;
+  const cw = pw / bars.length;
+  const x = (i) => pad.l + (i + 0.5) * cw;
+  S.geo = { pad, pw, ph, cw, bars, lo, hi, span, W, H };
+
+  // grid + price axis
+  g.font = (compact ? 9 : 10) + 'px ' + MONO;
+  g.textBaseline = 'middle';
+  for (let k = 0; k <= 5; k++) {
+    const v = lo + (span * k) / 5;
+    const yy = Math.round(y(v)) + 0.5;
+    g.strokeStyle = '#161e2b';
+    g.beginPath(); g.moveTo(pad.l, yy); g.lineTo(pad.l + pw, yy); g.stroke();
+    g.fillStyle = '#5f6b80';
+    g.textAlign = 'left';
+    g.fillText(fmt2(v), pad.l + pw + 8, yy);
+  }
+
+  // time axis: step from the real label width so nothing overlaps on a phone
+  g.font = '9.5px ' + MONO;
+  const labelW = g.measureText('00-00 00:00').width + 22;
+  const labelStep = Math.max(1, Math.ceil(labelW / cw));
+  g.textAlign = 'center';
+  let lastLabelX = -1e9;
+  for (let i = 0; i < bars.length; i += labelStep) {
+    const xx = Math.min(Math.max(x(i), pad.l + labelW / 2), pad.l + pw - labelW / 2);
+    if (xx - lastLabelX < labelW) continue;
+    lastLabelX = xx;
+    g.strokeStyle = '#131a26';
+    g.beginPath(); g.moveTo(xx, pad.t); g.lineTo(xx, pad.t + ph); g.stroke();
+    g.fillStyle = '#5f6b80';
+    g.fillText(fmtAxis(bars[i].t), xx, H - 10);
+  }
+
+  // zones
+  (ch.zones || []).forEach((z) => {
+    if (z.hi < lo || z.lo > hi) return;
+    const y1 = y(Math.min(z.hi, hi)), y2 = y(Math.max(z.lo, lo));
+    g.fillStyle = 'rgba(232,194,94,0.055)';
+    g.fillRect(pad.l, y1, pw, Math.max(1, y2 - y1));
+    g.strokeStyle = 'rgba(232,194,94,0.16)';
+    g.setLineDash([3, 4]);
+    g.beginPath(); g.moveTo(pad.l, y1 + 0.5); g.lineTo(pad.l + pw, y1 + 0.5); g.stroke();
+    g.beginPath(); g.moveTo(pad.l, y2 - 0.5); g.lineTo(pad.l + pw, y2 - 0.5); g.stroke();
+    g.setLineDash([]);
+  });
+
+  // candles
+  const bodyW = Math.max(1, Math.min(12, cw * 0.62));
+  bars.forEach((b, i) => {
+    const up = b.c >= b.o;
+    const col = up ? '#22c98b' : '#f0575f';
+    const xx = x(i);
+    g.strokeStyle = col;
+    g.lineWidth = 1;
+    g.beginPath(); g.moveTo(xx, y(b.h)); g.lineTo(xx, y(b.l)); g.stroke();
+    const yo = y(b.o), yc = y(b.c);
+    const top = Math.min(yo, yc);
+    const hgt = Math.max(1, Math.abs(yc - yo));
+    g.fillStyle = up ? 'rgba(34,201,139,0.9)' : 'rgba(240,87,95,0.9)';
+    g.fillRect(xx - bodyW / 2, top, bodyW, hgt);
+  });
+
+  // EMAs
+  const line = (arr, color, width) => {
+    g.strokeStyle = color; g.lineWidth = width; g.beginPath();
+    let started = false;
+    arr.forEach((v, i) => {
+      if (v == null || !isFinite(v)) return;
+      const xx = x(i), yy = y(v);
+      if (!started) { g.moveTo(xx, yy); started = true; } else g.lineTo(xx, yy);
+    });
+    g.stroke();
+  };
+  line(ch.ema20 || [], '#f0c75e', 1.2);
+  line(ch.ema50 || [], '#5b8def', 1.2);
+
+  // plan levels (labels are nudged apart so they stay readable on a phone)
+  const pl = ch.plan || {};
+  const planLines = [];
+  if (pl.entry != null) planLines.push({ v: pl.entry, color: '#4da3ff', text: 'E ' + fmt2(pl.entry), dash: [] });
+  if (pl.stop != null) planLines.push({ v: pl.stop, color: '#f0575f', text: 'SL ' + fmt2(pl.stop), dash: [5, 4] });
+  (pl.targets || []).forEach((t, i) => planLines.push({ v: t, color: '#22c98b', text: 'TP' + (i + 1) + ' ' + fmt2(t), dash: [2, 4] }));
+  planLines.sort((a, b) => b.v - a.v);
+  g.font = (compact ? 9 : 10) + 'px ' + MONO;
+  g.textBaseline = 'middle';
+  let lastLabelY = -99;
+  planLines.forEach((L) => {
+    if (L.v < lo || L.v > hi) return;
+    const yl = Math.round(y(L.v)) + 0.5;
+    g.strokeStyle = L.color;
+    g.lineWidth = 1;
+    g.setLineDash(L.dash);
+    g.beginPath(); g.moveTo(pad.l, yl); g.lineTo(pad.l + pw, yl); g.stroke();
+    g.setLineDash([]);
+    const tw = g.measureText(L.text).width + 8;
+    let ly = Math.max(yl, lastLabelY + 12);
+    if (ly > pad.t + ph - 7) ly = pad.t + ph - 7;
+    lastLabelY = ly;
+    const bx = pad.l + pw - tw - 2;
+    g.fillStyle = 'rgba(10,13,19,0.88)';
+    g.fillRect(bx, ly - 7, tw, 14);
+    g.strokeStyle = L.color;
+    g.strokeRect(bx + 0.5, ly - 6.5, tw - 1, 13);
+    g.fillStyle = L.color;
+    g.textAlign = 'center';
+    g.fillText(L.text, bx + tw / 2, ly);
+    g.textAlign = 'left';
+  });
+
+  // current price (live spot, not the last bar close)
+  const last = bars[bars.length - 1];
+  const spot = (ch.price == null) ? last.c : ch.price;
+  const yy = Math.round(y(spot)) + 0.5;
+  g.strokeStyle = 'rgba(232,237,247,0.35)';
+  g.setLineDash([1, 3]);
+  g.beginPath(); g.moveTo(pad.l, yy); g.lineTo(pad.l + pw, yy); g.stroke();
+  g.setLineDash([]);
+  if (!compact) {
+    g.fillStyle = '#e8edf7';
+    g.fillRect(pad.l + pw, yy - 8, 74, 16);
+    g.fillStyle = '#0a0d13';
+    g.font = 'bold 10px ' + MONO;
+    g.textAlign = 'left';
+    g.fillText(fmt2(spot), pad.l + pw + 5, yy);
+  } else {
+    g.fillStyle = '#e8edf7';
+    g.font = 'bold 9px ' + MONO;
+    g.textAlign = 'left';
+    g.fillText(fmt2(spot), pad.l + pw + 4, yy);
+  }
+
+  // swings
+  (ch.swings || []).forEach((s) => {
+    const i = s.i;
+    if (i == null || i < 0 || i >= bars.length) return;
+    const xx = x(i);
+    const sy = y(s.price) + (s.kind === 'H' ? -12 : 12);
+    g.fillStyle = s.kind === 'H' ? 'rgba(240,87,95,0.9)' : 'rgba(34,201,139,0.9)';
+    g.beginPath();
+    g.arc(xx, sy, 2.4, 0, Math.PI * 2);
+    g.fill();
+    g.font = '9px ' + MONO;
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillStyle = 'rgba(240,87,95,0.75)';
+    if (s.kind === 'H') g.fillText('H', xx, sy - 7);
+    else { g.fillStyle = 'rgba(34,201,139,0.75)'; g.fillText('L', xx, sy + 7); }
+  });
+}
+
+function onMove(ev) {
+  const c = $('chart');
+  const geo = S.geo;
+  const tip = $('tip');
+  if (!geo || !c) return;
+  const rect = c.getBoundingClientRect();
+  const mx = ev.clientX - rect.left;
+  const my = ev.clientY - rect.top;
+  const { pad, cw, bars } = geo;
+  const i = Math.floor((mx - pad.l) / cw);
+  if (i < 0 || i >= bars.length || my < pad.t || my > pad.t + geo.ph) { tip.style.display = 'none'; return; }
+  const b = bars[i];
+  tip.style.display = 'block';
+  tip.innerHTML = fmtDT(b.t) + ' MYT\nO ' + fmt2(b.o) + '  H ' + fmt2(b.h) +
+    '\nL ' + fmt2(b.l) + '  C ' + fmt2(b.c);
+  const left = Math.min(rect.width - 150, mx + 14);
+  tip.style.left = left + 'px';
+  tip.style.top = Math.max(8, my - 10) + 'px';
+}
+
+function onLeave() { $('tip').style.display = 'none'; }
+
+/* ---------------------------------------------------------------- boot */
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+function syncSettingsForm() {
+  const s = readSettings();
+  $('set-account').value = s.account || 10000;
+  $('set-risk').value = s.risk || 0.5;
+  $('set-symbol').value = s.symbol || 'XAUUSD';
+  $('set-price').value = '';
+  $('set-price').placeholder = S.p ? '当前 ' + fmt2(S.p.market.price) : '可选';
+}
+
+$('btn-settings').addEventListener('click', () => {
+  const el = $('settings');
+  el.classList.toggle('hidden');
+  if (!el.classList.contains('hidden')) syncSettingsForm();
+});
+
+$('set-save').addEventListener('click', () => {
+  const s = readSettings();
+  s.account = Number($('set-account').value) || 10000;
+  s.risk = Number($('set-risk').value) || 0.5;
+  s.symbol = ($('set-symbol').value || 'XAUUSD').trim();
+  const typed = Number($('set-price').value);
+  if (typed > 0 && S.p) {
+    const raw = S.p.market.price - (Number(s.offset) || 0);
+    s.offset = Math.round((typed - raw) * 100) / 100;
+  }
+  writeSettings(s);
+  $('settings').classList.add('hidden');
+  load(true);
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && S.p && Date.now() - S.lastLoad > 60_000) load(false);
+});
+
+$('refresh').addEventListener('click', () => load(true));
+$('chart').addEventListener('mousemove', onMove);
+$('chart').addEventListener('mouseleave', onLeave);
+document.addEventListener('click', (ev) => {
+  const btn = ev.target.closest('[data-copy]');
+  if (!btn) return;
+  const src = document.getElementById(btn.getAttribute('data-copy'));
+  if (!src) return;
+  navigator.clipboard.writeText(src.textContent).then(() => {
+    const old = btn.textContent;
+    btn.textContent = '已复制';
+    setTimeout(() => { btn.textContent = old; }, 1200);
+  });
+});
+window.addEventListener('resize', () => { if (S.p) drawChart(); });
+
+setInterval(() => {
+  S.left -= 1;
+  updateClock();
+  if (S.left <= 0) load(false);
+}, 1000);
+
+const cached = readCache();
+if (cached) {
+  S.p = cached;
+  render(cached);
+}
+load(false);
+
+/* iOS Safari: offer "add to home screen" once, hide in standalone mode */
+(function () {
+  const nav = (typeof window !== 'undefined' && window.navigator) || (typeof navigator !== 'undefined' ? navigator : null);
+  const ua = (nav && nav.userAgent) || '';
+  const isIOS = /iPhone|iPad|iPod/.test(ua);
+  const standalone = (nav && nav.standalone === true) ||
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  const hint = $('install-hint');
+  if (!hint || !isIOS || standalone) return;
+  try { if (localStorage.getItem('gold-hint-closed')) return; } catch (e) { /* ignore */ }
+  hint.classList.remove('hidden');
+  const close = $('hint-close');
+  if (close) {
+    close.addEventListener('click', () => {
+      hint.classList.add('hidden');
+      try { localStorage.setItem('gold-hint-closed', '1'); } catch (e) { /* ignore */ }
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
