@@ -2434,7 +2434,9 @@ function renderHeader(p) {
 function updateClock() {
   if (!S.p) return;
   const head = S.offline ? '离线 · 缓存快照\n' : '';
-  $('clock').textContent = head + S.p.generated_local + ' MYT\n下次刷新 ' + Math.max(0, S.left) + 's';
+  const live = LANG === 'en' ? 'live 1s' : '实时 1s';
+  const full = LANG === 'en' ? 'recalc ' : '重算 ';
+  $('clock').textContent = head + S.p.generated_local + ' MYT\n' + live + ' · ' + full + Math.max(0, S.left) + 's';
 }
 
 function renderHero(p) {
@@ -3156,17 +3158,19 @@ function applyLivePrice(price) {
   drawChart();
 }
 
+let tickingLive = false;
 async function liveTick() {
-  if (!S.p || document.hidden) return;
+  if (!S.p || document.hidden || tickingLive) return;
+  tickingLive = true;
   try {
     const q = await GoldData.quote(engineCfg());
     if (q && q.price > 0) {
       const basis = q.source === 'tv' ? 0 : (Number(S.p.data && S.p.data.basis) || 0);
       applyLivePrice(q.price + basis);
     }
-  } catch (e) { /* ignore */ }
+  } catch (e) { /* ignore */ } finally { tickingLive = false; }
 }
-setInterval(liveTick, 2000);
+setInterval(liveTick, 1000);
 
 setInterval(() => {
   S.left -= 1;
