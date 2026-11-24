@@ -2943,6 +2943,17 @@ document.addEventListener('visibilitychange', () => {
 });
 
 $('refresh').addEventListener('click', () => load(true));
+
+const langBtn = document.getElementById('btn-lang');
+if (langBtn) {
+  langBtn.addEventListener('click', () => {
+    LANG = LANG === 'en' ? 'zh' : 'en';
+    try { localStorage.setItem(LANG_KEY, LANG); } catch (e) { /* ignore */ }
+    applyStaticLang();
+    if (S.p) render(S.p);
+  });
+}
+applyStaticLang();
 const tabsEl = $('tf-tabs');
 if (tabsEl) {
   tabsEl.addEventListener('click', (ev) => {
