@@ -372,6 +372,22 @@ canvas { touch-action: none; }
 .chip-btn:disabled { opacity: .4; }
 .chart-bar .mini { margin-left: auto; font-family: var(--mono); }
 
+/* pro analysis */
+.pro-row { padding: 10px 0; border-top: 1px solid #eaecf0; }
+.pro-row:first-child { border-top: none; }
+.pro-k { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.pro-k span { font-size: 9.5px; color: #98a2b3; font-family: var(--mono); border: 1px solid #eaecf0; padding: 1px 5px; border-radius: 4px; }
+.pro-v { font-size: 13px; font-weight: 700; margin-top: 3px; }
+.pro-row.up .pro-v { color: var(--green); }
+.pro-row.down .pro-v { color: var(--red); }
+.pro-row.flat .pro-v { color: var(--muted); }
+.pro-d { font-size: 11px; color: #667085; line-height: 1.55; margin-top: 3px; }
+.gloss { margin-top: 12px; border-top: 1px dashed #eaecf0; padding-top: 10px; }
+.gloss summary { font-size: 11.5px; color: var(--gold); cursor: pointer; }
+.gl-row { display: flex; gap: 8px; margin-top: 7px; font-size: 11px; line-height: 1.55; }
+.gl-row b { flex: 0 0 68px; color: #344054; font-weight: 600; }
+.gl-row span { color: #667085; }
+
 </style>
 </head>
 <body>
@@ -447,6 +463,11 @@ canvas { touch-action: none; }
   <section class="card">
     <div class="card-head"><h2>双向方案</h2><span class="mini" id="sides-summary"></span></div>
     <div class="card-body" id="sides"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>专业分析</h2><span class="mini" id="pro-summary"></span></div>
+    <div class="card-body" id="pro"></div>
   </section>
 
   <section class="card">
@@ -1232,6 +1253,146 @@ canvas { touch-action: none; }
     return out;
   }
 
+  /* ------------------------------------------------------ pro structure */
+  function detectStructure(bars, swings) {
+    const price = bars[bars.length - 1].c;
+    const st = structureState(swings);
+    const highs = swings.filter((s) => s.kind === 'H');
+    const lows = swings.filter((s) => s.kind === 'L');
+    const lastH = highs[highs.length - 1];
+    const lastL = lows[lows.length - 1];
+    if (!lastH || !lastL) return null;
+    let event = '区间内', dir = 0, detail = '';
+    if (price > lastH.price) {
+      dir = 1;
+      event = st.trend >= 0 ? 'BOS 向上突破' : 'CHoCH 转多';
+      detail = 'H1 收盘 ' + fmtPrice(price) + ' 站上最近摆动高点 ' + fmtPrice(lastH.price) + '（' + fmtTs(lastH.t) + '）';
+    } else if (price < lastL.price) {
+      dir = -1;
+      event = st.trend <= 0 ? 'BOS 向下突破' : 'CHoCH 转空';
+      detail = 'H1 收盘 ' + fmtPrice(price) + ' 跌破最近摆动低点 ' + fmtPrice(lastL.price) + '（' + fmtTs(lastL.t) + '）';
+    } else {
+      detail = '价格仍在 ' + fmtPrice(lastL.price) + ' - ' + fmtPrice(lastH.price) + ' 之间，未出现结构突破';
+    }
+    return { event, dir, detail, lastHigh: r2(lastH.price), lastLow: r2(lastL.price) };
+  }
+
+  function orderBlock(bars, atr) {
+    const price = bars[bars.length - 1].c;
+    for (let i = bars.length - 2; i >= Math.max(2, bars.length - 80); i--) {
+      const b = bars[i];
+      if (Math.abs(b.c - b.o) < 1.3 * atr) continue;
+      const up = b.c > b.o;
+      for (let j = i - 1; j >= Math.max(0, i - 5); j--) {
+        const o = bars[j];
+        const opposite = up ? o.c < o.o : o.c > o.o;
+        if (!opposite) continue;
+        const lo = Math.min(o.o, o.c), hi = Math.max(o.o, o.c);
+        const inside = price >= lo && price <= hi;
+        const dist = inside ? 0 : (price > hi ? price - hi : lo - price);
+        if (dist > 6 * atr) return null;
+        return {
+          type: up ? '看涨订单块' : '看跌订单块', dir: up ? 1 : -1,
+          lo: r2(lo), hi: r2(hi), inside, dist: r2(dist),
+          detail: (up ? '上涨' : '下跌') + '启动前的最后一根反向 K 线，区间 ' + fmtPrice(lo) + '-' + fmtPrice(hi) +
+            (inside ? '，价格正在块内' : '，距现价 ' + dist.toFixed(2) + '（' + (dist / atr).toFixed(2) + '×ATR）'),
+        };
+      }
+    }
+    return null;
+  }
+
+  function fairValueGap(bars, atr) {
+    const price = bars[bars.length - 1].c;
+    const out = [];
+    for (let i = Math.max(2, bars.length - 60); i < bars.length; i++) {
+      const a = bars[i - 2], c = bars[i];
+      if (a.h < c.l) {
+        const lo = a.h, hi = c.l;
+        if (price > hi) out.push({ dir: 1, lo, hi, i, t: c.t });
+      } else if (a.l > c.h) {
+        const lo = c.h, hi = a.l;
+        if (price < lo) out.push({ dir: -1, lo, hi, i, t: c.t });
+      }
+    }
+    if (!out.length) return null;
+    out.sort((x, y) => Math.abs((x.lo + x.hi) / 2 - price) - Math.abs((y.lo + y.hi) / 2 - price));
+    const g = out[0];
+    const mid = (g.lo + g.hi) / 2;
+    return {
+      dir: g.dir, lo: r2(g.lo), hi: r2(g.hi), dist: r2(Math.abs(mid - price)),
+      detail: (g.dir === 1 ? '看涨' : '看跌') + '失衡缺口 ' + fmtPrice(g.lo) + '-' + fmtPrice(g.hi) +
+        '，形成于 ' + fmtTs(g.t) + '，现价距缺口 ' + (Math.abs(mid - price) / atr).toFixed(2) + '×ATR',
+    };
+  }
+
+  function premiumDiscount(bars) {
+    const win = bars.slice(-50);
+    const hi = Math.max.apply(null, win.map((b) => b.h));
+    const lo = Math.min.apply(null, win.map((b) => b.l));
+    const price = bars[bars.length - 1].c;
+    const pos = hi > lo ? (price - lo) / (hi - lo) : 0.5;
+    let zone, dir = 0;
+    if (pos >= 0.65) { zone = '溢价区'; dir = -1; }
+    else if (pos <= 0.35) { zone = '折价区'; dir = 1; }
+    else zone = '均衡区';
+    return {
+      dir, zone, pos: Math.round(pos * 100), hi: r2(hi), lo: r2(lo),
+      detail: '近 50 根区间 ' + fmtPrice(lo) + '-' + fmtPrice(hi) + '，现价在 ' + Math.round(pos * 100) + '% 位置（' + zone + '）',
+    };
+  }
+
+  function liquiditySweep(bars, atr) {
+    const n = bars.length;
+    for (let i = n - 2; i >= Math.max(20, n - 8); i--) {
+      const b = bars[i];
+      const prior = bars.slice(i - 20, i);
+      const hi = Math.max.apply(null, prior.map((x) => x.h));
+      const lo = Math.min.apply(null, prior.map((x) => x.l));
+      if (b.h > hi && b.c < hi && b.h - hi > 0.15 * atr) {
+        return { dir: -1, detail: '上影扫过前高 ' + fmtPrice(hi) + ' 后收回，属于流动性扫单（假突破）', level: r2(hi), t: b.t };
+      }
+      if (b.l < lo && b.c > lo && lo - b.l > 0.15 * atr) {
+        return { dir: 1, detail: '下影扫过前低 ' + fmtPrice(lo) + ' 后收回，属于流动性扫单（假跌破）', level: r2(lo), t: b.t };
+      }
+    }
+    return null;
+  }
+
+  function buildPro(ctx) {
+    const c = ctx['1h'];
+    if (!c) return null;
+    const h4 = ctx['4h'];
+    const st = detectStructure(c.bars, c.swings);
+    const ob = orderBlock(c.bars, c.atr);
+    const gap = fairValueGap(c.bars, c.atr);
+    const pd = premiumDiscount(c.bars);
+    const sweep = liquiditySweep(c.bars, c.atr);
+    const items = [
+      st && { key: '结构', title: '市场结构', value: st.event, dir: st.dir, rel: st.dir !== 0, detail: st.detail },
+      ob && { key: 'OB', title: '订单块', value: ob.type + (ob.inside ? ' · 价格在块内' : ''), dir: ob.dir, rel: ob.dist <= 2 * c.atr, detail: ob.detail },
+      gap && { key: 'FVG', title: '失衡缺口', value: gap.dir === 1 ? '看涨 FVG' : '看跌 FVG', dir: gap.dir, rel: gap.dist <= 2 * c.atr, detail: gap.detail },
+      { key: 'PD', title: '溢价 / 折价', value: pd.zone + ' ' + pd.pos + '%', dir: pd.dir, rel: pd.dir !== 0, detail: pd.detail },
+      sweep && { key: 'SWEEP', title: '流动性扫单', value: sweep.dir === 1 ? '扫低回收' : '扫高回落', dir: sweep.dir, rel: true, detail: sweep.detail + '（' + fmtTs(sweep.t) + '）' },
+    ].filter(Boolean);
+    const bull = items.filter((x) => x.rel && x.dir === 1).length;
+    const bear = items.filter((x) => x.rel && x.dir === -1).length;
+    const h4Trend = h4 ? h4.label : '—';
+    return {
+      items, bull, bear,
+      h4Trend,
+      summary: '支撑 ' + bull + ' 项 / 阻力 ' + bear + ' 项' + (st ? ' · ' + st.event : ''),
+      glossary: [
+        { t: 'BOS', d: 'Break of Structure，顺势突破前一个摆动高/低点，代表趋势延续。' },
+        { t: 'CHoCH', d: 'Change of Character，逆势突破前一个摆动点，代表趋势可能转向。' },
+        { t: '订单块 OB', d: '启动一波行情前最后一根反向 K 线，机构挂单密集区，常被回踩。' },
+        { t: 'FVG', d: 'Fair Value Gap，三根 K 线之间的价格真空（失衡），价格常回来填补。' },
+        { t: '溢价/折价', d: '把区间分成 0-100%，上半部（>65%）偏贵适合卖，下半部（<35%）偏便宜适合买。' },
+        { t: '流动性扫单', d: '影线刺穿前高/前低后迅速收回，扫掉止损再反向走，通常是假突破。' },
+      ],
+    };
+  }
+
   function buildPlan(bias, ctx, levels, cfg) {    const price = ctx['1h'].price, atr = ctx['1h'].atr;
     const d = bias.direction;
     let plan = null;
@@ -1472,6 +1633,7 @@ canvas { touch-action: none; }
       }
     }
     const sides = buildSides(ctx, cfg, bias);
+    const pro = buildPro(ctx);
 
     return {
       generated_at: new Date(now).toISOString(),
@@ -1496,7 +1658,7 @@ canvas { touch-action: none; }
       },
       risk: { stop: plan.stop, entry: plan.entry, targets, rr: plan.rr, size },
       management, ticket, mt5, evidence,
-      sides,
+      sides, pro,
       levels: {
         support: levels.near.support.map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches, last_ts: fmtTs(z.lastT) })),
         resistance: levels.near.resistance.map((z) => ({ lo: r2(z.lo), hi: r2(z.hi), strength: z.strength, touches: z.touches, last_ts: fmtTs(z.lastT) })),
@@ -1626,7 +1788,7 @@ canvas { touch-action: none; }
   }
 
   const api = {
-    analyze, tfContext, consensus, legacyBias, buildLevels, buildTargets, positionSize, trendSetup, rangeSetup, buildPlan, scorePlan,
+    analyze, tfContext, consensus, legacyBias, buildLevels, buildTargets, positionSize, trendSetup, rangeSetup, buildPlan, scorePlan, buildPro,
     indicators: { ema, rma, atrArr, rsiArr, macdArr, adxArr, bollinger, addIndicators },
     structure: { findSwings, cleanSwings, structureState, zigzag, fibLevels, buildZones, nearestZones, candlePatterns, roundLevels, liquidityPools },
     fmtPrice, fmtTs, sessionOf, r1, r2,
@@ -1863,6 +2025,7 @@ function render(p) {
   renderPlan(p);
   renderSides(p);
   renderMtf(p);
+  renderPro(p);
   renderEvidence(p);
   renderLevels(p);
   renderManage(p);
@@ -2020,6 +2183,23 @@ function renderSides(p) {
     });
     sum.textContent = bits.join(' · ');
   }
+}
+
+function renderPro(p) {
+  const box = $('pro');
+  if (!box || !p.pro) return;
+  const rows = p.pro.items.map((it) => {
+    const cls = it.dir === 1 ? 'up' : it.dir === -1 ? 'down' : 'flat';
+    return '<div class="pro-row ' + cls + '">' +
+      '<div class="pro-k">' + esc(it.title) + '<span>' + esc(it.key) + '</span></div>' +
+      '<div class="pro-v">' + esc(it.value) + '</div>' +
+      '<div class="pro-d">' + esc(it.detail) + '</div>' +
+      '</div>';
+  }).join('');
+  const gl = p.pro.glossary.map((g) => '<div class="gl-row"><b>' + esc(g.t) + '</b><span>' + esc(g.d) + '</span></div>').join('');
+  box.innerHTML = rows + '<details class="gloss"><summary>术语解释：BOS / CHoCH / OB / FVG / 溢价折价 / 流动性</summary>' + gl + '</details>';
+  const sum = $('pro-summary');
+  if (sum) sum.textContent = p.pro.summary + ' · H4 ' + p.pro.h4Trend;
 }
 
 function planRow(k, cls, val, sub) {
